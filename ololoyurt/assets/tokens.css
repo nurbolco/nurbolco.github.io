@@ -1,0 +1,150 @@
+/* Design Tokens - ololoYurt */
+
+:root {
+  /* Primary Colors */
+  --color-primary-main: #FB8500;
+  --color-primary-dark: #E97C00;
+  --color-primary-darker: #C96C00;
+  --color-primary-light: rgba(251, 133, 0, 0.08);
+  --color-primary-lighter: rgba(251, 133, 0, 0.12);
+
+  /* Secondary Colors */
+  --color-success: #1F8A5B;
+  --color-success-dark: #1F6B45;
+  --color-success-light: rgba(31, 138, 91, 0.07);
+  --color-success-lighter: rgba(31, 138, 91, 0.1);
+
+  --color-error: #C0392B;
+  --color-error-dark: #A93226;
+  --color-error-light: rgba(192, 57, 43, 0.07);
+  --color-error-lighter: rgba(192, 57, 43, 0.08);
+
+  --color-info: #229ED9;
+  --color-social-whatsapp: #25D366;
+
+  /* Neutral Colors */
+  --color-bg-light: #FBF9F7;
+  --color-bg-lighter-1: rgba(251, 249, 247, 0.98);
+  --color-bg-lighter-2: rgba(251, 249, 247, 0.97);
+  --color-bg-lighter-3: rgba(251, 249, 247, 0.95);
+  --color-bg-lighter-4: rgba(251, 249, 247, 0.92);
+  --color-bg-lighter-5: rgba(251, 249, 247, 0.9);
+  --color-bg-lighter-6: rgba(251, 249, 247, 0.8);
+  --color-bg-lighter-7: rgba(251, 249, 247, 0.18);
+  --color-bg-lighter-8: rgba(251, 249, 247, 0.1);
+
+  --color-surface-divider: #E7E7E7;
+  --color-white: #FFFFFF;
+
+  /* Glass / Backdrop Blur (nav bar effect) */
+  --glass-bg: var(--color-bg-lighter-6);              /* rgba(251,249,247,0.8) */
+  --glass-blur: blur(12px);
+  --glass-border: 1px solid var(--color-overlay-light-3);
+  --glass-shadow: none;
+  --glass-shadow-elevated: none;
+
+  /* Text Colors - Dark text on light backgrounds */
+  /* Semantic tier (recommended) */
+  --color-text-primary: rgba(15, 15, 15, 0.95);
+  --color-text-secondary: rgba(15, 15, 15, 0.85);
+  --color-text-tertiary: rgba(15, 15, 15, 0.65);
+  --color-text-muted: rgba(15, 15, 15, 0.55);
+
+  /* Primitive tier (keep for legacy, avoid new uses) */
+  --color-text-quaternary: rgba(15, 15, 15, 0.8);
+  --color-text-quinary: rgba(15, 15, 15, 0.75);
+  --color-text-weak-1: rgba(15, 15, 15, 0.7);
+  --color-text-weak-2: rgba(15, 15, 15, 0.65);
+  --color-text-weak-3: rgba(15, 15, 15, 0.62);
+  --color-text-weak-4: rgba(15, 15, 15, 0.6);
+  --color-text-weak-5: rgba(15, 15, 15, 0.55);
+  --color-text-weak-6: rgba(15, 15, 15, 0.5);
+  --color-text-weak-7: rgba(15, 15, 15, 0.48);
+  --color-text-weak-8: rgba(15, 15, 15, 0.45);
+
+  /* Overlay/Background Colors */
+  --color-overlay-dark: rgba(15, 15, 15, 0.9);
+  --color-overlay-semi-dark: rgba(15, 15, 15, 0.28);
+  --color-overlay-medium: rgba(15, 15, 15, 0.16);
+  --color-overlay-light-1: rgba(15, 15, 15, 0.12);
+  --color-overlay-light-2: rgba(15, 15, 15, 0.1);
+  --color-overlay-light-3: rgba(15, 15, 15, 0.08);
+  --color-overlay-light-4: rgba(15, 15, 15, 0.07);
+  --color-overlay-light-5: rgba(15, 15, 15, 0.06);
+  --color-overlay-light-6: rgba(15, 15, 15, 0.045);
+  --color-overlay-light-7: rgba(15, 15, 15, 0.035);
+  --color-overlay-black: rgba(0, 0, 0, 0.1);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, rgba(251, 133, 0, 0.12), rgba(15, 15, 15, 0.05));
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 24px;
+  --space-2xl: 32px;
+  --space-3xl: 48px;
+  --space-4xl: 64px;
+
+  /* Border Radius */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-full: 9999px;
+
+  /* Typography */
+  --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-size-xs: 12px;
+  --font-size-sm: 13px;
+  --font-size-base: 14px;
+  --font-size-md: 15px;
+  --font-size-lg: 16px;
+  --font-size-xl: 18px;
+  --font-size-2xl: 20px;
+  --font-size-3xl: 24px;
+  --font-size-4xl: 28px;
+  --font-size-5xl: 32px;
+
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Transitions */
+  --transition-fast: 100ms ease-in-out;
+  --transition-base: 200ms ease-in-out;
+  --transition-slow: 300ms ease-in-out;
+
+  /* Component Tokens */
+
+  /* Button */
+  --btn-primary-bg: var(--color-primary-main);
+  --btn-primary-bg-hover: var(--color-primary-dark);
+  --btn-primary-text: var(--color-white);
+  --btn-secondary-bg: var(--color-bg-light);
+  --btn-secondary-border: var(--color-overlay-light-2);
+  --btn-secondary-text: var(--color-text-primary);
+
+  /* Card */
+  --card-bg: var(--color-bg-light);
+  --card-border: var(--color-overlay-light-2);
+  --card-padding: var(--space-lg);
+
+  /* Input */
+  --input-bg: var(--color-white);
+  --input-border: var(--color-overlay-light-2);
+  --input-text: var(--color-text-primary);
+  --input-placeholder: var(--color-text-tertiary);
+
+  /* Text */
+  --text-heading: var(--color-text-primary);
+  --text-body: var(--color-text-primary);
+  --text-caption: var(--color-text-secondary);
+  --text-hint: var(--color-text-tertiary);
+}

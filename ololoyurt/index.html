@@ -1,0 +1,2006 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<script>
+// Static copy without a server: these answers stand in for it.
+(function () {
+  var answers = {"/api/events":{"ok":true,"events":[{"id":"event_ethno_evening","published":true,"date":"2026-09-26","image":"assets/photos/booking-card-3.webp","link":"#contact","badge":"26.09, 19:00","ru":{"name":"Этно-вечер","desc":"Живой комуз и народные мелодии от фольклорного ансамбля. Вход свободный для гостей хостела."},"ky":{"name":"Этно-кече","desc":"Фольклордук ансамблдин аткаруусунда жандуу комуз жана элдик обондор. Хостелдин конокторуна кирүү акысыз."},"en":{"name":"Ethno Evening","desc":"Live komuz and folk melodies by a traditional ensemble. Free entry for hostel guests."},"zh":{"name":"民族音乐之夜","desc":"民间乐团现场演奏库姆孜琴与传统曲目。住客免费入场。"},"createdAt":"2026-09-20T00:00:00.000Z","updatedAt":"2026-09-20T00:00:00.000Z"},{"id":"event_openmic","published":true,"date":"2026-10-03","image":"assets/photos/booking-card-1.webp","link":"#contact","badge":"03.10, 20:00","ru":{"name":"Open Mic на террасе","desc":"Свободный микрофон: музыка, стендап и поэзия от гостей и жителей Бишкека."},"ky":{"name":"Террасадагы Open Mic","desc":"Эркин микрофон: коноктордун жана бишкектиктердин музыкасы, стендабы жана поэзиясы."},"en":{"name":"Open Mic on the Terrace","desc":"Open microphone: music, stand-up and poetry from guests and Bishkek locals."},"zh":{"name":"露台开放麦","desc":"开放麦：来自住客与比什凯克本地人的音乐、脱口秀与诗歌。"},"createdAt":"2026-06-25T00:00:00.000Z","updatedAt":"2026-09-20T00:00:00.000Z"},{"id":"event_design_meetup","published":true,"date":"2026-10-10","image":"assets/photos/booking-card-2.webp","link":"#contact","badge":"10.10, 18:30","ru":{"name":"Design Meetup","desc":"Три коротких доклада о продуктовом дизайне и нетворкинг в конференц-зале."},"ky":{"name":"Design Meetup","desc":"Продукт дизайны боюнча үч кыска баяндама жана конференц-залда нетворкинг."},"en":{"name":"Design Meetup","desc":"Three short talks on product design, followed by networking in the conference hall."},"zh":{"name":"设计交流会","desc":"三场关于产品设计的短讲，随后在会议厅自由交流。"},"createdAt":"2026-09-20T00:00:00.000Z","updatedAt":"2026-09-20T00:00:00.000Z"},{"id":"event_boardgames","published":true,"date":"2026-10-17","image":"assets/photos/coworking-1.webp","link":"#contact","badge":"17.10, 19:00","ru":{"name":"Вечер настольных игр","desc":"Настолки, чай и новые знакомства в лаунже. Игры на русском и английском."},"ky":{"name":"Үстөл оюндарынын кечи","desc":"Лаунжда үстөл оюндары, чай жана жаңы тааныштыктар. Оюндар орус жана англис тилдеринде."},"en":{"name":"Board Game Night","desc":"Board games, tea and new friends in the lounge. Games in Russian and English."},"zh":{"name":"桌游之夜","desc":"在休息区玩桌游、喝茶、结识新朋友。提供俄语和英语游戏。"},"createdAt":"2026-09-20T00:00:00.000Z","updatedAt":"2026-09-20T00:00:00.000Z"},{"id":"event_workshop","published":true,"date":"2026-10-24","image":"assets/photos/conference-hall.webp","link":"#contact","badge":"24.10, 14:00","ru":{"name":"Мастер-класс по войлоку","desc":"Делаем мини-шырдак своими руками вместе с мастерицей из Нарына. Материалы включены."},"ky":{"name":"Кийиз боюнча мастер-класс","desc":"Нарындык уз менен бирге өз колубуз менен кичинекей шырдак жасайбыз. Материалдар камтылган."},"en":{"name":"Felt Workshop","desc":"Make your own mini shyrdak with a craftswoman from Naryn. Materials included."},"zh":{"name":"毛毡手作工坊","desc":"与来自纳伦的手艺人一起亲手制作迷你希尔达克毡毯。含材料。"},"createdAt":"2026-06-25T00:00:00.000Z","updatedAt":"2026-09-20T00:00:00.000Z"}]},"/api/reviews":{"ok":true,"reviews":[{"id":"review_kaveh","initial":"K","name":"Kaveh","ru":{"text":"Всё было замечательно. Алтынай оказалась очень доброй, отзывчивой, профессиональной и заботливой.","info":"США"},"en":{"text":"Everything was good. Altynai was very kind, helpful, professional and caring.","info":"USA"},"zh":{"text":"一切都很好。Altynai 非常友善、乐于助人、专业又体贴。","info":"美国"},"ky":{"text":"Баары жакшы болду. Алтынай абдан боорукер, жардамчыл, кесипкөй жана камкор эле.","info":"АКШ"}},{"id":"review_jonas","initial":"J","name":"Jonas","ru":{"text":"Очень удобные и чистые кровати. Много рабочих мест и столов.","info":"Германия"},"en":{"text":"Very comfortable and clean beds. There are a lot of work spaces and desks.","info":"Germany"},"zh":{"text":"床铺非常舒适干净。有很多工作区和办公桌。","info":"德国"},"ky":{"text":"Керебеттер өтө ыңгайлуу жана таза. Иштөө үчүн көп орун жана стол бар.","info":"Германия"}},{"id":"review_ita1","initial":"I","name":"Ita","ru":{"text":"Очень хороший хостел с двухъярусными кроватями. Есть коворкинг. Много места для общей зоны.","info":"Индонезия"},"en":{"text":"Very good place for bunk bed hostel. Has coworking space. Lots of space to use as a common area.","info":"Indonesia"},"zh":{"text":"作为上下铺青旅非常不错。设有联合办公空间，公共区域也很宽敞。","info":"印度尼西亚"},"ky":{"text":"Эки кабаттуу керебети бар жатакана катары абдан жакшы жай. Коворкинг бар. Жалпы аймак үчүн орун көп.","info":"Индонезия"}},{"id":"review_ita2","initial":"I","name":"Ita","ru":{"text":"Очень чисто, отдельный номер просторный. Хорошие удобства — общая кухня и ванная полностью оборудованы и чистые.","info":"Индонезия"},"en":{"text":"Very clean and the private room is spacious. Good facilities shared kitchen and bathroom are complete and clean.","info":"Indonesia"},"zh":{"text":"非常干净，独立房间很宽敞。设施齐全，共用厨房和浴室完备又干净。","info":"印度尼西亚"},"ky":{"text":"Абдан таза, өзүнчө бөлмө кең. Жайлуулуктар жакшы — жалпы ашкана жана ваннабөлмө толук жабдылган жана таза.","info":"Индонезия"}},{"id":"review_danni","initial":"D","name":"Danni","ru":{"text":"Всё понравилось. Очень просторно, классные люди, номер большой и уютный. Душевая и ванная тоже отличные.","info":"ОАЭ"},"en":{"text":"Everything. It was so spacious, people are cool and the room was big and comfy. Loved the shower room and bathroom as well.","info":"UAE"},"zh":{"text":"一切都很棒。空间宽敞，大家都很酷，房间又大又舒适。淋浴间和浴室也很棒。","info":"阿联酋"},"ky":{"text":"Баары жакты. Өтө кең, адамдар сонун, бөлмө чоң жана жайлуу. Душ бөлмөсү менен ваннабөлмө да сонун болду.","info":"БАЭ"}},{"id":"review_mikalai","initial":"M","name":"Mikalai","ru":{"text":"Всё идеально. Один из лучших хостелов, где я был.","info":"Беларусь"},"en":{"text":"Everything is perfect. One of the best hostels I ever been.","info":"Belarus"},"zh":{"text":"一切都很完美。这是我住过最好的青旅之一。","info":"白俄罗斯"},"ky":{"text":"Баары мыкты. Мен болгон жатаканалардын эң жакшыларынын бири.","info":"Беларусь"}}]},"/api/contact":{"ok":true},".image-slots.state.json":{}};
+  var real = window.fetch.bind(window);
+  window.fetch = function (input, init) {
+    var url = typeof input === "string" ? input : input && input.url;
+    if (!Object.prototype.hasOwnProperty.call(answers, url)) return real(input, init);
+    var answer = new Response(JSON.stringify(answers[url]), { status: 200, headers: { "Content-Type": "application/json" } });
+    // The form shows its "sending" state for a moment, as it does with the server.
+    var wait = init && init.method === "POST" ? 600 : 0;
+    return new Promise(function (resolve) { setTimeout(function () { resolve(answer); }, wait); });
+  };
+})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ================== SEO / META ==================
+     ВАЖНО: замените https://ololoyurt.city на реальный домен сайта
+     во всех тегах ниже (canonical, og:url, og:image, JSON-LD). -->
+<title>ololoYurt — этно-хостел и коворкинг в центре Бишкека</title>
+<meta name="description" content="Этно-хостел, коворкинг, офисы и конференц-зал под одной крышей. Быстрый Wi-Fi 300 Мбит/с, кухня 24/7, номера от 1300 KGS. Рейтинг 9.2 на Booking. Ул. Кулатова 61, Бишкек.">
+<link rel="canonical" href="https://ololoyurt.city/">
+
+<!-- Карточка-превью для мессенджеров и соцсетей (WhatsApp, Telegram, Facebook и др.) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ololoYurt">
+<meta property="og:title" content="ololoYurt — этно-хостел и коворкинг в центре Бишкека">
+<meta property="og:description" content="Жильё, коворкинг, офисы и конференц-зал под одной крышей. Быстрый Wi-Fi, кухня 24/7, рейтинг 9.2 на Booking.">
+<meta property="og:url" content="https://ololoyurt.city/">
+<meta property="og:image" content="https://ololoyurt.city/assets/photos/hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ru_RU">
+
+<!-- Карточка-превью для X (Twitter) -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ololoYurt — этно-хостел и коворкинг в центре Бишкека">
+<meta name="twitter:description" content="Жильё, коворкинг, офисы и конференц-зал под одной крышей. Быстрый Wi-Fi, кухня 24/7, рейтинг 9.2 на Booking.">
+<meta name="twitter:image" content="https://ololoyurt.city/assets/photos/hero.png">
+
+<!-- Иконка сайта (вкладка браузера, закладки).
+     Положите файл favicon по указанному пути или замените ссылку. -->
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icons/favicon.png">
+<meta name="theme-color" content="#FB8500">
+
+<!-- Структурные данные для поисковиков (Schema.org / JSON-LD).
+     Дают "богатый" сниппет в Google: рейтинг звёздами, адрес, цена, карта. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Hostel",
+  "name": "ololoYurt",
+  "description": "Этно-хостел, коворкинг, офисы и конференц-зал под одной крышей в центре Бишкека. Быстрый Wi-Fi 300 Мбит/с, кухня 24/7, лаундж и события для цифровых кочевников.",
+  "url": "https://ololoyurt.city/",
+  "image": "https://ololoyurt.city/assets/photos/hero.png",
+  "logo": "https://ololoyurt.city/assets/icons/favicon.png",
+  "telephone": "+996705990060",
+  "email": "yurt.m@ololo.city",
+  "priceRange": "1300–3600 KGS",
+  "currenciesAccepted": "KGS",
+  "checkinTime": "14:00",
+  "checkoutTime": "12:00",
+  "smokingAllowed": false,
+  "petsAllowed": false,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "ул. Кулатова, 61",
+    "addressLocality": "Бишкек",
+    "addressCountry": "KG"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 42.860449,
+    "longitude": 74.597209
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "9.2",
+    "bestRating": "10",
+    "ratingCount": "5"
+  },
+  "amenityFeature": [
+    { "@type": "LocationFeatureSpecification", "name": "Wi-Fi 300 Мбит/с (3 сети)", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Коворкинг", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Переговорные комнаты", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Конференц-зал", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Кухня 24/7", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Индивидуальные локеры", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Постельное бельё и полотенца включены", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Лаундж-зона", "value": true }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/ololoyurt/",
+    "https://t.me/ololoYurt",
+    "https://wa.me/996705990060",
+    "https://www.booking.com/hotel/kg/ololoyurt-bishkek1.html"
+  ]
+}
+</script>
+<!-- ================ /SEO / META ================ -->
+
+<script src="./vendor/react.production.min.js"></script>
+<script src="./vendor/react-dom.production.min.js"></script>
+<script src="./vendor/gsap.min.js"></script>
+<script src="./vendor/ScrollTrigger.min.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<script src="image-slot.js"></script>
+<link rel="stylesheet" href="assets/tokens.css">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  html { scroll-behavior: smooth; }
+  input, textarea, button, a { font-family: inherit; }
+  textarea { resize: none; }
+  h1, h2, p { text-wrap: balance; }
+  span { text-wrap: pretty; }
+  .hero-title { font-size: clamp(46px, 5.8vw, 76px); }
+  ::placeholder { color: rgba(15,15,15,0.4); }
+  button:disabled { opacity: 0.6; pointer-events: none; }
+
+  @keyframes olFade {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes olSlideUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes olModalIn {
+    from { opacity: 0; transform: scale(0.93) translateY(10px); }
+    to   { opacity: 1; transform: scale(1)    translateY(0); }
+  }
+  @keyframes olDropdownIn {
+    from { opacity: 0; transform: translateY(-12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes olDropdownInCentered {
+    from { opacity: 0; transform: translateX(-50%) translateY(-12px); }
+    to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+  }
+  @keyframes olArrowRotate {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(180deg); }
+  }
+
+  /* Scroll-reveal animation is driven entirely by GSAP + ScrollTrigger (see
+     componentDidMount). These classes are just selector hooks for it — no
+     CSS transition/opacity state here, GSAP owns that via inline styles. */
+  .reveal { overflow: hidden; }
+
+  [data-scroll-container] { scrollbar-width: none; }
+  [data-scroll-container]::-webkit-scrollbar { display: none; }
+
+  .whatsapp-fab {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    overflow: hidden;
+    height: 52px;
+    padding: 0 12px;
+    line-height: 0;
+    transition: padding-right 0.25s ease, gap 0.25s ease;
+  }
+  .whatsapp-fab:hover, .whatsapp-fab.is-peeking { padding-right: 16px; gap: 8px; }
+  .whatsapp-fab__label {
+    display: inline-block;
+    line-height: 1.2;
+    max-width: 0;
+    opacity: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: max-width 0.25s ease, opacity 0.2s ease 0.05s;
+  }
+  .whatsapp-fab:hover .whatsapp-fab__label, .whatsapp-fab.is-peeking .whatsapp-fab__label { max-width: 260px; opacity: 1; }
+
+  /* Universal click micro-animation: a small grow on hover for anything
+     clickable. Zero-specificity (:where) so it never fights an element's
+     own more specific hover effect (card lift, CTA scale, etc.) — it only
+     takes effect where nothing else already animates transform on hover. */
+  :where(button, a[href], [data-clickable]) {
+    transition: transform 0.18s cubic-bezier(0.22,1,0.36,1);
+  }
+  :where(button, a[href], [data-clickable]):hover {
+    transform: scale(1.02);
+  }
+
+  /* Decorative flourish SVGs that peek in from both ends of a primary CTA
+     pill on hover. `overflow:hidden` on the pill clips them to its rounded
+     shape; `pointer-events:none` keeps them from stealing the click.
+     `(hover:hover)` keeps this mouse/trackpad-only — touch taps shouldn't
+     trigger it (same reasoning as the framework's own hover patch). */
+  .btn-flourish { position: relative; overflow: hidden; }
+  .btn-flourish .btn-flourish__deco {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+  }
+  .btn-flourish .btn-flourish__deco--l { left: -6px; height: 100%; width: auto; }
+  .btn-flourish .btn-flourish__deco--r { right: -6px; height: 100%; width: auto; }
+  @media (hover: hover) and (pointer: fine) {
+    .btn-flourish:hover .btn-flourish__deco { opacity: 1; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  }
+
+  @media (max-width: 760px) {
+    /* Force the headline onto two balanced lines instead of an uneven wrap;
+       text-wrap:balance (set globally on h1) picks the break point. */
+    .hero-title { font-size: clamp(38px, 10.2vw, 48px); max-width: 20ch; }
+  }
+
+  @media (max-width: 420px) {
+    .hero-title { font-size: clamp(32px, 9.2vw, 38px); }
+  }
+
+  @media (max-width: 360px) {
+    .hero-title { font-size: 31px; }
+  }
+
+  /* Date-range modal — one white card holding header + date boxes + the
+     month calendars. On mobile the calendars are a vertical, independently
+     scrolling list under a fixed (non-scrolling) date-boxes row. On desktop
+     the date-boxes row is separated from the calendars by a divider instead,
+     and the calendars become a horizontally-scrolling row of stroked cards
+     with a "load 3 more months" card at the end. */
+  .date-modal-card {
+    /* Nested-radius rule: outer radius = inner radius + gap. Inner nested
+       rounded box is .date-months-scroll on desktop (radius 24); gap is
+       this card's own padding (8) — 24 + 8 = 32. */
+    background: var(--color-bg-light); border-radius: var(--radius-2xl);
+    display: flex; flex-direction: column; border: var(--glass-border);
+    overflow: hidden; padding: var(--space-2xl) var(--space-sm) var(--space-sm) var(--space-sm); gap: var(--space-md);
+  }
+  .date-modal-daterow { display: flex; flex-wrap: wrap; gap: var(--space-sm); flex-shrink: 0; }
+  .date-months-scroll {
+    display: flex; flex-direction: column; gap: var(--space-lg);
+    overflow-y: auto; flex: 1 1 auto; min-height: 0;
+  }
+  .date-month-card {
+    display: flex; flex-direction: column; gap: var(--space-sm); flex-shrink: 0;
+    animation: olSlideUp 0.4s ease both;
+  }
+  .date-load-more { display: none; }
+  .date-load-more--far {
+    display: flex; flex-direction: column; align-items: flex-start; justify-content: center;
+    gap: 4px; text-align: left; text-decoration: none; padding: var(--space-md);
+    border-radius: var(--radius-md); background: var(--color-overlay-light-6);
+    font-family: inherit; font-size: 13px; color: rgba(15,15,15,0.6);
+    transition: background 0.15s ease; flex-shrink: 0;
+  }
+  .date-load-more--far:hover { background: var(--color-overlay-light-1); }
+
+  .date-pill {
+    position: relative; display: flex; flex-direction: column; justify-content: center;
+    min-width: 150px; padding: 14px 24px; border-radius: var(--radius-xl);
+    box-shadow: inset 0 0 0 1px var(--color-overlay-light-2);
+    transition: box-shadow 0.2s ease;
+  }
+  .date-pill.active { box-shadow: inset 0 0 0 1.5px var(--color-primary-main); }
+  .date-pill-label {
+    font-size: 14px; color: rgba(15,15,15,0.5);
+    transition: font-size 0.2s ease, color 0.2s ease;
+  }
+  .date-pill-value {
+    display: block; font-weight: 600; color: rgba(15,15,15,0.85);
+    font-size: 0; max-height: 0; opacity: 0; overflow: hidden;
+    transition: font-size 0.2s ease, max-height 0.2s ease, opacity 0.2s ease, margin-top 0.2s ease;
+  }
+  .date-pill.filled { justify-content: flex-start; }
+  .date-pill.filled .date-pill-label { font-size: 11px; }
+  .date-pill.filled .date-pill-value { font-size: 14px; max-height: 20px; opacity: 1; margin-top: 3px; }
+
+  @media (max-width: 760px) {
+    .date-modal-card { width: min(360px, 100%); max-height: 82vh; }
+  }
+
+  @media (min-width: 761px) {
+    .date-modal-card { width: min(820px, 90vw); max-height: 86vh; }
+    .date-modal-daterow {
+      padding-bottom: var(--space-md); border-bottom: 1px solid var(--color-overlay-light-3);
+    }
+    .date-months-scroll {
+      flex-direction: row; overflow-x: auto; overflow-y: hidden; gap: var(--space-sm);
+      padding: var(--space-lg); border-radius: var(--radius-xl);
+      box-shadow: inset 0 0 0 1px var(--color-overlay-light-3);
+    }
+    .date-month-card {
+      flex: 0 0 272px; width: 272px; padding-left: var(--space-sm);
+      border-left: 1px solid var(--color-overlay-light-3);
+    }
+    .date-month-card:first-child { padding-left: 0; border-left: none; }
+    .date-load-more {
+      display: flex; align-items: center; justify-content: center;
+      flex: 0 0 272px; width: 272px; border-radius: var(--radius-md);
+      background: var(--color-overlay-light-6); border: none; cursor: pointer;
+      font-family: inherit; font-size: 14px; font-weight: 600; color: rgba(15,15,15,0.7);
+      transition: background 0.15s ease;
+    }
+    .date-load-more:hover { background: var(--color-overlay-light-1); }
+    .date-load-more--far {
+      flex: 0 0 272px; width: 272px; align-items: center; justify-content: center;
+      text-align: center;
+    }
+  }
+</style>
+</helmet>
+<div style="min-height:100vh; background:var(--color-surface-divider); font-family:Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color:rgba(15,15,15,0.9); -webkit-font-smoothing:antialiased;">
+
+  <!-- ============ NAV ============ -->
+  <header style="position:sticky; top:0; z-index:60; padding:clamp(8px,2vw,16px) 0 0; overflow:visible;">
+    <div style="{{ navWrapStyle }}">
+    <div style="display:flex; align-items:center; justify-content:space-between; gap: var(--space-sm); background:var(--glass-bg); backdrop-filter:var(--glass-blur); -webkit-backdrop-filter:var(--glass-blur); border:var(--glass-border); border-radius:9999px; padding: var(--space-sm) 8px 8px 20px; box-shadow:var(--glass-shadow);">
+      <a href="#top" style="display:inline-flex; align-items:center; text-decoration:none; white-space:nowrap;"><img src="assets/icons/logo.svg" alt="ololoYurt" style="display:block; height:36px; width:auto;"></a>
+
+      <sc-if value="{{ desktop }}" hint-placeholder-val="{{ true }}">
+        <nav ref="{{ navRef }}" style="{{ navListStyle }}">
+          <div ref="{{ pillRef }}" style="{{ pillStyle }}"></div>
+          <sc-for list="{{ navLinks }}" as="link" hint-placeholder-count="5">
+            <a href="{{ link.href }}" data-navkey="{{ link.key }}" onClick="{{ link.onClick }}" style="{{ link.style }}" style-hover="background:rgba(15,15,15,0.12);">{{ link.label }}</a>
+          </sc-for>
+        </nav>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <div ref="{{ langBtnWrapRef }}" style="position:relative;" onClick="{{ stopProp }}">
+            <button onClick="{{ toggleLangDropdown }}" onmouseenter="{{ onLangBtnEnter }}" onmouseleave="{{ onLangBtnLeave }}" style="{{ langBtnStyle }}">
+              {{ currentLang }} <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="{{ langChevronStyle }}"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+          </div>
+          <a class="btn-flourish" href="{{ bookHref }}" target="{{ bookTarget }}" rel="{{ bookRel }}" onClick="{{ openBooking }}" style="{{ bookButtonStyle }}" style-hover="box-shadow:inset 0 0 0 999px var(--color-primary-dark); transform:scale(1.02);" style-active="transform:scale(0.995);"><img class="btn-flourish__deco btn-flourish__deco--l" src="assets/icons/btn-flourish-left.svg" alt="" aria-hidden="true"><span style="position:relative;">{{ t.nav.book }}</span><img class="btn-flourish__deco btn-flourish__deco--r" src="assets/icons/btn-flourish-right.svg" alt="" aria-hidden="true"></a>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isMobile }}">
+        <div style="display:flex; align-items:center; gap: var(--space-sm);">
+          <sc-if value="{{ showHeaderLang }}">
+            <div style="position:relative;" onClick="{{ stopProp }}">
+              <button onClick="{{ toggleLangDropdown }}" style="{{ langBtnStyleMobile }}" style-hover="box-shadow:inset 0 0 0 999px rgba(15,15,15,0.08);">
+                {{ currentLang }} <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="{{ langChevronStyle }}"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </button>
+              <sc-if value="{{ langDropdownOpen }}">
+                <div style="position:absolute; top:100%; right:0; margin-top:12px; background:var(--glass-bg); backdrop-filter:var(--glass-blur); -webkit-backdrop-filter:var(--glass-blur); border-radius: var(--radius-xl); box-shadow:var(--glass-shadow-elevated); min-width:84px; z-index:100; animation:olDropdownIn 0.25s cubic-bezier(0.22,1,0.36,1); border:var(--glass-border); padding: 6px; display:flex; flex-direction:column; gap:3px;">
+                  <sc-for list="{{ langs }}" as="langItem" hint-placeholder-count="4">
+                    <a onClick="{{ langItem.onClick }}" style="{{ langItem.style }}" style-hover="box-shadow:inset 0 0 0 999px rgba(15,15,15,0.12);">{{ langItem.label }}</a>
+                  </sc-for>
+                </div>
+              </sc-if>
+            </div>
+          </sc-if>
+          <a class="btn-flourish" href="{{ bookHref }}" target="{{ bookTarget }}" rel="{{ bookRel }}" onClick="{{ openBooking }}" style="display:inline-flex; align-items:center; font-size:13px; font-weight:600; color:var(--color-bg-lighter-3); background:var(--color-primary-main); padding:10px 16px; border-radius:9999px; text-decoration:none; white-space:nowrap; transition:transform 0.2s cubic-bezier(0.22,1,0.36,1), box-shadow 0.2s ease;" style-hover="box-shadow:inset 0 0 0 999px var(--color-primary-dark); transform:scale(1.02);" style-active="transform:scale(0.995);"><img class="btn-flourish__deco btn-flourish__deco--l" src="assets/icons/btn-flourish-left.svg" alt="" aria-hidden="true"><span style="position:relative;">{{ t.nav.book }}</span><img class="btn-flourish__deco btn-flourish__deco--r" src="assets/icons/btn-flourish-right.svg" alt="" aria-hidden="true"></a>
+          <button onClick="{{ toggleMenu }}" aria-label="Menu" style="display:flex; justify-content:center; align-items:center; width:40px; height:40px; border:1px solid rgba(15,15,15,0.1); background:var(--color-overlay-light-5); border-radius:9999px; cursor:pointer; transition:all 0.2s ease; padding:0; position:relative;" style-hover="box-shadow:inset 0 0 0 999px var(--color-overlay-light-1), inset 0 0 0 1px rgba(15,15,15,0.2);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(15,15,15,0.9)" stroke-width="2.5" stroke-linecap="round" style="{{ burgerLine1Style }}"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(15,15,15,0.9)" stroke-width="2.5" stroke-linecap="round" style="{{ burgerLine2Style }}"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+      </sc-if>
+    </div>
+
+    <sc-if value="{{ menuOpen }}">
+      <div onClick="{{ closeMenu }}" style="position:fixed; inset:0; z-index:70; background:transparent;"></div>
+      <div onClick="{{ stopProp }}" style="{{ mobileMenuPanelStyle }}">
+        <sc-for list="{{ navLinks }}" as="link" hint-placeholder-count="5">
+          <a href="{{ link.href }}" onClick="{{ link.onClickMobile }}" style="{{ link.mStyle }}" style-hover="box-shadow:inset 0 0 0 999px rgba(15,15,15,0.12);">{{ link.label }}</a>
+        </sc-for>
+        <div style="height:1px; background:var(--color-overlay-light-3); margin: 4px 8px;"></div>
+        <div style="display:flex; align-items:center; gap:6px; padding: var(--space-md) 8px 4px; flex-wrap:wrap;">
+          <sc-for list="{{ langs }}" as="langItem" hint-placeholder-count="4">
+            <button onClick="{{ langItem.onClick }}" style="{{ langItem.mStyle }}" style-hover="box-shadow:inset 0 0 0 999px rgba(15,15,15,0.12);">{{ langItem.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+    </div>
+  </header>
+
+  <sc-if value="{{ langDropdownOpen }}">
+    <div ref="{{ langRef }}" style="{{ langDropdownStyle }}">
+      <div ref="{{ langPillRef }}" style="{{ langPillStyle }}"></div>
+      <sc-for list="{{ langs }}" as="langItem" hint-placeholder-count="4">
+        <a data-langkey="{{ langItem.code }}" onClick="{{ langItem.onClick }}" style="{{ langItem.style }}" style-hover="box-shadow:inset 0 0 0 999px rgba(15,15,15,0.12);">{{ langItem.label }}</a>
+      </sc-for>
+    </div>
+  </sc-if>
+
+  <!-- Nav gradient blur — sits behind nav (z-index:59 < nav z-index:60), starts from top:0 -->
+
+  <!-- ============ PAGE BODY ============ -->
+  <main id="top" style="max-width:1240px; margin:0 auto; padding: var(--space-sm) clamp(8px,3vw,40px) 8px; display:flex; flex-direction:column; gap: var(--space-sm);">
+
+    <!-- HERO -->
+    <section class="reveal" style="order:1; background:var(--color-bg-lighter-4); border-radius:32px; padding: clamp(6px,2vw,8px); display:flex; flex-wrap:wrap; gap:clamp(8px,2vw,24px); align-items:stretch;">
+      <div style="flex:1 1 320px; min-width:280px; min-height:340px; align-self:stretch; border-radius: var(--radius-xl); background:url(assets/photos/hero.webp) center/cover no-repeat;"></div>
+      <div style="flex:1 1 320px; min-width:280px; display:flex; flex-direction:column; justify-content:center; gap:clamp(16px,3vw,28px); padding:clamp(20px,4vw,40px);">
+        <div class="reveal-fade" style="display:flex; flex-wrap:wrap; gap: var(--space-sm);">
+          <div data-clickable onClick="{{ goLocation }}" style="display:inline-flex; align-items:center; gap:6px; background:rgba(251,249,247,0.9); box-shadow:inset 0 0 0 1px rgba(15,15,15,0.1); border-radius:9999px; padding:7px 13px; cursor:pointer; transition:filter 0.2s ease;" style-hover="filter:brightness(0.93);">
+            <img src="assets/icons/address.svg" width="20" height="20" alt="">
+            <span style="font-size:13px; font-weight:600; color:var(--color-text-tertiary); white-space:nowrap;">{{ t.hero.address }}</span>
+          </div>
+          <a href="https://www.booking.com/hotel/kg/ololoyurt-bishkek1.html" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:6px; background:var(--color-primary-main); border-radius:9999px; padding:7px 13px; text-decoration:none; transition:box-shadow 0.35s cubic-bezier(0.22,1,0.36,1);" style-hover="box-shadow:inset 0 0 0 999px #003C9C;">
+            <img src="assets/icons/star.svg" width="15" height="15" alt="" style="filter:brightness(0) invert(1);">
+            <span style="font-size:13px; font-weight:600; color:#fff; white-space:nowrap;">{{ t.hero.rating }}</span>
+          </a>
+        </div>
+        <h1 class="hero-title reveal-text" style="margin:0; font-weight:600; line-height:1.04; letter-spacing:-0.02em; color:var(--color-text-secondary);">{{ t.hero.headline }}</h1>
+        <p class="reveal-text reveal-text-2" style="margin:0; font-size:clamp(16px,1.4vw,17px); font-weight:400; line-height:1.5; color:rgba(15,15,15,0.6); ">{{ t.hero.subtitle }}</p>
+        <div class="reveal-fade reveal-fade-2" style="display:flex; flex-wrap:wrap; gap:10px;">
+          <a class="btn-flourish" href="{{ bookHref }}" target="{{ bookTarget }}" rel="{{ bookRel }}" onClick="{{ heroBookRoom }}" style="display:inline-flex; align-items:center; justify-content:center; font-size:15px; font-weight:600; color:var(--color-bg-lighter-3); background:var(--color-primary-main); padding:14px 28px; border-radius:9999px; text-decoration:none; transition:transform 0.2s cubic-bezier(0.22,1,0.36,1), box-shadow 0.2s ease;" style-hover="box-shadow:inset 0 0 0 999px var(--color-primary-dark); transform:scale(1.02);" style-active="transform:scale(0.992);"><img class="btn-flourish__deco btn-flourish__deco--l" src="assets/icons/btn-flourish-left.svg" alt="" aria-hidden="true"><span style="position:relative;">{{ t.hero.ctaRoom }}</span><img class="btn-flourish__deco btn-flourish__deco--r" src="assets/icons/btn-flourish-right.svg" alt="" aria-hidden="true"></a>
+          <a href="#coworking" onClick="{{ heroBookCowork }}" style="display:inline-flex; align-items:center; justify-content:center; font-size:15px; font-weight:600; color:var(--color-text-tertiary); background:transparent; padding:14px 28px; border-radius:9999px; text-decoration:none; transition:transform 0.2s cubic-bezier(0.22,1,0.36,1), box-shadow 0.2s ease; outline:1.5px solid rgba(15,15,15,0.15); outline-offset:-1.5px;" style-hover="box-shadow:inset 0 0 0 999px rgba(15,15,15,0.12); transform:scale(1.02);" style-active="transform:scale(0.992);">{{ t.hero.ctaCowork }}</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="reveal" style="order:2; display:grid; grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); gap: var(--space-sm);">
+      <sc-for list="{{ stats }}" as="stat" hint-placeholder-count="4">
+        <div class="reveal-card" style="background:var(--color-bg-lighter-4); border-radius: var(--radius-xl); padding: var(--space-xl); display:flex; flex-direction:column; gap:6px;">
+          <span class="stat-value" style="font-size:clamp(48px,5vw,72px); font-weight:600; line-height:1; letter-spacing:-0.02em; color:var(--color-text-secondary);">{{ stat.value }}</span>
+          <span style="font-size:{{ bodyFs }}; font-weight:400; color:rgba(15,15,15,0.6);">{{ stat.label }}</span>
+        </div>
+      </sc-for>
+    </section>
+
+    <!-- COWORKING -->
+    <section id="coworking" class="reveal" style="order:6; scroll-margin-top:100px; background:var(--color-bg-lighter-4); border-radius:40px; padding: var(--space-2xl) clamp(6px,2vw,8px) 2px; display:flex; flex-direction:column; gap: var(--space-xl);">
+      <div style="display:flex; flex-direction:column; gap: var(--space-md); align-items:center; text-align:center;">
+        <h2 class="reveal-text" style="margin:0; font-size:clamp(36px,3.6vw,40px); font-weight:600; line-height:1.05; letter-spacing:-0.02em; color:var(--color-text-secondary);">{{ t.coworking.title }}</h2>
+        <p class="reveal-text reveal-text-2" style="margin:0; font-size:clamp(16px,1.4vw,17px); font-weight:400; line-height:1.5; color:rgba(15,15,15,0.6);">{{ t.coworking.desc }}</p>
+      </div>
+      <div style="{{ cowWrapStyle }}" data-scroll-container>
+        <sc-for list="{{ coworkingCards }}" as="card" hint-placeholder-count="3">
+          <div class="reveal-card" onClick="{{ card.onClick }}" style="{{ cowCardStyle }}" style-hover="transform:translateY(-3px); box-shadow:inset 0 0 0 1px var(--color-overlay-light-5);">
+            <div style="position:relative; width:100%; aspect-ratio:4/3; overflow:hidden; flex-shrink:0; border-radius: var(--radius-xl);">
+              {{ card.imgEl }}
+              <sc-if value="{{ card.duration }}">
+                <span style="position:absolute; left:16px; top:16px; background:var(--color-overlay-black); color:var(--color-white); font-size:12px; font-weight:500; padding:5px 12px; border-radius:9999px;">{{ card.duration }}</span>
+              </sc-if>
+            </div>
+            <div style="display:flex; flex-direction:column; flex:1; gap:14px; padding:0 8px;">
+              <div style="display:flex; flex-direction:column; gap:6px;">
+                <span style="font-size:18px; font-weight:600; letter-spacing:-0.01em; color:var(--color-text-secondary);">{{ card.name }}</span>
+                <span style="font-size:14px; color:rgba(15,15,15,0.6);">{{ card.desc }}</span>
+              </div>
+              <span style="align-self:flex-start; font-size:12px; font-weight:600; color:var(--color-primary-main); background:rgba(251,133,0,0.1); border-radius:9999px; padding: var(--space-xs) 12px;">{{ card.trial }}</span>
+              <div style="height:1px; background:var(--color-overlay-light-3); margin-top:auto;"></div>
+              <span style="font-size:16px; font-weight:600; color:var(--color-text-secondary);">{{ card.price }}</span>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- ROOMS -->
+    <section id="rooms" class="reveal" style="order:3; scroll-margin-top:100px; background:var(--color-bg-lighter-4); border-radius:40px; padding: var(--space-2xl) clamp(6px,2vw,8px) 2px; display:flex; flex-direction:column; gap: var(--space-xl);">
+      <div style="display:flex; flex-direction:column; gap: var(--space-sm); align-items:center; text-align:center;">
+        <h2 class="reveal-text" style="margin:0; font-size:clamp(36px,3.6vw,40px); font-weight:600; letter-spacing:-0.02em; color:var(--color-text-secondary);">{{ t.rooms.kicker }}</h2>
+        <p class="reveal-text reveal-text-2" style="margin:0; font-size:clamp(16px,1.4vw,17px); font-weight:400; line-height:1.5; color:rgba(15,15,15,0.6);">{{ t.rooms.desc }}</p>
+      </div>
+      <div style="{{ roomsWrapStyle }}" data-scroll-container>
+        <sc-for list="{{ rooms }}" as="room" hint-placeholder-count="4">
+          <div class="reveal-card" onClick="{{ room.onClick }}" style="{{ roomsCardStyle }}" style-hover="transform:translateY(-3px); box-shadow:inset 0 0 0 1px var(--color-overlay-light-5);">
+            <div style="position:relative; width:100%; aspect-ratio:4/3;">
+              <image-slot id="{{ room.slotId }}" src="{{ room.photo }}" placeholder="{{ room.name }}" shape="rounded" radius="24" style="display:block; width:100%; height:100%;"></image-slot>
+              <sc-if value="{{ room.duration }}">
+                <span style="position:absolute; left:16px; top:16px; background:var(--color-overlay-black); color:var(--color-white); font-size:12px; font-weight:500; padding:5px 12px; border-radius:9999px;">{{ room.duration }}</span>
+              </sc-if>
+            </div>
+            <div style="display:flex; flex-direction:column; flex:1; gap:14px; padding:0 8px;">
+              <div style="display:flex; flex-direction:column; gap:6px;">
+                <span style="font-size:21px; font-weight:600; letter-spacing:-0.01em; color:var(--color-text-secondary);">{{ room.name }}</span>
+                <span style="font-size:14px; color:rgba(15,15,15,0.6);">{{ room.desc }}</span>
+              </div>
+              <div style="height:1px; background:var(--color-overlay-light-3); margin-top:auto;"></div>
+              <span style="font-size:16px; font-weight:600; color:var(--color-text-secondary);">{{ room.priceText }}</span>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- COMFORT -->
+    <section class="reveal" style="order:5; background:var(--color-bg-lighter-4); border-radius:32px; padding: var(--space-2xl) clamp(6px,2vw,8px); display:flex; flex-direction:column; gap: var(--space-xl); align-items:center;">
+      <h2 class="reveal-text" style="margin:0; font-size:clamp(36px,3.6vw,40px); font-weight:600; line-height:1.15; letter-spacing:-0.01em; text-align:center; color:var(--color-text-secondary);">{{ t.comfort.title }}</h2>
+      <div style="{{ comfortWrapStyle }}">
+        <sc-for list="{{ comfort }}" as="feature" hint-placeholder-count="10">
+          <div class="reveal-card" style="background:rgba(251,249,247,0.9); box-shadow:inset 0 0 0 1px var(--color-overlay-light-5); border-radius: var(--radius-xl); padding:18px; display:flex; flex-direction:column; gap: var(--space-md);">
+            <span style="display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius: var(--radius-md); background:var(--color-primary-lighter); color:var(--color-primary-main);">{{ feature.glyph }}</span>
+            <div style="display:flex; flex-direction:column; gap:3px;">
+              <span style="font-size:14px; font-weight:700; color:var(--color-text-secondary);">{{ feature.title }}</span>
+              <span style="font-size:15px; color:rgba(15,15,15,0.6);">{{ feature.desc }}</span>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="width:100%; height:1px; background:var(--color-overlay-light-3);"></div>
+      <div class="reveal-fade" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:center; width:100%;">
+        <p style="margin:0; font-size:14px; font-weight:600; text-align:center; color:var(--color-text-weak-5);">{{ t.comfort.noteTitle }} {{ t.comfort.notePrice }}: {{ paidExtrasText }}</p>
+      </div>
+    </section>
+
+    <!-- LOCATION -->
+    <section id="location" class="reveal" style="order:7; scroll-margin-top:100px; background:var(--color-bg-lighter-4); border-radius:32px; padding: var(--space-2xl) clamp(6px,2vw,8px) clamp(6px,2vw,8px); display:flex; flex-direction:column; gap: var(--space-xl); align-items:center;">
+      <div style="display:flex; flex-direction:column; gap: var(--space-sm); align-items:center; text-align:center;">
+        <h2 class="reveal-text" style="margin:0; font-size:clamp(36px,3.6vw,40px); font-weight:600; letter-spacing:-0.01em; color:var(--color-text-secondary);">{{ t.location.title }}</h2>
+        <p class="reveal-text reveal-text-2" style="margin:0; font-size:clamp(16px,1.4vw,17px); font-weight:400; line-height:1.5; color:rgba(15,15,15,0.6);">{{ t.location.desc }}</p>
+      </div>
+      <div style="display:flex; flex-wrap:wrap; gap: var(--space-sm); width:100%;">
+        <div style="flex:1 1 300px; min-height:360px; position:relative; border-radius: var(--radius-xl); overflow:hidden; box-shadow:inset 0 0 0 1px var(--color-overlay-light-3); background:rgba(15,15,15,0.05);">
+          <iframe title="ololoYurt — карта" src="https://www.google.com/maps?q=ololoYurt%2C%20Bishkek&ll=42.860449,74.597209&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen style="position:absolute; inset:0; width:100%; height:100%; border:0; display:block;"></iframe>
+          <button onClick="{{ openMapModal }}" style="position:absolute; right:16px; bottom:16px; z-index:2; display:inline-flex; align-items:center; gap:6px; background:var(--color-bg-lighter-3); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); border:none; cursor:pointer; font-family:inherit; font-size:13px; font-weight:600; color:var(--color-text-tertiary); padding:9px 15px; border-radius:9999px; transition:box-shadow 0.2s ease, -webkit-text-fill-color 0.2s ease;" style-hover="box-shadow:inset 0 0 0 999px var(--color-primary-main); -webkit-text-fill-color:var(--color-bg-light);">{{ mapsTitle }} ↗</button>
+        </div>
+        <div class="reveal-fade" style="flex:1 1 300px; border-radius: var(--radius-xl); box-shadow:inset 0 0 0 1px rgba(15,15,15,0.1); padding:clamp(20px,3vw,32px); display:flex; flex-direction:column; gap: var(--space-sm); justify-content:center;">
+          <div style="display:flex; flex-direction:column; gap:2px; align-items:center; text-align:center; padding-bottom:8px;">
+            <span style="font-size:clamp(24px,3vw,36px); font-weight:600; color:var(--color-text-secondary);">{{ t.location.poiName }}</span>
+            <span style="font-size:{{ bodyFs }}; color:rgba(15,15,15,0.6);">{{ t.location.poiAddr }}</span>
+          </div>
+          <sc-for list="{{ transport }}" as="stop" hint-placeholder-count="4">
+            <a class="reveal-card" href="{{ stop.routeUrl }}" target="_blank" rel="noopener" style="display:flex; align-items:center; justify-content:space-between; gap: var(--space-md); padding: var(--space-md) 14px; background:rgba(251,249,247,0.9); box-shadow:inset 0 0 0 1px var(--color-overlay-light-5); border-radius: var(--radius-xl); text-decoration:none; color:inherit; cursor:pointer; outline:1.5px solid transparent; outline-offset:-1px;" style-hover="outline-color:var(--color-primary-main);">
+              <div style="display:flex; align-items:center; gap:10px;">
+                <span style="display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius: var(--radius-md); background:var(--color-primary-lighter); color:var(--color-primary-main); flex-shrink:0;">{{ stop.glyph }}</span>
+                <span style="font-size:14px; font-weight:600; color:rgba(15,15,15,0.9);">{{ stop.name }}</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:6px; flex-shrink:0;">
+                <span style="font-size:13px; color:rgba(15,15,15,0.6); white-space:nowrap;">{{ stop.dur }}</span>
+                <span style="font-size:12px; color:var(--color-text-weak-5);">↗</span>
+              </div>
+            </a>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="reveal" style="order:4; background:var(--color-bg-lighter-4); border-radius:32px; padding: var(--space-2xl) clamp(6px,2vw,8px) clamp(6px,2vw,8px); display:flex; flex-direction:column; gap: var(--space-xl); align-items:center;">
+      <div style="display:flex; flex-direction:column; gap: var(--space-sm); align-items:center; text-align:center;">
+        <h2 class="reveal-text" style="margin:0; font-size:clamp(36px,3.6vw,40px); font-weight:600; letter-spacing:-0.01em; color:var(--color-text-secondary);">{{ t.reviews.title }}</h2>
+        <p class="reveal-text reveal-text-2" style="margin:0; font-size:clamp(16px,1.4vw,17px); font-weight:400; line-height:1.5; color:rgba(15,15,15,0.6);">{{ t.reviews.desc }}</p>
+      </div>
+      <div style="display:flex; gap: var(--space-lg); overflow-x:auto; overflow-y:hidden; width:100%; margin-top:-6px; padding-top:6px; margin-bottom:-6px; padding-bottom:6px; scroll-snap-type:x mandatory;" data-scroll-container>
+        <sc-for list="{{ reviews }}" as="review" hint-placeholder-count="5">
+          <div class="reveal-card" style="flex:0 0 clamp(280px,80vw,340px); box-shadow:inset 0 0 0 1px var(--color-overlay-light-5); border-radius: var(--radius-xl); padding:28px; display:flex; flex-direction:column; gap: var(--space-lg); scroll-snap-align:start;">
+            <div style="display:flex; gap:2px; color:var(--color-primary-main);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.26 6.86.6-5.2 4.52 1.56 6.72L12 17.3 5.88 20.6l1.56-6.72-5.2-4.52 6.86-.6z"></path></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.26 6.86.6-5.2 4.52 1.56 6.72L12 17.3 5.88 20.6l1.56-6.72-5.2-4.52 6.86-.6z"></path></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.26 6.86.6-5.2 4.52 1.56 6.72L12 17.3 5.88 20.6l1.56-6.72-5.2-4.52 6.86-.6z"></path></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.26 6.86.6-5.2 4.52 1.56 6.72L12 17.3 5.88 20.6l1.56-6.72-5.2-4.52 6.86-.6z"></path></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.26 6.86.6-5.2 4.52 1.56 6.72L12 17.3 5.88 20.6l1.56-6.72-5.2-4.52 6.86-.6z"></path></svg>
+            </div>
+            <p style="margin:0; font-size:{{ bodyFs }}; line-height:1.5; color:rgba(15,15,15,0.7); flex-grow:1;">{{ review.text }}</p>
+            <div style="height:1px; background:var(--color-overlay-light-3);"></div>
+            <div style="display:flex; align-items:center; gap:10px;">
+              <span style="display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:9999px; background:rgba(15,15,15,0.1); font-size:14px; font-weight:600; color:var(--color-text-tertiary);">{{ review.initial }}</span>
+              <div style="display:flex; flex-direction:column;">
+                <span style="font-size:{{ bodyFs }}; font-weight:500; color:rgba(15,15,15,0.9);">{{ review.name }}</span>
+                <span style="font-size:12px; font-weight:500; color:var(--color-text-weak-5);">{{ review.info }}</span>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+        <a class="reveal-card" href="https://www.booking.com/hotel/kg/ololoyurt-bishkek1.html#tab-reviews" target="_blank" rel="noopener" style="flex:0 0 clamp(280px,80vw,340px); box-shadow:inset 0 0 0 1px var(--color-overlay-light-5); border-radius: var(--radius-xl); padding:28px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap: var(--space-md); scroll-snap-align:start; text-decoration:none;" style-hover="transform:translateY(-3px); box-shadow:inset 0 0 0 1px var(--color-primary-main);">
+          <span style="display:inline-flex; align-items:center; justify-content:center; width:48px; height:48px; border-radius:9999px; background:var(--color-primary-lighter); color:var(--color-primary-main);">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </span>
+          <span style="font-size:16px; font-weight:600; color:var(--color-text-secondary);">{{ t.reviews.bookingLink }}</span>
+          <span style="font-size:14px; color:rgba(15,15,15,0.5);">booking.com</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- EVENTS -->
+    <section id="events" class="reveal" style="order:9; scroll-margin-top:100px; background:var(--color-bg-lighter-4); border-radius:40px; padding: var(--space-2xl) clamp(6px,2vw,8px) 2px; display:flex; flex-direction:column; gap: var(--space-xl); align-items:center;">
+      <div style="display:flex; flex-direction:column; gap: var(--space-sm); align-items:center; text-align:center;">
+        <h2 class="reveal-text" style="margin:0; font-size:clamp(36px,3.6vw,40px); font-weight:600; letter-spacing:-0.02em; color:var(--color-text-secondary);">{{ t.events.title }}</h2>
+        <p class="reveal-text reveal-text-2" style="margin:0; font-size:clamp(16px,1.4vw,17px); font-weight:400; line-height:1.5; color:rgba(15,15,15,0.6);">{{ t.events.desc }}</p>
+      </div>
+      <div style="{{ eventsWrapStyle }}" data-scroll-container>
+        <sc-for list="{{ events }}" as="ev" hint-placeholder-count="3">
+          <a class="reveal-card" href="{{ ev.href }}" target="{{ ev.target }}" rel="{{ ev.rel }}" style="{{ eventsCardStyle }}" style-hover="transform:translateY(-3px); box-shadow:inset 0 0 0 1px var(--color-overlay-light-5);">
+            <div style="position:relative; width:100%; aspect-ratio:4/3;">
+              <image-slot id="{{ ev.slotId }}" src="{{ ev.photo }}" placeholder="{{ ev.name }}" shape="rounded" radius="24" style="display:block; width:100%; height:100%;"></image-slot>
+              <span style="position:absolute; left:16px; top:16px; background:var(--color-overlay-black); color:var(--color-white); font-size:12px; font-weight:500; padding:5px 12px; border-radius:9999px;">{{ ev.badge }}</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:14px; padding:0 8px;">
+              <div style="display:flex; flex-direction:column; gap:6px;">
+                <span style="font-size:21px; font-weight:600; letter-spacing:-0.01em; color:var(--color-text-secondary);">{{ ev.name }}</span>
+                <span style="font-size:14px; color:rgba(15,15,15,0.6);">{{ ev.desc }}</span>
+              </div>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="reveal" style="order:10; scroll-margin-top:100px; background:var(--color-bg-lighter-4); border-radius:32px; padding: clamp(6px,2vw,8px); display:flex; flex-wrap:wrap; gap: var(--space-sm);">
+      <div style="flex:1 1 340px; display:flex; flex-direction:column; gap: var(--space-lg); justify-content:center; padding:clamp(24px,3vw,32px);">
+        <h2 class="reveal-text" style="margin:0; font-size:clamp(36px,3.6vw,40px); font-weight:600; letter-spacing:-0.01em; color:var(--color-text-secondary);">{{ t.contact.title }}</h2>
+        <p class="reveal-text reveal-text-2" style="margin:0; font-size:clamp(16px,1.4vw,17px); font-weight:400; line-height:1.5; color:rgba(15,15,15,0.6);">{{ t.contact.desc }}</p>
+        <div style="display:flex; flex-direction:column; gap:10px; margin-top:2px;">
+          <sc-for list="{{ contactItems }}" as="ci" hint-placeholder-count="3">
+            <a class="reveal-card" href="{{ ci.href }}" onClick="{{ ci.onClick }}" style="display:flex; align-items:center; gap: var(--space-md); min-height:64px; box-sizing:border-box; background:rgba(251,249,247,0.9); box-shadow:inset 0 0 0 1px var(--color-overlay-light-5); border-radius: var(--radius-xl); padding: var(--space-md) 14px; text-decoration:none; color:inherit; cursor:pointer; outline:1.5px solid transparent; outline-offset:-1px;" style-hover="outline-color:var(--color-primary-main);">
+              <span style="display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius: var(--radius-md); background:var(--color-primary-lighter); color:var(--color-primary-main); flex-shrink:0;">{{ ci.glyph }}</span>
+              <div style="display:flex; flex-direction:column; gap:3px; justify-content:center; min-width:0;">
+                <span style="font-size:{{ bodyFsMd }}; line-height:1.2; font-weight:600; color:rgba(15,15,15,0.8);">{{ ci.label }}</span>
+                <span style="font-size:14px; line-height:1.25; color:var(--color-text-weak-5); overflow-wrap:anywhere;">{{ ci.value }}</span>
+              </div>
+              <span style="font-size:12px; color:var(--color-text-weak-5); flex-shrink:0; margin-left:auto;">↗</span>
+            </a>
+          </sc-for>
+        </div>
+      </div>
+      <form onSubmit="{{ onSubmit }}" style="flex:1 1 340px; box-shadow:inset 0 0 0 1px var(--color-overlay-light-5); border-radius: var(--radius-xl); padding:clamp(24px,3vw,32px); display:flex; flex-direction:column; gap: var(--space-lg); justify-content:center;">
+        <div style="display:flex; flex-direction:column; gap: var(--space-sm);">
+          <span class="reveal-text" data-reveal-order="1.2" style="margin:0; font-size:clamp(36px,3.6vw,40px); font-weight:600; letter-spacing:-0.02em; color:var(--color-text-secondary);">{{ topicTitle }}</span>
+          <div class="reveal-fade" data-reveal-order="1.5" style="display:flex; flex-wrap:wrap; gap: var(--space-sm);">
+            <sc-for list="{{ topics }}" as="tp" hint-placeholder-count="4">
+              <button type="button" onClick="{{ tp.onClick }}" aria-pressed="{{ tp.pressed }}" style="{{ tp.style }}" style-hover="box-shadow:inset 0 0 0 999px rgba(120,120,120,0.18);">{{ tp.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+        <div class="reveal-fade" data-reveal-order="1.8" style="display:flex; flex-direction:column; gap: var(--space-lg);">
+        <div style="display:flex; flex-wrap:wrap; gap: var(--space-md);">
+          <label style="flex:1 1 180px; display:flex; flex-direction:column; gap: var(--space-sm);">
+            <span style="font-size:14px; color:rgba(15,15,15,0.5);">{{ t.contact.form.name }}</span>
+            <input type="text" value="{{ form.name }}" onInput="{{ onName }}" placeholder="{{ t.contact.form.namePh }}" style="width:100%; font-size:16px; color:rgba(15,15,15,0.9); background:transparent; border:none; box-shadow:inset 0 0 0 1px var(--color-overlay-light-1); border-radius: var(--radius-md); padding:13px 16px; outline:none;" style-focus="box-shadow:inset 0 0 0 1.5px var(--color-primary-main);">
+          </label>
+          <label style="flex:1 1 180px; display:flex; flex-direction:column; gap: var(--space-sm);">
+            <span style="font-size:14px; color:rgba(15,15,15,0.5);">{{ t.contact.form.contact }}</span>
+            <input type="text" value="{{ form.contact }}" onInput="{{ onContact }}" placeholder="{{ t.contact.form.contactPh }}" style="width:100%; font-size:16px; color:rgba(15,15,15,0.9); background:transparent; border:none; box-shadow:inset 0 0 0 1px var(--color-overlay-light-1); border-radius: var(--radius-md); padding:13px 16px; outline:none;" style-focus="box-shadow:inset 0 0 0 1.5px var(--color-primary-main);">
+          </label>
+        </div>
+        <sc-if value="{{ !isRoomTopic }}">
+          <label style="display:flex; flex-direction:column; gap: var(--space-sm);">
+            <span style="font-size:14px; color:rgba(15,15,15,0.5);">{{ t.contact.form.message }}</span>
+            <textarea rows="1" value="{{ form.message }}" onInput="{{ onMsg }}" placeholder="{{ contextMessagePh }}" style="width:100%; font-size:16px; line-height:1.5; color:rgba(15,15,15,0.9); background:transparent; border:none; box-shadow:inset 0 0 0 1px var(--color-overlay-light-1); border-radius: var(--radius-md); padding:13px 16px; outline:none; resize:none; overflow-y:hidden; box-sizing:border-box;" style-focus="box-shadow:inset 0 0 0 1.5px var(--color-primary-main);"></textarea>
+          </label>
+        </sc-if>
+        <sc-if value="{{ isRoomTopic }}">
+          <label style="display:flex; flex-direction:column; gap: var(--space-sm);">
+            <span style="font-size:14px; color:rgba(15,15,15,0.5);">{{ datesT.pick }}</span>
+            <button type="button" onClick="{{ openDateModal }}" style="display:flex; align-items:center; gap: var(--space-sm); width:100%; font-size:16px; color:{{ roomDatesTextColor }}; background:transparent; border:none; cursor:pointer; box-shadow:inset 0 0 0 1px var(--color-overlay-light-1); border-radius: var(--radius-md); padding:13px 16px; font-family:inherit; text-align:left; transition:box-shadow 0.2s ease;" style-hover="box-shadow:inset 0 0 0 1.5px var(--color-primary-main);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(15,15,15,0.5)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18"/><path d="M8 3v4"/><path d="M16 3v4"/></svg>
+              <span>{{ roomDatesButtonLabel }}</span>
+            </button>
+          </label>
+          <label style="display:flex; flex-direction:column; gap: var(--space-sm);">
+            <span style="font-size:14px; color:rgba(15,15,15,0.5);">{{ t.contact.form.wishesLabel }}</span>
+            <textarea rows="1" value="{{ form.message }}" onInput="{{ onMsg }}" placeholder="{{ t.contact.form.wishesPh }}" style="width:100%; font-size:16px; line-height:1.5; color:rgba(15,15,15,0.9); background:transparent; border:none; box-shadow:inset 0 0 0 1px var(--color-overlay-light-1); border-radius: var(--radius-md); padding:13px 16px; outline:none; resize:none; overflow-y:hidden; box-sizing:border-box;" style-focus="box-shadow:inset 0 0 0 1.5px var(--color-primary-main);"></textarea>
+          </label>
+        </sc-if>
+
+        <input type="text" value="{{ form.hp }}" onInput="{{ onHp }}" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute; left:-9999px; width:1px; height:1px; opacity:0; pointer-events:none;">
+
+        <button class="btn-flourish" type="submit" disabled="{{ submitting }}" style="display:flex; align-items:center; justify-content:center; gap: var(--space-sm); width:100%; font-size:15px; font-weight:600; color:var(--color-bg-lighter-3); background:var(--color-primary-main); border:none; padding:15px; border-radius:9999px; cursor:pointer; transition:transform 0.2s cubic-bezier(0.22,1,0.36,1), box-shadow 0.2s ease;" style-hover="box-shadow:inset 0 0 0 999px var(--color-primary-dark); transform:scale(1.02);" style-active="transform:scale(0.995);">
+          <img class="btn-flourish__deco btn-flourish__deco--l" src="assets/icons/btn-flourish-left.svg" alt="" aria-hidden="true">
+          <span style="position:relative;">{{ submitLabel }}</span>
+          <img class="btn-flourish__deco btn-flourish__deco--r" src="assets/icons/btn-flourish-right.svg" alt="" aria-hidden="true">
+        </button>
+        <div role="status" aria-live="polite">
+          <sc-if value="{{ sent }}">
+            <p style="margin:0; font-size:14px; text-align:center; font-weight:600; color:var(--color-success);">{{ t.contact.form.sent }}</p>
+          </sc-if>
+          <sc-if value="{{ submitError }}">
+            <p style="margin:0; font-size:14px; text-align:center; color:var(--color-error);">{{ submitError }}</p>
+          </sc-if>
+        </div>
+        </div>
+      </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="reveal" style="order:11; background:rgba(15,15,15,0.95); border-radius:32px; padding: var(--space-2xl); display:flex; flex-direction:column; gap:32px; margin-top:0;">
+      <div style="display:flex; flex-wrap:wrap; gap:clamp(24px,4vw,48px);">
+        <div class="reveal-fade" style="flex:2 1 240px; display:flex; flex-direction:column; gap:10px; min-width:200px;">
+          <img src="assets/icons/logo-light.svg" alt="{{ t.footer.brand }}" style="display:block; align-self:flex-start; height:36px; width:auto; margin-right:auto;">
+          <span style="font-size:{{ bodyFsMd }}; line-height:1.5; color:rgba(251,249,247,0.75);">{{ t.footer.brandDesc }}</span>
+          <div style="display:flex; flex-direction:column; gap: var(--space-xs); margin-top:8px;">
+            <sc-for list="{{ footerContacts }}" as="c" hint-placeholder-count="2">
+              <span style="font-size:14px; color:rgba(251,249,247,0.65);">{{ c }}</span>
+            </sc-for>
+          </div>
+        </div>
+        <div class="reveal-fade reveal-fade-2" style="flex:1 1 140px; display:flex; flex-direction:column; gap:10px;">
+          <span style="font-size:13px; font-weight:600; letter-spacing:0.08em; color:rgba(251,249,247,0.55);">{{ t.footer.navTitle }}</span>
+          <sc-for list="{{ footerNav }}" as="n" hint-placeholder-count="5">
+            <a href="{{ n.href }}" style="font-size:{{ bodyFsMd }}; color:rgba(251,249,247,0.75); text-decoration:none; transition:-webkit-text-fill-color 0.2s ease;" style-hover="-webkit-text-fill-color:var(--color-primary-main);">{{ n.label }}</a>
+          </sc-for>
+        </div>
+        <div class="reveal-fade reveal-fade-3" style="flex:1 1 160px; display:flex; flex-direction:column; gap:10px;">
+          <span style="font-size:13px; font-weight:600; letter-spacing:0.08em; color:rgba(251,249,247,0.55);">{{ t.footer.socialTitle }}</span>
+          <div style="display:flex; gap: var(--space-sm);">
+            <sc-for list="{{ footerSocial }}" as="s" hint-placeholder-count="3">
+              <a href="{{ s.href }}" target="_blank" rel="noopener" aria-label="{{ s.label }}" style="display:inline-flex; align-items:center; justify-content:center; width:40px; height:40px; border-radius:9999px; background:rgba(251,249,247,0.12); color:rgba(251,249,247,0.8); text-decoration:none; transition:box-shadow 0.2s ease;" style-hover="box-shadow:inset 0 0 0 999px var(--color-primary-main);">{{ s.glyph }}</a>
+            </sc-for>
+          </div>
+          <span style="font-size:{{ bodyFsMd }}; color:rgba(251,249,247,0.65); margin-top:8px;">{{ t.footer.reception }}</span>
+          <span style="font-size:{{ bodyFsMd }}; color:rgba(251,249,247,0.65);">{{ t.footer.receptionHours }}</span>
+        </div>
+      </div>
+      <span class="reveal-fade reveal-fade-4" style="font-size:clamp(22px,3vw,28px); font-weight:600; color:rgba(251,249,247,0.95);">{{ t.footer.slogan }}</span>
+      <div style="height:1px; background:rgba(251,249,247,0.12);"></div>
+      <div class="reveal-fade reveal-fade-4" style="display:flex; flex-wrap:wrap; gap: var(--space-lg); align-items:center;">
+        <span style="font-size:13px; color:rgba(251,249,247,0.65);">{{ t.footer.copyright }}</span>
+        <sc-for list="{{ footerLegal }}" as="l" hint-placeholder-count="2">
+          <button onClick="{{ l.onClick }}" style="font-size:13px; color:rgba(251,249,247,0.65); background:none; border:none; cursor:pointer; padding:0; font-family:inherit; transition:-webkit-text-fill-color 0.2s ease;" style-hover="-webkit-text-fill-color:rgba(251,249,247,0.98);">{{ l.label }}</button>
+        </sc-for>
+      </div>
+    </footer>
+
+  </main>
+
+  <sc-if value="{{ mapModalOpen }}">
+    <div onClick="{{ closeMapModal }}" style="position:fixed; inset:0; z-index:100; background:rgba(15,15,15,0.5); backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px); display:flex; align-items:center; justify-content:center; padding:20px; animation:olFade 0.18s ease;">
+      <div onClick="{{ stopProp }}" style="background:var(--color-bg-light); border-radius: var(--radius-xl); padding: var(--space-xl); width:min(380px,100%); display:flex; flex-direction:column; gap: var(--space-sm); border:var(--glass-border);">
+        <span style="font-size:20px; font-weight:600; color:var(--color-text-secondary);">{{ mapsTitle }}</span>
+        <span style="font-size:14px; color:rgba(15,15,15,0.6); margin-bottom:8px;">{{ t.location.poiAddr }}</span>
+        <a href="{{ gisUrl }}" target="_blank" rel="noopener" onClick="{{ closeMapModal }}" style="display:flex; align-items:center; justify-content:space-between; gap: var(--space-sm); font-size:15px; font-weight:600; color:var(--color-text-secondary); background:var(--color-primary-light); box-shadow:inset 0 0 0 1.5px var(--color-primary-main); padding:14px 16px; border-radius: var(--radius-md); text-decoration:none; transition:filter 0.2s ease;" style-hover="filter:brightness(0.96);">
+          <span>{{ mapsGis }}</span><span style="color:var(--color-primary-main);">↗</span>
+        </a>
+        <a href="{{ gmapsUrl }}" target="_blank" rel="noopener" onClick="{{ closeMapModal }}" style="display:flex; align-items:center; justify-content:space-between; gap: var(--space-sm); font-size:15px; font-weight:600; color:rgba(15,15,15,0.9); background:rgba(251,249,247,0.9); box-shadow:inset 0 0 0 1px rgba(15,15,15,0.1); padding:14px 16px; border-radius: var(--radius-md); text-decoration:none; transition:outline-color 0.2s ease; outline:1.5px solid transparent; outline-offset:-1px;" style-hover="outline-color:var(--color-primary-main);">
+          <span>{{ mapsGmaps }}</span><span style="color:var(--color-text-weak-5);">↗</span>
+        </a>
+        <button onClick="{{ copyAddr }}" style="display:flex; align-items:center; justify-content:space-between; gap: var(--space-sm); font-size:15px; font-weight:600; color:rgba(15,15,15,0.9); background:rgba(251,249,247,0.9); box-shadow:inset 0 0 0 1px rgba(15,15,15,0.1); border:none; cursor:pointer; padding:14px 16px; border-radius: var(--radius-md); font-family:inherit; text-align:left; transition:outline-color 0.2s ease; outline:1.5px solid transparent; outline-offset:-1px;" style-hover="outline-color:var(--color-primary-main);">
+          <span>{{ copyLabel }}</span><span style="color:var(--color-primary-main);">⧉</span>
+        </button>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ legalModal }}">
+    <div onClick="{{ legalCloseLegal }}" style="position:fixed; inset:0; z-index:100; background:rgba(15,15,15,0.5); backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px); display:flex; align-items:center; justify-content:center; padding:20px; animation:olFade 0.18s ease;">
+      <div onClick="{{ stopProp }}" style="background:var(--color-bg-light); border-radius: var(--radius-xl); padding:28px; width:min(520px,100%); max-height:82vh; overflow-y:auto; display:flex; flex-direction:column; gap:6px; border:var(--glass-border);">
+        <span style="font-size:20px; font-weight:600; color:var(--color-text-secondary); margin-bottom:2px;">{{ legalContent.title }}</span>
+        <span style="font-size:12px; color:rgba(15,15,15,0.4); margin-bottom:12px;">{{ legalContent.date }}</span>
+        <sc-for list="{{ legalContent.sections }}" as="sec" hint-placeholder-count="5">
+          <div style="display:flex; flex-direction:column; gap: var(--space-xs); padding: var(--space-md) 0; border-top:1px solid var(--color-overlay-light-4);">
+            <span style="font-size:14px; font-weight:600; color:var(--color-text-tertiary);">{{ sec.h }}</span>
+            <span style="font-size:14px; line-height:1.6; color:rgba(15,15,15,0.6);">{{ sec.p }}</span>
+          </div>
+        </sc-for>
+        <button onClick="{{ legalCloseLegal }}" style="margin-top:16px; width:100%; font-size:14px; font-weight:600; color:rgba(15,15,15,0.7); background:var(--color-overlay-light-5); border:none; cursor:pointer; padding:13px; border-radius: var(--radius-md); font-family:inherit; transition:box-shadow 0.2s ease;" style-hover="box-shadow:inset 0 0 0 999px rgba(15,15,15,0.1);">{{ legalContent.close }}</button>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ contactModal }}">
+    <div onClick="{{ closeContactModal }}" style="position:fixed; inset:0; z-index:100; background:rgba(15,15,15,0.5); backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px); display:flex; align-items:center; justify-content:center; padding:20px; animation:olFade 0.18s ease;">
+      <div onClick="{{ stopProp }}" style="background:var(--color-bg-light); border-radius: var(--radius-xl); padding: var(--space-xl); width:min(340px,100%); display:flex; flex-direction:column; gap: var(--space-sm); border:var(--glass-border);">
+        <span style="font-size:20px; font-weight:600; color:var(--color-text-secondary);">{{ contactModalTitle }}</span>
+        <span style="font-size:14px; color:rgba(15,15,15,0.6); margin-bottom:4px;">+996 705 990 060</span>
+        <a href="https://wa.me/996705990060" target="_blank" rel="noopener" onClick="{{ closeContactModal }}" style="display:flex; align-items:center; justify-content:space-between; gap: var(--space-sm); font-size:15px; font-weight:600; color:rgba(15,15,15,0.9); background:rgba(251,249,247,0.9); box-shadow:inset 0 0 0 1px rgba(15,15,15,0.1); padding:14px 16px; border-radius: var(--radius-md); text-decoration:none; transition:outline-color 0.2s ease, -webkit-text-fill-color 0.2s ease; outline:1.5px solid transparent; outline-offset:-1px;" style-hover="outline-color:var(--color-social-whatsapp); -webkit-text-fill-color:var(--color-social-whatsapp);">
+          <span>WhatsApp</span><span>↗</span>
+        </a>
+        <a href="https://t.me/ololoYurt" target="_blank" rel="noopener" onClick="{{ closeContactModal }}" style="display:flex; align-items:center; justify-content:space-between; gap: var(--space-sm); font-size:15px; font-weight:600; color:rgba(15,15,15,0.9); background:rgba(251,249,247,0.9); box-shadow:inset 0 0 0 1px rgba(15,15,15,0.1); padding:14px 16px; border-radius: var(--radius-md); text-decoration:none; transition:outline-color 0.2s ease, -webkit-text-fill-color 0.2s ease; outline:1.5px solid transparent; outline-offset:-1px;" style-hover="outline-color:var(--color-info); -webkit-text-fill-color:var(--color-info);">
+          <span>Telegram</span><span>↗</span>
+        </a>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ dateModalOpen }}">
+    <div onClick="{{ closeDateModal }}" style="position:fixed; inset:0; z-index:100; background:rgba(15,15,15,0.5); backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px); display:flex; align-items:center; justify-content:center; padding:20px; animation:olFade 0.18s ease;">
+      <div class="date-modal-card" onClick="{{ stopProp }}">
+        <div style="display:flex; flex-direction:column; gap: var(--space-md); flex-shrink:0;">
+          <div style="display:flex; align-items:center; justify-content:space-between;">
+            <span style="font-size:20px; font-weight:600; color:var(--color-text-secondary);">{{ datesT.title }}</span>
+            <button type="button" onClick="{{ closeDateModal }}" aria-label="Close" style="width:32px; height:32px; border-radius:9999px; border:none; background:var(--color-overlay-light-5); cursor:pointer; font-size:16px; line-height:1; color:rgba(15,15,15,0.6); display:flex; align-items:center; justify-content:center; font-family:inherit; flex-shrink:0; transition:background 0.15s ease;" style-hover="background:var(--color-overlay-light-1);">×</button>
+          </div>
+          <div class="date-modal-daterow">
+            <div class="{{ checkInPillClass }}">
+              <span class="date-pill-label">{{ datesT.checkin }}</span>
+              <span class="date-pill-value">{{ checkInLabel }}</span>
+            </div>
+            <div class="{{ checkOutPillClass }}">
+              <span class="date-pill-label">{{ datesT.checkout }}</span>
+              <span class="date-pill-value">{{ checkOutLabel }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="date-months-scroll" data-scroll-container>
+          <sc-for list="{{ calendarMonths }}" as="month" hint-placeholder-count="3">
+            <div class="date-month-card" style="{{ month.style }}">
+              <span style="font-size:15px; font-weight:700; color:rgba(15,15,15,0.85); text-transform:capitalize;">{{ month.label }}</span>
+              <div style="display:grid; grid-template-columns:repeat(7,1fr); justify-items:center; gap:2px;">
+                <sc-for list="{{ weekdayLabels }}" as="wd" hint-placeholder-count="7">
+                  <span style="font-size:11px; text-align:center; color:rgba(15,15,15,0.4); text-transform:capitalize; padding-bottom:4px;">{{ wd }}</span>
+                </sc-for>
+                <sc-for list="{{ month.days }}" as="day" hint-placeholder-count="35">
+                  <sc-if value="{{ day.empty }}">
+                    <span></span>
+                  </sc-if>
+                  <sc-if value="{{ !day.empty }}">
+                    <button type="button" onClick="{{ day.onClick }}" disabled="{{ day.disabled }}" style="{{ day.style }}">{{ day.label }}</button>
+                  </sc-if>
+                </sc-for>
+              </div>
+            </div>
+          </sc-for>
+          <sc-if value="{{ canLoadMoreMonths }}">
+            <button type="button" class="date-load-more" onClick="{{ loadMoreMonths }}">+3 {{ datesT.moreMonths }}</button>
+          </sc-if>
+          <sc-if value="{{ !canLoadMoreMonths }}">
+            <a href="https://wa.me/996705990060" target="_blank" rel="noopener" class="date-load-more date-load-more--far">
+              <span>{{ datesT.farNotice }}</span>
+              <span style="color:var(--color-primary-main); font-weight:700;">{{ datesT.farCta }} ↗</span>
+            </a>
+          </sc-if>
+        </div>
+        <button class="btn-flourish" type="button" onClick="{{ closeDateModal }}" disabled="{{ !datesReady }}" style="display:flex; align-items:center; justify-content:center; width:100%; flex-shrink:0; font-size:14px; font-weight:600; color:var(--color-bg-lighter-3); background:var(--color-primary-main); border:none; cursor:pointer; padding:13px; border-radius:9999px; font-family:inherit; opacity:{{ datesConfirmOpacity }}; transition:transform 0.2s cubic-bezier(0.22,1,0.36,1), box-shadow 0.2s ease;" style-hover="box-shadow:inset 0 0 0 999px var(--color-primary-dark); transform:scale(1.02);" style-active="transform:scale(0.995);">
+          <img class="btn-flourish__deco btn-flourish__deco--l" src="assets/icons/btn-flourish-left.svg" alt="" aria-hidden="true">
+          <span style="position:relative;">{{ datesT.done }}</span>
+          <img class="btn-flourish__deco btn-flourish__deco--r" src="assets/icons/btn-flourish-right.svg" alt="" aria-hidden="true">
+        </button>
+      </div>
+    </div>
+  </sc-if>
+
+  <!-- WHATSAPP FAB -->
+  <a class="whatsapp-fab" href="https://wa.me/996705990060" target="_blank" rel="noopener" aria-label="WhatsApp" style="position:fixed; right:{{ fabRight }}; bottom:20px; z-index:90; border-radius:9999px; background:var(--color-social-whatsapp); text-decoration:none;">
+    <span style="display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+      <img src="assets/icons/social/whatsapp.svg" width="28" height="28" alt="" style="display:block; filter:brightness(0) invert(1);">
+    </span>
+    <span class="whatsapp-fab__label" style="color:#fff; font-weight:600; font-size:14px;">{{ whatsappFabT }}</span>
+  </a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1240,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = { lang: "ru", isMobile: false, vw: 1200, menuOpen: false, activeKey: "rooms", pill: null, langPill: null, mapModalOpen: false, contactModal: false, legalModal: null, copied: false, name: "", contact: "", message: "", interest: "", hp: "", sent: false, submitting: false, submitError: null, scrolled: false, eventsData: null, reviewsData: null, langDropdownOpen: false, langBtnHover: false, langDropdownPos: null, fabMsgIndex: 0, dateModalOpen: false, checkIn: null, checkOut: null, calendarMonthCount: 3 };
+  langBtnWrapRef = React.createRef();
+  pillRef = React.createRef();
+  navRef = React.createRef();
+  langRef = React.createRef();
+  langPillRef = React.createRef();
+
+  MAPS_T = {
+    ru: { title: "Как добраться", copy: "Скопировать ссылку", copied: "Скопировано ✓", gmaps: "Открыть в Google Maps", gis: "Открыть в 2ГИС" },
+    en: { title: "Get directions", copy: "Copy link", copied: "Copied ✓", gmaps: "Open in Google Maps", gis: "Open in 2GIS" },
+    zh: { title: "如何到达", copy: "复制链接", copied: "已复制 ✓", gmaps: "在 Google 地图中打开", gis: "在 2GIS 中打开" },
+  };
+  CONTACT_MODAL_T = {
+    ru: "Написать в мессенджер",
+    en: "Message us",
+    zh: "联系我们",
+  };
+  WHATSAPP_FAB_T = {
+    ru: ["На связи 24/7", "Сложно выбрать? Напишите нам", "Поможем с бронированием", "Есть вопросы? Мы на связи"],
+    en: ["Online 24/7", "Can't decide? Message us", "We'll help you book", "Questions? We're here"],
+    zh: ["24/7 在线", "拿不定主意？给我们留言", "我们帮您预订", "有问题？随时联系我们"],
+    ky: ["24/7 байланышта", "Тандай албай жатасызбы? Жазыңыз", "Брондоого жардам беребиз", "Суроолор барбы? Биз бул жердебиз"],
+  };
+  MAX_CALENDAR_MONTHS = 12;
+  DATES_T = {
+    ru: { pick: "Выбрать даты", title: "Календарь", checkin: "Заезд", checkout: "Выезд", done: "Готово", clear: "Очистить", moreMonths: "месяца", farNotice: "Дальше года бронь недоступна", farCta: "Написать менеджеру" },
+    en: { pick: "Pick dates", title: "Calendar", checkin: "Check-in", checkout: "Check-out", done: "Done", clear: "Clear", moreMonths: "months", farNotice: "Booking further than a year ahead isn't available", farCta: "Message a manager" },
+    zh: { pick: "选择日期", title: "日历", checkin: "入住", checkout: "退房", done: "完成", clear: "清除", moreMonths: "个月", farNotice: "一年以后的预订暂不支持", farCta: "联系管理员" },
+    ky: { pick: "Даталарды тандоо", title: "Календарь", checkin: "Кирүү", checkout: "Чыгуу", done: "Даяр", clear: "Тазалоо", moreMonths: "ай", farNotice: "Бир жылдан ары брондоо жеткиликсиз", farCta: "Менеджерге жазуу" },
+  };
+  LEGAL = {
+    ru: {
+      close: "Закрыть",
+      terms: {
+        title: "Условия использования",
+        date: "Вступает в силу: 1 января 2025 г.",
+        sections: [
+          { h: "1. Бронирование", p: "Бронирование номера или рабочего места осуществляется через форму на сайте, по телефону +996 705 990 060 или в мессенджерах. Бронирование считается подтверждённым после получения ответа от администрации." },
+          { h: "2. Заезд и выезд", p: "Стандартное время заезда — с 14:00, выезда — до 12:00. Ранний заезд и поздний выезд возможны по договорённости и при наличии свободных мест." },
+          { h: "3. Отмена бронирования", p: "Бесплатная отмена возможна не позднее чем за 24 часа до заезда. При отмене менее чем за 24 часа или в случае неявки взимается плата за одни сутки." },
+          { h: "4. Правила проживания", p: "Курение на всей территории хостела запрещено. Тихий час — с 23:00 до 08:00. Гости несут ответственность за сохранность имущества хостела." },
+          { h: "5. Ответственность", p: "ololoYurt не несёт ответственности за утрату или повреждение личных вещей гостей. Администрация вправе отказать в размещении или досрочно выселить гостя при нарушении правил." },
+          { h: "Контакт", p: "По вопросам бронирования: yurt.m@ololo.city · +996 705 990 060" },
+        ],
+      },
+      privacy: {
+        title: "Политика конфиденциальности",
+        date: "Вступает в силу: 1 января 2025 г.",
+        sections: [
+          { h: "1. Какие данные мы собираем", p: "При заполнении формы обратной связи на сайте мы получаем: имя, номер телефона или адрес электронной почты, текст сообщения." },
+          { h: "2. Как мы используем данные", p: "Данные используются исключительно для обработки вашей заявки: ответа на вопрос, подтверждения бронирования или связи по вашему запросу." },
+          { h: "3. Хранение и передача", p: "Данные хранятся на защищённом сервере. Мы не передаём и не продаём ваши данные третьим лицам." },
+          { h: "4. Ваши права", p: "Вы вправе запросить изменение или удаление своих данных в любое время, написав нам на yurt.m@ololo.city." },
+          { h: "5. Контакт", p: "По вопросам конфиденциальности: yurt.m@ololo.city" },
+        ],
+      },
+    },
+    en: {
+      close: "Close",
+      terms: {
+        title: "Terms of Use",
+        date: "Effective: January 1, 2025",
+        sections: [
+          { h: "1. Booking", p: "Reservations are made via the website form, by phone +996 705 990 060, or through messengers. A booking is confirmed upon acknowledgment from our staff." },
+          { h: "2. Check-in / Check-out", p: "Standard check-in from 14:00, check-out by 12:00. Early check-in and late check-out are subject to availability." },
+          { h: "3. Cancellation", p: "Free cancellation up to 24 hours before arrival. Cancellations within 24 hours or no-shows are charged one night's rate." },
+          { h: "4. House Rules", p: "Smoking is not permitted anywhere on the premises. Quiet hours: 23:00–08:00. Guests are responsible for any damage to property." },
+          { h: "5. Liability", p: "ololoYurt is not liable for loss or damage to guests' personal belongings. Management may refuse or terminate a stay for rule violations." },
+          { h: "Contact", p: "Booking enquiries: yurt.m@ololo.city · +996 705 990 060" },
+        ],
+      },
+      privacy: {
+        title: "Privacy Policy",
+        date: "Effective: January 1, 2025",
+        sections: [
+          { h: "1. What we collect", p: "When you submit the contact form: your name, phone number or email address, and your message." },
+          { h: "2. How we use it", p: "Your data is used solely to process your request and respond to your inquiry." },
+          { h: "3. Storage & sharing", p: "Data is stored on a secure server. We do not sell or share your data with third parties." },
+          { h: "4. Your rights", p: "You may request correction or deletion of your data at any time by writing to yurt.m@ololo.city." },
+          { h: "5. Contact", p: "Privacy enquiries: yurt.m@ololo.city" },
+        ],
+      },
+    },
+    zh: {
+      close: "关闭",
+      terms: {
+        title: "使用条款",
+        date: "生效日期：2025 年 1 月 1 日",
+        sections: [
+          { h: "1. 预订", p: "可通过网站表单、电话 +996 705 990 060 或即时通讯软件进行预订。预订在收到工作人员确认后方视为成功。" },
+          { h: "2. 入住 / 退房", p: "标准入住时间为 14:00 起，退房时间为 12:00 前。早入住和晚退房视空房情况可提前协商。" },
+          { h: "3. 取消预订", p: "抵达前 24 小时以上取消免收费用。24 小时内取消或未入住将收取一晚费用。" },
+          { h: "4. 住宿规定", p: "青旅全区禁止吸烟。安静时间为 23:00 至 08:00。客人须对青旅财产的损坏承担责任。" },
+          { h: "5. 责任声明", p: "ololoYurt 对客人个人物品的丢失或损坏不承担责任。违反规定者，管理方有权拒绝入住或提前终止住宿。" },
+          { h: "联系方式", p: "预订咨询：yurt.m@ololo.city · +996 705 990 060" },
+        ],
+      },
+      privacy: {
+        title: "隐私政策",
+        date: "生效日期：2025 年 1 月 1 日",
+        sections: [
+          { h: "1. 我们收集的信息", p: "当您提交联系表单时，我们会收到：您的姓名、电话号码或电子邮件地址，以及留言内容。" },
+          { h: "2. 信息使用方式", p: "您的数据仅用于处理您的请求并回复您的咨询。" },
+          { h: "3. 存储与共享", p: "数据存储在安全服务器上。我们不会将您的数据出售或分享给第三方。" },
+          { h: "4. 您的权利", p: "您可随时通过发送邮件至 yurt.m@ololo.city 请求更正或删除您的数据。" },
+          { h: "5. 联系方式", p: "隐私相关咨询：yurt.m@ololo.city" },
+        ],
+      },
+    },
+  };
+  MAP_QUERY = "ololoYurt, улица Кулатова 61, Бишкек";
+
+  // ============================================================
+  // ССЫЛКА БРОНИРОВАНИЯ — переговорные (mrs), конференц-зал (chs), Hello Room (hrs)
+  // Остальное (номера, коворкинг) через форму
+  // ============================================================
+  BOOKING_BASE = "https://booking.ololo.city/b/ololoyurt";
+
+  LANGS = [
+    { code: "ru", label: "RU" },
+    { code: "ky", label: "KY" },
+    { code: "en", label: "EN" },
+    { code: "zh", label: "中文" },
+  ];
+
+  ICONS = {
+    wifi: '<path d="M5 13a10 10 0 0 1 14 0"/><path d="M8.5 16.5a5 5 0 0 1 7 0"/><path d="M2 8.8a15 15 0 0 1 20 0"/><line x1="12" y1="20" x2="12.01" y2="20"/>',
+    bed: '<path d="M3 7v12"/><path d="M3 13h18"/><path d="M21 19v-7a2 2 0 0 0-2-2h-8v3"/><circle cx="7" cy="10" r="2"/>',
+    sofa: '<path d="M5 10V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3"/><path d="M3 11a2 2 0 0 1 2 2v3h14v-3a2 2 0 1 1 4 0v4a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2z"/><path d="M6 19v2"/><path d="M18 19v2"/>',
+    zap: '<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>',
+    droplets: '<path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 4.8 7 3c-.29 1.8-1.14 3.13-2.29 4.06S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 6.6A11 11 0 0 0 14 3c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a7 7 0 0 1-11.9 5"/>',
+    sparkles: '<path d="M12 3l1.9 4.6L18.5 9.5 13.9 11.4 12 16l-1.9-4.6L5.5 9.5l4.6-1.9z"/><path d="M19 14l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z"/>',
+    lock: '<rect x="3.5" y="11" width="17" height="10" rx="2"/><path d="M7.5 11V7a4.5 4.5 0 0 1 9 0v4"/>',
+    briefcase: '<rect x="2.5" y="7.5" width="19" height="13" rx="2"/><path d="M16 20.5V6a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v14.5"/><path d="M2.5 13h19"/>',
+    utensils: '<path d="M4 3v6a2 2 0 0 0 2 2 2 2 0 0 0 2-2V3"/><path d="M6 11v10"/><path d="M17 3c-1.7 0-3 2-3 5s1 4 1 4v9"/><path d="M18 3v18"/>',
+    monitor: '<rect x="2.5" y="3.5" width="19" height="13" rx="2"/><path d="M8 20.5h8"/><path d="M12 16.5v4"/>',
+    train: '<rect x="4.5" y="3.5" width="15" height="12" rx="3"/><path d="M4.5 10.5h15"/><path d="M12 3.5v7"/><path d="M8 19.5l-2 2"/><path d="M16 19.5l2 2"/><circle cx="8.5" cy="13" r="0.6"/><circle cx="15.5" cy="13" r="0.6"/>',
+    pin: '<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="2.6"/>',
+    plane: '<path d="M17.8 19.2 16 11l4-3.8c.9-.9 1.3-2.2.9-3.1-.9-.4-2.2 0-3.1.9L14 8.9 5.7 7c-.4-.1-.8.1-1 .4l-.3.5c-.2.4-.1.9.3 1.2L9 12l-2 3H4.5l-1 1 3 1.8 1.8 3 1-1V17l3-2 3.3 4.5c.3.4.8.5 1.2.3l.5-.3c.3-.2.5-.6.4-1z"/>',
+    bus: '<path d="M8 6.5v6"/><path d="M16 6.5v6"/><path d="M3 12.5h18"/><path d="M18 18.5h2a1 1 0 0 0 1-1v-10a3 3 0 0 0-3-3H6a3 3 0 0 0-3 3v10a1 1 0 0 0 1 1h2"/><circle cx="7" cy="18.5" r="1.6"/><circle cx="17" cy="18.5" r="1.6"/>',
+    phone: '<path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.2 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/>',
+    mail: '<rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="m21 6-9 6L3 6"/>',
+    clock: '<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v5l3 1.8"/>',
+    instagram: '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor"/>',
+    telegram: '<path d="m21.5 4.5-3 14.5c-.2 1-.8 1.2-1.6.8l-4.4-3.2-2.1 2c-.2.2-.4.4-.9.4l.3-4.4 8-7.2c.3-.3-.1-.5-.5-.2L7 12.3 2.7 11c-.9-.3-.9-.9.2-1.3l17.3-6.7c.8-.3 1.5.2 1.3 1.5z"/>',
+    whatsapp: '<path d="M3 21l1.65-4.8A8 8 0 1 1 7.8 19.3z"/><path d="M8.5 8.5c.3 2 2.5 4.2 4.5 4.6"/>',
+  };
+
+  I18N = {
+    ru: {
+      nav: { hostel: "Хостел", coworking: "Коворкинг", events: "События", location: "Локация", contacts: "Контакты", book: "Забронировать" },
+      hero: { address: "Бишкек · ул. Кулатова, 61", rating: "9.2 Booking", ctaRoom: "Забронировать номер", ctaCowork: "Место в коворкинге", headline: "Этно-хостел для жизни и работы", subtitle: "Жилье, коворкинг, офисы и конференц-зал под одной крышей", cta: "Забронировать" },
+      stats: [ { value: "300", label: "Мбит/с Wi-Fi" }, { value: "156", label: "рабочих мест" }, { value: "128", label: "коек в хостеле" }, { value: "80+", label: "стран мира" } ],
+      coworking: { title: "Коворкинг, офисы и залы", desc: "Не только жилье, но и полноценный бизнес-хаб под одной крышей.", cards: [
+        { name: "Коворкинг (Openspace)", desc: "Современные рабочие места, стабильный интернет, тихая зона и кофе.", trial: "Тест-драйв бесплатно", price: "от 1 000 KGS / 4 часа" },
+        { name: "Переговорные комнаты", desc: "Приватные переговорные для встреч, переговоров и онлайн-звонков.", trial: "Тест-драйв бесплатно", price: "от 1 200 KGS / час" },
+        { name: "Конференц-зал", desc: "От 40 до 100 человек, 150 м², экран, звук, микрофоны.", trial: "Тест-драйв бесплатно", price: "от 20 000 KGS / 4 часа" },
+        { name: "Hello Room", desc: "Светлая комната для встреч, презентаций и творческих сессий.", trial: "Тест-драйв бесплатно", price: "по договорённости" },
+      ] },
+      rooms: { kicker: "Номера", desc: "Выбери подходящий номер — от общего хостела до приватных комнат.", cta: "Смотреть все номера", unit: "KGS / ночь", items: [ { name: "Dormitory 6", desc: "6-местный номер", price: "1 300" }, { name: "Dormitory 4", desc: "4-местный номер", price: "1 600" }, { name: "Twin Standard", desc: "2 раздельные кровати", price: "3 600" }, { name: "Private", desc: "приватная комната", price: "3 600" } ] },
+      comfort: { title: "Комфорт уже включён", noteTitle: "Дополнительно", notePrice: "по 300 KGS", paidExtras: ["Завтрак", "Прачечная", "Полотенце"], items: [ { icon: "wifi", title: "Wi-Fi 3 сети", desc: "по 300 Мбит/с" }, { icon: "bed", title: "Постельное бельё", desc: "включено" }, { icon: "sofa", title: "Лаундж-зона", desc: "с диванами" }, { icon: "zap", title: "Коммунальные услуги", desc: "включены" }, { icon: "droplets", title: "Полотенца", desc: "включены" }, { icon: "sparkles", title: "Уборка помещений", desc: "в номерах" }, { icon: "lock", title: "Locker", desc: "в каждом номере" }, { icon: "briefcase", title: "Офисы", desc: "для команд" }, { icon: "utensils", title: "Кухня", desc: "оборудована" }, { icon: "monitor", title: "Coworking", desc: "в хостеле" } ] },
+      location: { title: "В центре Бишкека", desc: "10 минут пешком от ЖД-вокзала, удобный выезд в любую точку города.", mapName: "ololoYurt", mapAddr: "ул. Кулатова, 61", poiName: "ololoYurt", poiAddr: "г. Бишкек, ул. Кулатова, 61", transport: [ { icon: "train", name: "ЖД вокзал «Бишкек-2»", dur: "10 мин пешком" }, { icon: "pin", name: "Площадь Ала-Тоо", dur: "25–30 мин" }, { icon: "plane", name: "Аэропорт «Манас»", dur: "50 мин авто" }, { icon: "bus", name: "Остановка автобуса", dur: "5 мин пешком" } ] },
+      reviews: { title: "Отзывы", desc: "Реальные отзывы гостей с Booking.com.", items: [ { text: "Всё было замечательно. Алтынай оказалась очень доброй, отзывчивой, профессиональной и заботливой.", initial: "K", name: "Kaveh", info: "США" }, { text: "Очень удобные и чистые кровати. Много рабочих мест и столов.", initial: "J", name: "Jonas", info: "Германия" }, { text: "Очень хороший хостел с двухъярусными кроватями. Есть коворкинг. Много места для общей зоны.", initial: "I", name: "Ita", info: "Индонезия" }, { text: "Очень чисто, отдельный номер просторный. Хорошие удобства — общая кухня и ванная полностью оборудованы и чистые.", initial: "I", name: "Ita", info: "Индонезия" }, { text: "Всё понравилось. Очень просторно, классные люди, номер большой и уютный. Душевая и ванная тоже отличные.", initial: "D", name: "Danni", info: "ОАЭ" }, { text: "Всё идеально. Один из лучших хостелов, где я был.", initial: "M", name: "Mikalai", info: "Беларусь" } ], bookingLink: "Смотреть все отзывы на Booking" },
+      events: { title: "События", desc: "Вечеринки, мастер-классы и культурные события в ololoYurt.", badge: "Скоро", items: [ { name: "JazzNight", desc: "Живой джаз в лаунже с лучшими музыкантами Бишкека и гостями из Алматы." }, { name: "Open Mic", desc: "Свободный микрофон: музыка, стендап и поэзия от гостей хостела." }, { name: "Workshop", desc: "Мастер-классы по керамике и каллиграфии в творческой мастерской." } ] },
+      contact: { title: "Остались вопросы?", desc: "Напишите нам — ответим быстро. Reception работает круглосуточно, готовы помочь с бронированием, мероприятиями или коворкингом.", items: [ { label: "Телефон / WhatsApp", value: "+996 705 990 060", icon: "phone" }, { label: "Email", value: "yurt.m@ololo.city", icon: "mail" }, { label: "Reception", value: "Круглосуточно, 24 / 7", icon: "clock" } ], form: { name: "Имя", namePh: "Ваше имя", contact: "Телефон или Email", contactPh: "Как с вами связаться", message: "Сообщение", messagePh: "Ваш вопрос…", topicLabel: "Что вас интересует?", topicRoom: "Номер", topicCoworking: "Коворкинг", topicMeeting: "Переговорная / зал", topicQuestion: "Задать вопрос", topicTitleRoom: "Бронируете номер?", topicTitleCoworking: "Хотите поработать у нас?", topicTitleMeeting: "Нужен зал для мероприятия?", topicTitleQuestion: "Есть вопрос?", messagePhCoworking: "Дата, количество человек, пожелания…", messagePhMeeting: "Дата, формат мероприятия, число гостей…", messagePhQuestion: "Ваш вопрос…", wishesLabel: "Пожелания", wishesPh: "Особые пожелания к брони (необязательно)", prefill: "Интересует: {item}", note: "Заявка приходит на yurt.m@ololo.city и в WhatsApp +996 705 990 060.", submit: "Отправить", submitting: "Отправляем…", sent: "Спасибо! Мы свяжемся с вами в ближайшее время.", error: "Ошибка отправки. Напишите напрямую: +996 705 990 060" } },
+      footer: { brand: "ololoYurt", brandDesc: "Премиум этно-хостел и креативный хаб в центре Бишкека. Жилье, коворкинг и события в одном пространстве.", contacts: ["+996 705 990 060", "г. Бишкек, ул. Кулатова, 61"], navTitle: "САЙТ", nav: ["Хостел", "Коворкинг", "События", "Локация", "Контакты"], socialTitle: "СОЦСЕТИ", social: ["Instagram", "Telegram", "WhatsApp"], reception: "RECEPTION", receptionHours: "24 / 7", slogan: "Less fear, More love", copyright: "© 2025 ololoYurt", legal: ["Условия", "Политика конфиденциальности"] },
+    },
+    en: {
+      nav: { hostel: "Hostel", coworking: "Coworking", events: "Events", location: "Location", contacts: "Contacts", book: "Book now" },
+      hero: { address: "Bishkek · 61 Kulatova St.", rating: "9.2 Booking", headline: "Ethno-hostel for living and working", subtitle: "Housing, coworking, offices and a conference hall under one roof", cta: "Book now", ctaRoom: "Book a room", ctaCowork: "Coworking pass" },
+      stats: [ { value: "300", label: "Mbit/s Wi-Fi" }, { value: "156", label: "work seats" }, { value: "128", label: "beds in the hostel" }, { value: "80+", label: "countries" } ],
+      coworking: { title: "Coworking, offices & halls", desc: "Not just a place to stay — a full business hub under one roof.", cards: [ { name: "Coworking (Openspace)", desc: "Modern workstations, stable internet, quiet zone and coffee.", trial: "Free trial day", price: "from 1 000 KGS / 4 hours" }, { name: "Meeting rooms", desc: "Private rooms for negotiations, meetings and online calls.", trial: "Free trial day", price: "from 1 200 KGS / hour" }, { name: "Conference hall", desc: "40–100 people, 150 m², screen, sound system, microphones.", trial: "Free trial day", price: "from 20 000 KGS / 4 hours" }, { name: "Hello Room", desc: "Bright room for meetings, presentations and creative sessions.", trial: "Free trial day", price: "by arrangement" } ] },
+      rooms: { kicker: "Rooms", desc: "Pick the room that fits — from shared dorms to private rooms.", cta: "See all rooms", unit: "KGS / night", items: [ { name: "Dormitory 6", desc: "6-bed room", price: "1 300" }, { name: "Dormitory 4", desc: "4-bed room", price: "1 600" }, { name: "Twin Standard", desc: "2 separate beds", price: "3 600" }, { name: "Private", desc: "private room", price: "3 600" } ] },
+      comfort: { title: "Everything for comfort — already included", noteTitle: "Optional extras", notePrice: "300 KGS each", paidExtras: ["Breakfast", "Laundry", "Extra towel"], items: [ { icon: "wifi", title: "Wi-Fi, 3 networks", desc: "300 Mbit/s each" }, { icon: "bed", title: "Bed linen", desc: "included" }, { icon: "sofa", title: "Lounge area", desc: "with sofas" }, { icon: "zap", title: "Utilities", desc: "included" }, { icon: "droplets", title: "Towels", desc: "included" }, { icon: "sparkles", title: "Room cleaning", desc: "in rooms" }, { icon: "lock", title: "Locker", desc: "in every room" }, { icon: "briefcase", title: "Offices", desc: "24 / 7" }, { icon: "utensils", title: "Kitchen", desc: "24 / 7" }, { icon: "monitor", title: "Coworking", desc: "in the hostel" } ] },
+      location: { title: "In the heart of Bishkek", desc: "A 10-minute walk from the railway station, easy access to anywhere in the city.", mapName: "ololoYurt", mapAddr: "61 Kulatova St.", poiName: "ololoYurt", poiAddr: "Bishkek, 61 Kulatova St.", transport: [ { icon: "train", name: "Bishkek-2 railway station", dur: "10 min walk" }, { icon: "pin", name: "Ala-Too Square", dur: "25–30 min" }, { icon: "plane", name: "Manas Airport", dur: "50 min drive" }, { icon: "bus", name: "Bus stop", dur: "5 min walk" } ] },
+      reviews: { title: "Reviews", desc: "Real guest reviews from Booking.com.", items: [ { text: "Everything was good. Altynai was very kind, helpful, professional and caring.", initial: "K", name: "Kaveh", info: "USA" }, { text: "Very comfortable and clean beds. There are a lot of work spaces and desks.", initial: "J", name: "Jonas", info: "Germany" }, { text: "Very good place for bunk bed hostel. Has coworking space. Lots of space to use as a common area.", initial: "I", name: "Ita", info: "Indonesia" }, { text: "Very clean and the private room is spacious. Good facilities shared kitchen and bathroom are complete and clean.", initial: "I", name: "Ita", info: "Indonesia" }, { text: "Everything. It was so spacious, people are cool and the room was big and comfy. Loved the shower room and bathroom as well.", initial: "D", name: "Danni", info: "UAE" }, { text: "Everything is perfect. One of the best hostels I ever been.", initial: "M", name: "Mikalai", info: "Belarus" } ], bookingLink: "See all reviews on Booking" },
+      events: { title: "Events", desc: "Parties, workshops and cultural events at ololoYurt.", badge: "Soon", items: [ { name: "JazzNight", desc: "Live jazz in the lounge with the best musicians of Bishkek and guests from Almaty." }, { name: "Open Mic", desc: "Open microphone: music, stand-up and poetry from the hostel's guests." }, { name: "Workshop", desc: "Pottery and calligraphy workshops in the creative studio." } ] },
+      contact: { title: "Got questions?", desc: "Drop us a line — we reply fast. Reception works around the clock and is ready to help with booking, events or coworking.", items: [ { label: "Phone / WhatsApp", value: "+996 705 990 060", icon: "phone" }, { label: "Email", value: "yurt.m@ololo.city", icon: "mail" }, { label: "Reception", value: "Around the clock, 24 / 7", icon: "clock" } ], form: { name: "Name", namePh: "Your name", contact: "Phone or Email", contactPh: "How to reach you", message: "Message", messagePh: "Your question…", topicLabel: "What are you interested in?", topicRoom: "Room", topicCoworking: "Coworking", topicMeeting: "Meeting room / hall", topicQuestion: "Ask a question", topicTitleRoom: "Booking a room?", topicTitleCoworking: "Want to work from here?", topicTitleMeeting: "Need a room for an event?", topicTitleQuestion: "Got a question?", messagePhCoworking: "Date, number of people, any details…", messagePhMeeting: "Date, format, number of guests…", messagePhQuestion: "Your question…", wishesLabel: "Wishes", wishesPh: "Any special requests for your stay (optional)", prefill: "Interested in: {item}", note: "Requests are sent to yurt.m@ololo.city and to WhatsApp +996 705 990 060.", submit: "Send message", submitting: "Sending…", sent: "Thank you! We'll get back to you shortly.", error: "Failed to send. Contact us directly: +996 705 990 060" } },
+      footer: { brand: "ololoYurt", brandDesc: "A premium ethno-hostel and creative hub in the center of Bishkek. Housing, coworking and events in one space.", contacts: ["+996 705 990 060", "Bishkek, 61 Kulatova St."], navTitle: "SITE", nav: ["Hostel", "Coworking", "Events", "Location", "Contacts"], socialTitle: "SOCIAL", social: ["Instagram", "Telegram", "WhatsApp"], reception: "RECEPTION", receptionHours: "24 / 7", slogan: "Less fear, More love", copyright: "© 2025 ololoYurt", legal: ["Terms", "Privacy policy"] },
+    },
+    zh: {
+      nav: { hostel: "青旅", coworking: "联合办公", events: "活动", location: "位置", contacts: "联系", book: "立即预订" },
+      hero: { address: "比什凯克 · 库拉托娃街 61 号", rating: "9.2 Booking", headline: "为生活与工作而生的民族风青旅", subtitle: "住宿、联合办公、办公室与会议厅，尽在同一屋檐下", cta: "立即预订", ctaRoom: "预订房间", ctaCowork: "联合办公工位" },
+      stats: [ { value: "300", label: "Mbit/s Wi-Fi" }, { value: "156", label: "工位" }, { value: "128", label: "床位" }, { value: "80+", label: "个国家" } ],
+      coworking: { title: "联合办公、办公室与会议厅", desc: "不只是住宿，更是同一屋檐下的完整商务中心。", cards: [ { name: "联合办公（开放空间）", desc: "现代工位、稳定网络、安静区域与咖啡。", trial: "免费试用", price: "1 000 KGS 起 / 4 小时" }, { name: "会议室", desc: "适合商务会谈与视频会议的私密会议室。", trial: "免费试用", price: "1 200 KGS 起 / 小时" }, { name: "会议厅", desc: "40–100 人，150 m²，屏幕、音响、麦克风。", trial: "免费试用", price: "20 000 KGS 起 / 4 小时" }, { name: "Hello Room", desc: "明亮的房间，适合会议、演讲和创意活动。", trial: "免费试用", price: "面议" } ] },
+      rooms: { kicker: "房型", desc: "选择适合你的房型 —— 从共享宿舍到私人房间。", cta: "查看全部房型", unit: "KGS / 晚", items: [ { name: "Dormitory 6", desc: "6 人间", price: "1 300" }, { name: "Dormitory 4", desc: "4 人间", price: "1 600" }, { name: "Twin Standard", desc: "2 张独立床", price: "3 600" }, { name: "Private", desc: "私人房间", price: "3 600" } ] },
+      comfort: { title: "舒适所需，皆已含在价内", noteTitle: "可选服务", notePrice: "每项 300 KGS", paidExtras: ["早餐", "洗衣", "额外毛巾"], items: [ { icon: "wifi", title: "3 个 Wi-Fi 网络", desc: "各 300 Mbit/s" }, { icon: "bed", title: "床上用品", desc: "已包含" }, { icon: "sofa", title: "休息区", desc: "配沙发" }, { icon: "zap", title: "公共事业费", desc: "已包含" }, { icon: "droplets", title: "毛巾", desc: "已包含" }, { icon: "sparkles", title: "房间清洁", desc: "客房内" }, { icon: "lock", title: "储物柜", desc: "每个房间" }, { icon: "briefcase", title: "办公室", desc: "24 / 7" }, { icon: "utensils", title: "厨房", desc: "24 / 7" }, { icon: "monitor", title: "联合办公", desc: "青旅内" } ] },
+      location: { title: "位于比什凯克市中心", desc: "距火车站步行 10 分钟，前往城市任何地方都十分便捷。", mapName: "ololoYurt", mapAddr: "库拉托娃街 61 号", poiName: "ololoYurt", poiAddr: "比什凯克市，库拉托娃街 61 号", transport: [ { icon: "train", name: "比什凯克-2 火车站", dur: "步行 10 分钟" }, { icon: "pin", name: "阿拉套广场", dur: "25–30 分钟" }, { icon: "plane", name: "玛纳斯机场", dur: "驾车 50 分钟" }, { icon: "bus", name: "公交车站", dur: "步行 5 分钟" } ] },
+      reviews: { title: "评价", desc: "来自 Booking.com 的真实客人评价。", items: [ { text: "一切都很好。Altynai 非常友善、乐于助人、专业又体贴。", initial: "K", name: "Kaveh", info: "美国" }, { text: "床铺非常舒适干净。有很多工作区和办公桌。", initial: "J", name: "Jonas", info: "德国" }, { text: "作为上下铺青旅非常不错。设有联合办公空间，公共区域也很宽敞。", initial: "I", name: "Ita", info: "印度尼西亚" }, { text: "非常干净，独立房间很宽敞。设施齐全，共用厨房和浴室完备又干净。", initial: "I", name: "Ita", info: "印度尼西亚" }, { text: "一切都很棒。空间宽敞，大家都很酷，房间又大又舒适。淋浴间和浴室也很棒。", initial: "D", name: "Danni", info: "阿联酋" }, { text: "一切都很完美。这是我住过最好的青旅之一。", initial: "M", name: "Mikalai", info: "白俄罗斯" } ], bookingLink: "在 Booking 查看所有评价" },
+      events: { title: "活动", desc: "ololoYurt 的派对、工作坊与文化活动。", badge: "即将开始", items: [ { name: "JazzNight", desc: "休息区现场爵士乐，汇聚比什凯克顶尖乐手与阿拉木图嘉宾。" }, { name: "Open Mic", desc: "开放麦：来自旅客的音乐、脱口秀与诗歌。" }, { name: "Workshop", desc: "创意工作室里的陶艺与书法工作坊。" } ] },
+      contact: { title: "还有疑问？", desc: "给我们留言 —— 我们回复很快。前台全天候服务，乐意为预订、活动或联合办公提供帮助。", items: [ { label: "电话 / WhatsApp", value: "+996 705 990 060", icon: "phone" }, { label: "邮箱", value: "yurt.m@ololo.city", icon: "mail" }, { label: "前台", value: "全天候，24 / 7", icon: "clock" } ], form: { name: "姓名", namePh: "您的姓名", contact: "电话或邮箱", contactPh: "如何与您联系", message: "留言", messagePh: "您的问题…", topicLabel: "您对什么感兴趣？", topicRoom: "房间", topicCoworking: "联合办公", topicMeeting: "会议室 / 会议厅", topicQuestion: "提问", topicTitleRoom: "预订房间？", topicTitleCoworking: "想来联合办公？", topicTitleMeeting: "需要活动场地？", topicTitleQuestion: "有问题？", messagePhCoworking: "日期、人数、其他要求…", messagePhMeeting: "日期、形式、嘉宾人数…", messagePhQuestion: "您的问题…", wishesLabel: "特殊要求", wishesPh: "入住的特殊要求（可选）", prefill: "感兴趣：{item}", note: "请求将发送至 yurt.m@ololo.city 及 WhatsApp +996 705 990 060。", submit: "发送留言", submitting: "发送中…", sent: "谢谢！我们会尽快与您联系。", error: "发送失败。请直接联系我们：+996 705 990 060" } },
+      footer: { brand: "ololoYurt", brandDesc: "比什凯克市中心的高端民族风青旅与创意中心。住宿、联合办公与活动，集于一处。", contacts: ["+996 705 990 060", "比什凯克市，库拉托娃街 61 号"], navTitle: "网站", nav: ["青旅", "联合办公", "活动", "位置", "联系"], socialTitle: "社交媒体", social: ["Instagram", "Telegram", "WhatsApp"], reception: "前台", receptionHours: "24 / 7", slogan: "Less fear, More love", copyright: "© 2025 ololoYurt", legal: ["条款", "隐私政策"] },
+    },
+    ky: {
+      nav: { hostel: "Хостел", coworking: "Коворкинг", events: "Иш-чаралар", location: "Жайгашуу", contacts: "Байланыш", book: "Брондоо" },
+      hero: { address: "Бишкек · Кулатов көч., 61", rating: "9.2 Booking", headline: "Жашоо жана иш үчүн этно-хостел", subtitle: "Турак жай, коворкинг, кеңселер жана конференц-зал бир чатыр астында", cta: "Брондоо", ctaRoom: "Бөлмө брондоо", ctaCowork: "Коворкингден орун" },
+      stats: [ { value: "300", label: "Мбит/с Wi-Fi" }, { value: "156", label: "жумуш орду" }, { value: "128", label: "хостелдеги орун" }, { value: "80+", label: "дүйнө өлкөсү" } ],
+      coworking: { title: "Коворкинг, кеңселер жана залдар", desc: "Жашоо гана эмес — бир чатыр астында толук кандуу бизнес-хаб.", cards: [ { name: "Коворкинг (Openspace)", desc: "Заманбап жумуш орундары, туруктуу интернет, тынч аймак жана кофе.", trial: "Акысыз сынак", price: "1 000 KGSтан баштап / 4 саат" }, { name: "Жолугушуу бөлмөлөрү", desc: "Жолугушуулар, сүйлөшүүлөр жана онлайн чалуулар үчүн жеке бөлмөлөр.", trial: "Акысыз сынак", price: "1 200 KGSтан баштап / саат" }, { name: "Конференц-зал", desc: "40дан 100гө чейин адам, 150 м², экран, добуш, микрофондор.", trial: "Акысыз сынак", price: "20 000 KGSтан баштап / 4 саат" }, { name: "Hello Room", desc: "Жолугушуулар, презентациялар жана чыгармачыл сессиялар үчүн жарык бөлмө.", trial: "Акысыз сынак", price: "келишим боюнча" } ] },
+      rooms: { kicker: "Бөлмөлөр", desc: "Ылайыктуу бөлмөнү тандаңыз — жалпы хостелден жеке бөлмөлөргө чейин.", cta: "Бардык бөлмөлөрдү көрүү", unit: "KGS / түн", items: [ { name: "Dormitory 6", desc: "6 орундуу бөлмө", price: "1 300" }, { name: "Dormitory 4", desc: "4 орундуу бөлмө", price: "1 600" }, { name: "Twin Standard", desc: "2 өзүнчө керебет", price: "3 600" }, { name: "Private", desc: "жеке бөлмө", price: "3 600" } ] },
+      comfort: { title: "Ыңгайлуулук үчүн баары — баада эле бар", noteTitle: "Кошумча", notePrice: "300 KGSтан", paidExtras: ["Эртең мененки тамак", "Кир жуу", "Кошумча сүлгү"], items: [ { icon: "wifi", title: "Wi-Fi 3 тармак", desc: "ар бири 300 Мбит/с" }, { icon: "bed", title: "Керебет жабдыктары", desc: "кирет" }, { icon: "sofa", title: "Лаунж-аймак", desc: "диван менен" }, { icon: "zap", title: "Коммуналдык кызматтар", desc: "кирет" }, { icon: "droplets", title: "Сүлгүлөр", desc: "кирет" }, { icon: "sparkles", title: "Бөлмөлөрдү тазалоо", desc: "бөлмөлөрдө" }, { icon: "lock", title: "Locker", desc: "ар бир бөлмөдө" }, { icon: "briefcase", title: "Кеңселер", desc: "24 / 7" }, { icon: "utensils", title: "Ашкана", desc: "24 / 7" }, { icon: "monitor", title: "Coworking", desc: "хостелде" } ] },
+      location: { title: "Бишкектин борборунда", desc: "Темир жол вокзалынан 10 мүнөт жөө басуу аралыгында, шаардын каалаган чекитине ыңгайлуу чыгуу.", mapName: "ololoYurt", mapAddr: "Кулатов көч., 61", poiName: "ololoYurt", poiAddr: "Бишкек ш., Кулатов көч., 61", transport: [ { icon: "train", name: "«Бишкек-2» темир жол вокзалы", dur: "10 мүн жөө" }, { icon: "pin", name: "Ала-Тоо аянты", dur: "25–30 мүн" }, { icon: "plane", name: "«Манас» аэропорту", dur: "50 мүн унаа менен" }, { icon: "bus", name: "Автобус аялдамасы", dur: "5 мүн жөө" } ] },
+      reviews: { title: "Пикирлер", desc: "Booking.com сайтындагы чыныгы конок пикирлери.", items: [ { text: "Баары жакшы болду. Алтынай абдан боорукер, жардамчыл, кесипкөй жана камкор эле.", initial: "K", name: "Kaveh", info: "АКШ" }, { text: "Керебеттер өтө ыңгайлуу жана таза. Иштөө үчүн көп орун жана стол бар.", initial: "J", name: "Jonas", info: "Германия" }, { text: "Эки кабаттуу керебети бар жатакана катары абдан жакшы жай. Коворкинг бар. Жалпы аймак үчүн орун көп.", initial: "I", name: "Ita", info: "Индонезия" }, { text: "Абдан таза, өзүнчө бөлмө кең. Жайлуулуктар жакшы — жалпы ашкана жана ваннабөлмө толук жабдылган жана таза.", initial: "I", name: "Ita", info: "Индонезия" }, { text: "Баары жакты. Өтө кең, адамдар сонун, бөлмө чоң жана жайлуу. Душ бөлмөсү менен ваннабөлмө да сонун болду.", initial: "D", name: "Danni", info: "БАЭ" }, { text: "Баары мыкты. Мен болгон жатаканалардын эң жакшыларынын бири.", initial: "M", name: "Mikalai", info: "Беларусь" } ], bookingLink: "Booking сайтындагы бардык пикирлерди көрүү" },
+      events: { title: "Иш-чаралар", desc: "ololoYurtта кечелер, мастер-класстар жана маданий иш-чаралар.", badge: "Жакында", items: [ { name: "JazzNight", desc: "Бишкектин мыкты музыканттары жана Алматыдан келген коноктор менен лаунждагы тирүү джаз." }, { name: "Open Mic", desc: "Эркин микрофон: хостелдин коноктору тарабынан музыка, стендап жана поэзия." }, { name: "Workshop", desc: "Чыгармачыл устаканада керамика жана каллиграфия боюнча мастер-класстар." } ] },
+      contact: { title: "Суроолоруңуз калдыбы?", desc: "Бизге жазыңыз — тез жооп беребиз. Reception түн-күн иштейт, брондоо, иш-чаралар же коворкинг боюнча жардам берүүгө даяр.", items: [ { label: "Телефон / WhatsApp", value: "+996 705 990 060", icon: "phone" }, { label: "Email", value: "yurt.m@ololo.city", icon: "mail" }, { label: "Reception", value: "Түн-күн, 24 / 7", icon: "clock" } ], form: { name: "Атыңыз", namePh: "Атыңыз", contact: "Телефон же Email", contactPh: "Сиз менен кантип байланышса болот", message: "Билдирүү", messagePh: "Суроонуз…", topicLabel: "Сизди эмне кызыктырат?", topicRoom: "Бөлмө", topicCoworking: "Коворкинг", topicMeeting: "Жолугушуу бөлмөсү / зал", topicQuestion: "Суроо берүү", topicTitleRoom: "Бөлмө брондойсузбу?", topicTitleCoworking: "Бизде иштегиңиз келеби?", topicTitleMeeting: "Иш-чарага зал керекпи?", topicTitleQuestion: "Суроо барбы?", messagePhCoworking: "Күнү, адам саны, кошумча маалымат…", messagePhMeeting: "Күнү, формат, конок саны…", messagePhQuestion: "Суроонуз…", wishesLabel: "Каалоолор", wishesPh: "Брондоого кошумча каалоолор (милдеттүү эмес)", prefill: "Кызыкдар: {item}", note: "Билдирүү yurt.m@ololo.city дарегине жана WhatsApp +996 705 990 060 номерине келет.", submit: "Билдирүү жөнөтүү", submitting: "Жөнөтүлүүдө…", sent: "Рахмат! Биз жакын арада сиз менен байланышабыз.", error: "Жөнөтүү катасы. Түз жазыңыз: +996 705 990 060" } },
+      footer: { brand: "ololoYurt", brandDesc: "Бишкектин борборундагы премиум этно-хостел жана чыгармачыл хаб. Турак жай, коворкинг жана иш-чаралар бир мейкиндикте.", contacts: ["+996 705 990 060", "Бишкек ш., Кулатов көч., 61"], navTitle: "САЙТ", nav: ["Хостел", "Коворкинг", "Иш-чаралар", "Жайгашуу", "Байланыш"], socialTitle: "СОЦТАРМАКТАР", social: ["Instagram", "Telegram", "WhatsApp"], reception: "RECEPTION", receptionHours: "24 / 7", slogan: "Less fear, More love", copyright: "© 2025 ololoYurt", legal: ["Шарттар", "Купуялык саясаты"] },
+    },
+  };
+
+  componentDidMount() {
+    try { const s = localStorage.getItem("ololo_lang"); if (s && this.I18N[s]) { this.setState({ lang: s }); try { document.documentElement.lang = s; } catch (e) {} } } catch (e) {}
+    fetch('/api/events')
+      .then((r) => r.ok ? r.json() : null)
+      .then((data) => {
+        if (data && data.ok && Array.isArray(data.events) && data.events.length) {
+          this.setState({ eventsData: data.events });
+        }
+      })
+      .catch(() => {});
+    fetch('/api/reviews')
+      .then((r) => r.ok ? r.json() : null)
+      .then((data) => {
+        if (data && data.ok && Array.isArray(data.reviews) && data.reviews.length) {
+          const reviews = data.reviews.map((r) => ({
+            ...r,
+            initial: r.initial || (r.name ? r.name.charAt(0).toUpperCase() : '?')
+          }));
+          this.setState({ reviewsData: reviews });
+        }
+      })
+      .catch(() => {});
+
+    // Close language dropdown on scroll or click outside
+    this._closeLangDropdown = () => {
+      if (this.state.langDropdownOpen) {
+        this.setState({ langDropdownOpen: false });
+      }
+    };
+    window.addEventListener('click', this._closeLangDropdown);
+    window.addEventListener('scroll', this._closeLangDropdown, { passive: true });
+
+    this._onResize = () => {
+      const w = window.innerWidth;
+      const m = w < 1024;
+      const ns = {};
+      if (m !== this.state.isMobile) { ns.isMobile = m; ns.menuOpen = m ? this.state.menuOpen : false; }
+      if (w !== this.state.vw) ns.vw = w;
+      if (Object.keys(ns).length) this.setState(ns);
+      this.updatePill();
+      this.updateLangPill();
+    };
+    this._onResize();
+    window.addEventListener("resize", this._onResize);
+
+    this._spy = () => {
+      const keys = ["rooms", "coworking", "location", "events", "contact"];
+      const activationLine = window.innerHeight * 0.5;
+      let cur = "rooms";
+      for (const k of keys) {
+        const el = document.getElementById(k);
+        if (el && el.getBoundingClientRect().top <= activationLine) cur = k;
+      }
+      const scrolled = window.scrollY > 40;
+      const ns = {};
+      if (!this._navClickLock || Date.now() > this._navClickLock) {
+        if (cur !== this.state.activeKey) ns.activeKey = cur;
+      }
+      if (scrolled !== this.state.scrolled) ns.scrolled = scrolled;
+      if (Object.keys(ns).length) this.setState(ns);
+    };
+    this._spyTick = () => {
+      if (this._raf) return;
+      this._raf = requestAnimationFrame(() => { this._raf = null; this._spy(); });
+    };
+    window.addEventListener("scroll", this._spyTick, { passive: true });
+    this._spy();
+    requestAnimationFrame(() => { this.updatePill(); this.updateLangPill(); this.updateLangDropdownPos(); });
+
+    // Mouse-wheel users only have a vertical axis, so a horizontal carousel is otherwise
+    // unreachable for them — trackpad users don't need this, their two-finger swipe already
+    // produces real deltaX. `pointer: fine` alone doesn't separate the two (Mac trackpads report
+    // fine+hover same as a mouse), so mouse-vs-trackpad is told apart by the wheel event's own
+    // shape instead: a physical wheel notch fires as an isolated, large deltaY (~100, no deltaX);
+    // a trackpad swipe fires a rapid burst of small deltaY ticks even when scrolling dead straight.
+    // Only redirect the isolated/large kind — this is the same deltaY-magnitude heuristic used by
+    // Embla's wheel-gestures plugin and other production carousels for this exact problem.
+    const isFinePointer = window.matchMedia("(pointer: fine)").matches;
+    const WHEEL_NOTCH_MIN = 45;
+
+    // Smooth auto-scroll for all horizontal containers
+    this._setupAutoScroll = () => {
+      const containers = document.querySelectorAll('[data-scroll-container]');
+      containers.forEach((container) => {
+        if (isFinePointer && !container._wheelRedirect) {
+          container._wheelRedirect = true;
+          container.addEventListener("wheel", (e) => {
+            if (Math.abs(e.deltaX) > 0) return; // real horizontal input (trackpad swipe) — leave alone
+            if (Math.abs(e.deltaY) < WHEEL_NOTCH_MIN) return; // small tick — trackpad scrolling the page vertically
+            e.preventDefault();
+            container.scrollLeft += e.deltaY;
+          }, { passive: false });
+        }
+
+        // The booking calendar is a picker, not a showcase rail — it must stay put.
+        if (container.classList.contains("date-months-scroll")) return;
+        if (container._autoScrolling) return;
+        container._autoScrolling = true;
+        container._scrollSpeed = 0.5; // pixels per frame
+        container._scrolling = false;
+
+        const startScroll = () => {
+          if (container._scrolling) return;
+          container._scrolling = true;
+          let lastX = container.scrollLeft;
+
+          const scroll = () => {
+            if (!container._scrolling) return;
+            const maxScroll = container.scrollWidth - container.clientWidth;
+            let newX = container.scrollLeft + container._scrollSpeed;
+
+            if (newX >= maxScroll) {
+              newX = 0;
+            }
+            container.scrollLeft = newX;
+            requestAnimationFrame(scroll);
+          };
+          requestAnimationFrame(scroll);
+        };
+
+        // Stop on user interaction
+        const stopScroll = () => {
+          container._scrolling = false;
+        };
+        container.addEventListener("wheel", stopScroll, { passive: true });
+        container.addEventListener("touchstart", stopScroll, { passive: true });
+        container.addEventListener("mousedown", stopScroll, { passive: true });
+
+        // Start scroll after a short delay
+        setTimeout(startScroll, 500);
+      });
+    };
+
+    // Run setup on mount and when render completes
+    this._setupAutoScrollTimer = setTimeout(() => this._setupAutoScroll(), 100);
+
+    // No hover on touch devices — peek the WhatsApp label open once automatically
+    // so the "on 24/7" message actually gets seen, then collapse it back.
+    if (window.matchMedia("(hover: none)").matches) {
+      const fab = document.querySelector(".whatsapp-fab");
+      if (fab) {
+        setTimeout(() => {
+          fab.classList.add("is-peeking");
+          setTimeout(() => fab.classList.remove("is-peeking"), 3000);
+        }, 1500);
+      }
+    }
+
+    // Every so often, cycle to the next FAB message and peek it open on its
+    // own (all devices) so messages beyond the default "online 24/7" one
+    // actually get seen without requiring hover.
+    this._fabMsgTimer = setInterval(() => {
+      const msgs = this.WHATSAPP_FAB_T[this.state.lang] || this.WHATSAPP_FAB_T.ru;
+      this.setState({ fabMsgIndex: (this.state.fabMsgIndex + 1) % msgs.length }, () => {
+        const fab = document.querySelector(".whatsapp-fab");
+        if (!fab) return;
+        fab.classList.add("is-peeking");
+        clearTimeout(this._fabPeekTimeout);
+        this._fabPeekTimeout = setTimeout(() => fab.classList.remove("is-peeking"), 3500);
+      });
+    }, 16000);
+
+    // Digit count-up, driven by GSAP so it shares easing/timing with the rest.
+    this._countUp = (el, durationMs) => {
+      const match = (el.dataset.target || "").match(/^(\d+)(.*)$/);
+      if (!match) return;
+      const target = parseInt(match[1], 10);
+      const suffix = match[2] || "";
+      const counter = { val: 0 };
+      gsap.to(counter, {
+        val: target,
+        duration: durationMs / 1000,
+        ease: "power3.out",
+        onUpdate: () => { el.textContent = Math.round(counter.val) + suffix; },
+      });
+    };
+
+    // Scroll-reveal: GSAP + ScrollTrigger. Each `.reveal` block gets its own timeline —
+    // block fades/slides in, then its heading, then its subtitle, then its cards/badges,
+    // each starting while the previous one is still ~mid-animation (timeline overlap via
+    // the "-=" position), so it reads as a relay instead of everything popping at once.
+    // ScrollTrigger itself handles the "already on screen at load" case correctly (no
+    // manual visibility bookkeeping needed, unlike a hand-rolled IntersectionObserver).
+    if (window.gsap && window.ScrollTrigger && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      gsap.registerPlugin(ScrollTrigger);
+
+      // On a narrow mobile viewport, sections sit much closer together relative to scroll
+      // distance, so a fast swipe can cross several `.reveal` blocks' "top 90%" trigger in the
+      // same scroll tick — each block's ScrollTrigger still fires independently, so which one
+      // visually starts first ends up depending on scroll speed/exact fire order, not page order.
+      // A small per-block delay keyed to its position in the page forces a fixed, predictable
+      // top-to-bottom cascade on mobile regardless of how fast/unevenly the user scrolls.
+      const isMobile = window.matchMedia("(max-width: 760px)").matches;
+
+      document.querySelectorAll(".reveal").forEach((block, index) => {
+        // Walk descendants in real DOM order and animate them in that order, instead of a fixed
+        // heading->subtitle->cards->fades sequence. The fixed order broke whenever a `.reveal-fade`
+        // group sits ABOVE the heading in the markup — e.g. the hero's address/rating pills come
+        // before the <h1> in the DOM, but used to always animate dead last, so they visibly
+        // appeared after the heading despite being the first thing on screen. Consecutive
+        // elements of the same kind (a row of cards, a row of fade groups) still animate together
+        // as one staggered group; a lone heading+subtitle pair still gets its own tween each.
+        const isStatBlock = !!block.querySelector(".reveal-card .stat-value");
+        const nodes = Array.from(block.querySelectorAll(".reveal-text, .reveal-card, .reveal-fade"));
+        // Default sort key is DOM position; a `data-reveal-order` override lets a specific
+        // element jump the queue (e.g. the contact form's topic pills, which sit after the
+        // contact-card list in markup but should animate right after the section heading).
+        const orderKey = new Map(nodes.map((el, i) => [el, el.dataset.revealOrder !== undefined ? parseFloat(el.dataset.revealOrder) : i]));
+        nodes.sort((a, b) => orderKey.get(a) - orderKey.get(b));
+        const groups = [];
+        nodes.forEach((el) => {
+          const kind = el.classList.contains("reveal-card") ? "card" : el.classList.contains("reveal-fade") ? "fade" : "text";
+          const last = groups[groups.length - 1];
+          if (last && last.kind === kind) last.els.push(el);
+          else groups.push({ kind, els: [el] });
+        });
+
+        // Some cards carry their own inline `transition: transform ...` (hover-lift effect).
+        // If left on during the GSAP reveal, that CSS transition keeps chasing GSAP's per-frame
+        // transform writes, then does one more 0.28s catch-up when clearProps removes the inline
+        // transform at the end — which reads as "faded in, waited, then moved". Killing the
+        // transition for the duration of the reveal (and clearing the override after) fixes it.
+        gsap.set([block, ...nodes], { transition: "none" });
+
+        const tl = gsap.timeline({
+          scrollTrigger: { trigger: block, start: "top 90%", once: true },
+          delay: isMobile ? index * 0.06 : 0,
+        });
+        tl.from(block, { opacity: 0, y: 14, duration: 0.55, ease: "sine.out", clearProps: "opacity,transform,transition" }, 0);
+
+        // Desktop overlaps each next group into the tail of the previous one's tween ("-=0.2"/
+        // "-=0.15") so it reads as one continuous relay. On mobile that overlap is what makes the
+        // start order feel jumbled, so there each group instead waits for the previous one to
+        // fully finish (plus a small gap) — strictly sequential, one at a time.
+        let pos = isMobile ? "+=0.03" : "-=0.2";
+        groups.forEach((group) => {
+          if (group.kind === "card") {
+            // Stat cards get a slightly longer entrance — everything else stays snappy.
+            const cardDuration = isStatBlock ? 0.9 : 0.3;
+            const cardStagger = isStatBlock ? 0.2 : 0.1;
+            tl.from(group.els, {
+              opacity: 0, y: 12, duration: cardDuration, ease: "sine.out",
+              stagger: cardStagger, clearProps: "opacity,transform,transition",
+            }, pos);
+
+            if (isStatBlock) {
+              // Anchor every card's count-up to a label marking the cards tween's own start,
+              // not to "<" — inside a forEach, "<" means "the previous timeline child", which
+              // after the first tl.call() becomes that tl.call() itself, not the cards tween.
+              // That compounded each card's offset onto the last, so later cards' counters
+              // fired long after their own card had already finished appearing.
+              tl.addLabel("statCardsStart", "<");
+              group.els.forEach((card, i) => {
+                const valueEl = card.querySelector(".stat-value");
+                if (!valueEl) return;
+                valueEl.dataset.target = valueEl.textContent.trim();
+                valueEl.textContent = "0";
+                // Starts once THIS card's own entrance is almost done (85%, not 70%) — tight
+                // enough after its own fade/slide that counting reads as part of that card
+                // settling in, not as a separate second phase once the whole row has landed.
+                tl.call(() => this._countUp(valueEl, 900), [], "statCardsStart+=" + (i * cardStagger + cardDuration * 0.85));
+              });
+            }
+          } else if (group.kind === "fade") {
+            tl.from(group.els, { opacity: 0, duration: 0.3, ease: "power3.out", stagger: 0.1, clearProps: "opacity,transition" }, pos);
+          } else {
+            // text: heading + subtitle (when both exist) still get their own tween each, in order.
+            group.els.forEach((el, i) => {
+              tl.from(el, { opacity: 0, y: 10, duration: 0.4, ease: "sine.out", clearProps: "opacity,transform,transition" }, i === 0 ? pos : (isMobile ? "+=0.03" : "-=0.15"));
+            });
+          }
+          pos = isMobile ? "+=0.03" : "-=0.15";
+        });
+      });
+    }
+  }
+
+  updatePill() {
+    const nav = this.navRef && this.navRef.current;
+    if (!nav) return;
+    const el = nav.querySelector('[data-navkey="' + this.state.activeKey + '"]');
+    if (!el) return;
+    const r = { left: el.offsetLeft, width: el.offsetWidth, top: el.offsetTop, height: el.offsetHeight };
+    const p = this.state.pill;
+    if (!p || p.left !== r.left || p.width !== r.width || p.top !== r.top || p.height !== r.height) {
+      this.setState({ pill: r });
+    }
+  }
+
+  updateLangDropdownPos() {
+    const el = this.langBtnWrapRef && this.langBtnWrapRef.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    const next = { left: r.left + r.width / 2, top: r.bottom };
+    const p = this.state.langDropdownPos;
+    if (!p || p.left !== next.left || p.top !== next.top) {
+      this.setState({ langDropdownPos: next });
+    }
+  }
+  updateLangPill() {
+    const c = this.langRef && this.langRef.current;
+    if (!c) return;
+    const el = c.querySelector('[data-langkey="' + this.state.lang + '"]');
+    if (!el) return;
+    const r = { left: el.offsetLeft, width: el.offsetWidth, top: el.offsetTop, height: el.offsetHeight };
+    const p = this.state.langPill;
+    if (!p || p.left !== r.left || p.width !== r.width || p.top !== r.top || p.height !== r.height) {
+      this.setState({ langPill: r });
+    }
+  }
+  componentWillUnmount() {
+    if (this._onResize) window.removeEventListener("resize", this._onResize);
+    if (this._spyTick) window.removeEventListener("scroll", this._spyTick);
+    if (this._closeLangDropdown) {
+      window.removeEventListener("click", this._closeLangDropdown);
+      window.removeEventListener("scroll", this._closeLangDropdown);
+    }
+    clearTimeout(this._setupAutoScrollTimer);
+    clearInterval(this._fabMsgTimer);
+    clearTimeout(this._fabPeekTimeout);
+    if (window.ScrollTrigger) ScrollTrigger.getAll().forEach((t) => t.kill());
+    const containers = document.querySelectorAll('[data-scroll-container]');
+    containers.forEach((container) => {
+      container._scrolling = false;
+    });
+    try { document.body.style.overflow = ""; } catch (e) {}
+  }
+  componentDidUpdate() {
+    const open = !!this.state.menuOpen;
+    if (open !== this._lastMenuOpen) {
+      this._lastMenuOpen = open;
+      try { document.body.style.overflow = open ? "hidden" : ""; } catch (e) {}
+    }
+    if (this.state.activeKey !== this._lastActive) {
+      this._lastActive = this.state.activeKey;
+      this._hadActive = true;
+    }
+    if (this.state.lang !== this._lastLang) {
+      this._lastLang = this.state.lang;
+      this._hadLang = true;
+    }
+    this.updatePill();
+    this.updateLangPill();
+    this.updateLangDropdownPos();
+    clearTimeout(this._setupAutoScrollTimer);
+    this._setupAutoScrollTimer = setTimeout(() => this._setupAutoScroll?.(), 50);
+  }
+
+  toggleLangDropdown() { this.setState({ langDropdownOpen: !this.state.langDropdownOpen }); }
+  setLangBtnHover(v) { this.setState({ langBtnHover: v }); }
+  setLang(code) { try { localStorage.setItem("ololo_lang", code); } catch (e) {} try { document.documentElement.lang = code; } catch (e) {} this.setState({ lang: code, menuOpen: false }); }
+
+  submitForm() {
+    const { name, contact, message, interest, hp, checkIn, checkOut, lang } = this.state;
+    const dateLine = (interest === 'room' && checkIn && checkOut)
+      ? this.formatDateLabel(checkIn, lang) + ' — ' + this.formatDateLabel(checkOut, lang)
+      : '';
+    const composedMessage = dateLine
+      ? (message.trim() ? dateLine + '. ' + message.trim() : dateLine)
+      : message;
+    if (!name.trim() || !contact.trim() || !composedMessage.trim()) return;
+    this.setState({ submitting: true, submitError: null });
+    fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, contact, message: composedMessage, interest, hp }),
+    })
+      .then((r) => r.json())
+      .then((data) => {
+        if (data.ok) {
+          this.setState({ sent: true, submitting: false, name: '', contact: '', message: '', interest: '', hp: '', checkIn: null, checkOut: null });
+        } else {
+          const t = this.I18N[this.state.lang] || this.I18N.ru;
+          this.setState({ submitting: false, submitError: t.contact.form.error });
+        }
+      })
+      .catch(() => {
+        const t = this.I18N[this.state.lang] || this.I18N.ru;
+        this.setState({ submitting: false, submitError: t.contact.form.error });
+      });
+  }
+
+  openMapModal() { this.setState({ mapModalOpen: true, copied: false }); }
+  closeMapModal() { this.setState({ mapModalOpen: false }); }
+  openDateModal(e) { if (e && e.preventDefault) e.preventDefault(); this.setState({ dateModalOpen: true, calendarMonthCount: 3 }); }
+  closeDateModal() { this.setState({ dateModalOpen: false }); }
+  loadMoreMonths() { this.setState({ calendarMonthCount: Math.min(this.MAX_CALENDAR_MONTHS, this.state.calendarMonthCount + 3) }); }
+  clearDates(e) { if (e && e.stopPropagation) e.stopPropagation(); this.setState({ checkIn: null, checkOut: null }); }
+  pickDate(dateStr) {
+    const { checkIn, checkOut } = this.state;
+    // Clicking an already-selected date toggles it off instead of restarting
+    // the range — the pill's × was removed in favor of this.
+    if (dateStr === checkIn || dateStr === checkOut) {
+      this.setState({ checkIn: null, checkOut: null });
+    } else if (!checkIn || checkOut) {
+      this.setState({ checkIn: dateStr, checkOut: null });
+    } else if (dateStr <= checkIn) {
+      this.setState({ checkIn: dateStr, checkOut: null });
+    } else {
+      this.setState({ checkOut: dateStr });
+    }
+  }
+  formatDateLabel(dateStr, lang) {
+    if (!dateStr) return "";
+    const localeMap = { ru: "ru-RU", en: "en-US", zh: "zh-CN", ky: "ky-KG" };
+    const locale = localeMap[lang] || "ru-RU";
+    const d = new Date(dateStr + "T00:00:00");
+    try { return d.toLocaleDateString(locale, { day: "numeric", month: "long" }); }
+    catch (e) { return d.toLocaleDateString("ru-RU", { day: "numeric", month: "long" }); }
+  }
+  buildCalendarMonths(lang, count) {
+    const localeMap = { ru: "ru-RU", en: "en-US", zh: "zh-CN", ky: "ky-KG" };
+    const locale = localeMap[lang] || "ru-RU";
+    let weekdayLabels;
+    try {
+      const base = new Date(2024, 0, 1);
+      weekdayLabels = Array.from({ length: 7 }, (_, i) => {
+        const d = new Date(base);
+        d.setDate(base.getDate() + i);
+        return d.toLocaleDateString(locale, { weekday: "short" }).replace(".", "");
+      });
+    } catch (e) {
+      weekdayLabels = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
+    }
+    const { checkIn, checkOut } = this.state;
+    const todayStr = new Date().toISOString().slice(0, 10);
+    const now = new Date();
+    const months = [];
+    for (let m = 0; m < count; m++) {
+      const monthDate = new Date(now.getFullYear(), now.getMonth() + m, 1);
+      const year = monthDate.getFullYear();
+      const monthIdx = monthDate.getMonth();
+      let monthLabel;
+      try { monthLabel = monthDate.toLocaleDateString(locale, { month: "long", year: "numeric" }); }
+      catch (e) { monthLabel = monthDate.toLocaleDateString("ru-RU", { month: "long", year: "numeric" }); }
+      const daysInMonth = new Date(year, monthIdx + 1, 0).getDate();
+      const firstWeekday = (monthDate.getDay() + 6) % 7;
+      const cells = [];
+      const baseCellStyle = "width:36px; height:36px; padding:0; display:flex; align-items:center; justify-content:center; font-size:13px; border-radius:9999px; font-family:inherit; border:none; background:transparent;";
+      for (let i = 0; i < firstWeekday; i++) cells.push({ empty: true });
+      for (let day = 1; day <= daysInMonth; day++) {
+        const dateStr = year + "-" + String(monthIdx + 1).padStart(2, "0") + "-" + String(day).padStart(2, "0");
+        const disabled = dateStr < todayStr;
+        const isStart = dateStr === checkIn;
+        const isEnd = dateStr === checkOut;
+        const inRange = !!(checkIn && checkOut && dateStr > checkIn && dateStr < checkOut);
+        let style = baseCellStyle;
+        if (disabled) style += " color:rgba(15,15,15,0.25); cursor:default;";
+        else if (isStart || isEnd) style += " background:var(--color-primary-main); color:#fff; font-weight:700; cursor:pointer;";
+        else if (inRange) style += " background:var(--color-primary-light); color:rgba(15,15,15,0.85); cursor:pointer;";
+        else style += " color:rgba(15,15,15,0.85); cursor:pointer;";
+        cells.push({
+          empty: false,
+          label: String(day),
+          disabled,
+          style,
+          onClick: disabled ? () => {} : () => this.pickDate(dateStr),
+        });
+      }
+      months.push({ label: monthLabel, days: cells, style: "animation-delay:" + (m * 70) + "ms;" });
+    }
+    return { months, weekdayLabels };
+  }
+  openContactModal() { this.setState({ contactModal: true }); }
+  closeContactModal() { this.setState({ contactModal: false }); }
+  openLegal(type) { this.setState({ legalModal: type }); }
+  closeLegal() { this.setState({ legalModal: null }); }
+  stopProp(e) { if (e && e.stopPropagation) e.stopPropagation(); }
+  goSection(e, key, href) {
+    if (e && e.preventDefault) e.preventDefault();
+    const el = document.querySelector(href);
+    this._navClickLock = Date.now() + 900;
+    this.setState({ activeKey: key, menuOpen: false });
+    if (el && el.scrollIntoView) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    else window.location.hash = href;
+    clearTimeout(this._navClickTimer);
+    this._navClickTimer = setTimeout(() => { this._navClickLock = 0; this._spy && this._spy(); }, 950);
+  }
+  openBooking(e, label, product) {
+    if (e && e.preventDefault) e.preventDefault();
+    let typeParam = null;
+    if (product === "conferenceHall") typeParam = "chs";
+    if (product === "conference") typeParam = "hrs";
+    if (product === "meeting") typeParam = "mrs";
+
+    if (typeParam) {
+      const url = (this.BOOKING_BASE || "").trim() + "?type=" + typeParam;
+      if (url) {
+        try { window.open(url, "_blank", "noopener"); }
+        catch (_) { window.location.href = url; }
+        return;
+      }
+    }
+    // Остальное — контактная форма
+    this.goContact(e, product || "room", label);
+  }
+  goContact(e, interest, label) {
+    if (e && e.preventDefault) e.preventDefault();
+    const ns = { activeKey: "contact", menuOpen: false };
+    if (interest) ns.interest = interest;
+    if (label && !this.state.message.trim()) {
+      const t = this.I18N[this.state.lang] || this.I18N.ru;
+      const tmpl = (t.contact && t.contact.form && t.contact.form.prefill) || "{item}";
+      ns.message = tmpl.replace("{item}", label);
+    }
+    this.setState(ns);
+    const el = document.getElementById("contact");
+    if (el && el.scrollIntoView) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    else window.location.hash = "contact";
+  }
+  copyAddr() {
+    const url = "https://2gis.kg/bishkek/firm/70000001082501978";
+    try { navigator.clipboard.writeText(url); } catch (e) {}
+    this.setState({ copied: true });
+    clearTimeout(this._cpT);
+    this._cpT = setTimeout(() => this.setState({ copied: false }), 2000);
+  }
+
+  icon(name, size) {
+    const s = size || 20;
+    return React.createElement("svg", {
+      width: s, height: s, viewBox: "0 0 24 24", fill: "none",
+      stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round",
+      dangerouslySetInnerHTML: { __html: this.ICONS[name] || "" },
+    });
+  }
+
+  typographRuText(value) {
+    return String(value)
+      .replace(/(^|[\s([{«„"'])([А-Яа-яЁё]{1,3})\s+/g, (m, before, word) => {
+        const shortWords = /^(?:а|в|во|да|до|за|и|из|к|ко|на|не|но|о|об|от|по|под|при|с|со|у|я|без|для|над|про)$/i;
+        return shortWords.test(word) ? before + word + "\u00A0" : m;
+      })
+      .replace(/\s+\/\s+/g, "\u00A0/\u00A0")
+      .replace(/(\d)\s+(KGS|Мбит\/с|м²|мин|часа|ночь|человек|мест|этажей|коек)/g, "$1\u00A0$2")
+      .replace(/([№§])\s+/g, "$1\u00A0");
+  }
+
+  typograph(value, lang) {
+    if (lang !== "ru") return value;
+    if (typeof value === "string") return this.typographRuText(value);
+    if (Array.isArray(value)) return value.map((item) => this.typograph(item, lang));
+    if (value && typeof value === "object") {
+      const next = {};
+      for (const key of Object.keys(value)) next[key] = this.typograph(value[key], lang);
+      return next;
+    }
+    return value;
+  }
+
+  renderVals() {
+    const lang = this.state.lang;
+    const t = this.typograph(this.I18N[lang] || this.I18N.ru, lang);
+    const mt = this.typograph(this.MAPS_T[lang] || this.MAPS_T.ru, lang);
+    const gmapsUrl = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(this.MAP_QUERY);
+    const gisUrl = "https://2gis.kg/bishkek/firm/70000001082501978";
+    const navDefs = [
+      { key: "rooms", prop: "hostel", href: "#rooms" },
+      { key: "coworking", prop: "coworking", href: "#coworking" },
+      { key: "location", prop: "location", href: "#location" },
+      { key: "events", prop: "events", href: "#events" },
+      { key: "contact", prop: "contacts", href: "#contact" },
+    ];
+    const active = this.state.activeKey;
+    const navListStyle = "position:relative; display:grid; grid-template-columns:repeat(5, max-content); align-items:center; gap: var(--space-xs); flex:0 0 auto;";
+    const navItemBase = "position:relative; z-index:1; box-sizing:border-box; display:inline-flex; align-items:center; justify-content:center; height:36px; padding:0 18px; text-align:center; font-size:14px; line-height:1; border-radius:9999px; text-decoration:none; white-space:nowrap; transition:color 0.3s ease, background 0.2s ease;";
+    const dBase = navItemBase + "font-weight:500; color:rgba(15,15,15,0.7);";
+    const dActive = navItemBase + "font-weight:600; color:var(--color-bg-lighter-3);";
+    const mBase = "font-size:14px; font-weight:500; color:var(--color-text-weak-2); padding: var(--space-md) 16px; border-radius:9999px; text-decoration:none; transition:box-shadow 0.2s cubic-bezier(0.22,1,0.36,1), color 0.2s ease;";
+    const mActive = "font-size:14px; font-weight:600; color:var(--color-bg-lighter-3); background:rgba(15,15,15,0.85); padding: var(--space-md) 16px; border-radius:9999px; text-decoration:none; transition:box-shadow 0.2s cubic-bezier(0.22,1,0.36,1), color 0.2s ease;";
+    const navLinks = navDefs.map((n) => {
+      return {
+        label: t.nav[n.prop], href: n.href, key: n.key,
+        style: n.key === active ? dActive : dBase,
+        mStyle: n.key === active ? mActive : mBase,
+        onClick: (e) => this.goSection(e, n.key, n.href),
+        onClickMobile: (e) => this.goSection(e, n.key, n.href),
+      };
+    });
+
+    const langDBase = "position:relative; z-index:1; box-sizing:border-box; display:block; width:100%; height:36px; line-height:36px; padding:0 16px; font-size:15px; font-weight:500; border:none; appearance:none; -webkit-appearance:none; cursor:pointer; border-radius:9999px; text-align:center; white-space:nowrap; background:transparent; color:var(--color-text-weak-2); text-decoration:none; transition:color 0.3s ease, box-shadow 0.2s ease;";
+    const langDActive = "position:relative; z-index:1; box-sizing:border-box; display:block; width:100%; height:36px; line-height:36px; padding:0 16px; font-size:15px; font-weight:600; border:none; appearance:none; -webkit-appearance:none; cursor:pointer; border-radius:9999px; text-align:center; white-space:nowrap; color:var(--color-white); text-decoration:none; transition:color 0.3s ease, box-shadow 0.2s ease;";
+    const langMBase = "font-size:14px; font-weight:500; border:none; appearance:none; -webkit-appearance:none; background:transparent; cursor:pointer; padding: var(--space-md) 16px; border-radius:9999px; white-space:nowrap; color:var(--color-text-weak-8); transition:box-shadow 0.2s ease;";
+    const langMActive = "font-size:14px; font-weight:600; border:none; appearance:none; -webkit-appearance:none; cursor:pointer; padding: var(--space-md) 16px; border-radius:9999px; white-space:nowrap; background:rgba(15,15,15,0.85); color:var(--color-bg-lighter-3); transition:box-shadow 0.2s ease;";
+    const langs = this.LANGS.map((l) => ({ code: l.code, label: l.label, isActive: l.code === lang, style: l.code === lang ? langDActive : langDBase, mStyle: l.code === lang ? langMActive : langMBase, onClick: () => this.setLang(l.code) }));
+
+    const pp = this.state.pill;
+    const pillStyle = "position:absolute; z-index:0; pointer-events:none; background:rgba(15,15,15,0.85); border-radius:9999px; transform-origin:center; transition:left 0.34s cubic-bezier(0.22,1,0.36,1), width 0.34s cubic-bezier(0.22,1,0.36,1), top 0.28s cubic-bezier(0.22,1,0.36,1), height 0.28s cubic-bezier(0.22,1,0.36,1), opacity 0.2s ease; " +
+      "left:" + (pp ? pp.left : 0) + "px; top:" + (pp ? pp.top : 0) + "px; width:" + (pp ? pp.width : 0) + "px; height:" + (pp ? pp.height : 0) + "px; opacity:" + (pp ? 1 : 0) + ";";
+
+    const lpp = this.state.langPill;
+    const langPillStyle = "position:absolute; z-index:0; pointer-events:none; background:rgba(15,15,15,0.85); border-radius:9999px; transform-origin:center; transition:left 0.3s cubic-bezier(0.22,1,0.36,1), width 0.3s cubic-bezier(0.22,1,0.36,1), top 0.24s cubic-bezier(0.22,1,0.36,1), height 0.24s cubic-bezier(0.22,1,0.36,1), opacity 0.2s ease; " +
+      "left:" + (lpp ? lpp.left : 0) + "px; top:" + (lpp ? lpp.top : 0) + "px; width:" + (lpp ? lpp.width : 0) + "px; height:" + (lpp ? lpp.height : 0) + "px; opacity:" + (lpp ? 1 : 0) + ";";
+
+    const ldp = this.state.langDropdownPos;
+    const langDropdownStyle = "position:fixed; left:" + (ldp ? ldp.left : 0) + "px; top:" + (ldp ? ldp.top + 12 : 0) + "px; transform:translateX(-50%); background:var(--glass-bg); backdrop-filter:var(--glass-blur); -webkit-backdrop-filter:var(--glass-blur); border:var(--glass-border); border-radius:var(--radius-xl); box-shadow:var(--glass-shadow-elevated); min-width:88px; z-index:100; animation:olDropdownInCentered 0.25s cubic-bezier(0.22,1,0.36,1) forwards; padding:var(--space-sm); display:flex; flex-direction:column; gap:3px; opacity:" + (ldp ? 1 : 0) + ";";
+
+    const photos = [
+      "assets/photos/coworking-space.webp",    // Коворкинг — рабочие места
+      "assets/photos/meeting-room.webp",        // Переговорная
+      "assets/photos/conference-hall.webp",     // Конференц-зал
+      "assets/photos/ololoYurt -  hello room.webp", // Hello Room
+    ];
+    const coworkingCards = t.coworking.cards.map((card, i) => {
+      const productType = i === 0 ? "coworking" : i === 1 ? "meeting" : i === 2 ? "conferenceHall" : "conference";
+      const handler = i === 0
+        ? (e) => this.goContact(e, productType, card.name)      // Коворкинг → форма
+        : (e) => this.openBooking(e, card.name, productType);   // Переговорная, конференц-зал & Hello Room → бронирование
+      // Price strings are free-form per language ("от 1 000 KGS / 4 часа"), but consistently
+      // use " / " to separate the amount from the rental duration when one applies (Hello
+      // Room's "по договорённости" has no duration at all) — split it out so duration becomes
+      // its own top-left badge instead of trailing the price.
+      const [priceAmount, duration] = card.price.split(" / ");
+      return {
+        name: card.name, desc: card.desc, trial: card.trial, price: priceAmount, duration: duration || null,
+        onClick: handler,
+        imgEl: React.createElement("img", {
+          src: photos[i % photos.length], alt: card.name, loading: "lazy",
+          style: { position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" },
+        }),
+      };
+    });
+
+    const roomPhotos = [
+      "assets/photos/room-card-1.webp",
+      "assets/photos/room-card-2.webp",
+      "assets/photos/room-card-3.webp",
+      "assets/photos/room-card-4.webp",
+    ];
+    const eventPhotos = [
+      "assets/photos/booking-card-1.webp",
+      "assets/photos/booking-card-2.webp",
+      "assets/photos/booking-card-3.webp",
+    ];
+    const [roomsCurrency, roomsDuration] = t.rooms.unit.split(" / ");
+    const rooms = t.rooms.items.map((r, i) => ({ name: r.name, desc: r.desc, priceText: r.price + " " + roomsCurrency, duration: roomsDuration || null, slotId: "room-" + i, photo: roomPhotos[i % roomPhotos.length], onClick: (e) => this.goContact(e, "room", r.name) }));
+    const COMFORT_ICONS = {
+      wifi:      "assets/icons/comfort/wifi.svg",
+      bed:       "assets/icons/comfort/bed.svg",
+      sofa:      "assets/icons/comfort/sofa.svg",
+      zap:       "assets/icons/comfort/utilities.svg",
+      droplets:  "assets/icons/comfort/laundry.svg",
+      sparkles:  "assets/icons/comfort/cleaning.svg",
+      lock:      "assets/icons/comfort/shield.svg",
+      briefcase: "assets/icons/comfort/briefcase.svg",
+      utensils:  "assets/icons/comfort/dining.svg",
+      monitor:   "assets/icons/comfort/desktop.svg",
+    };
+    const comfort = t.comfort.items.map((f) => ({
+      title: f.title, desc: f.desc,
+      glyph: React.createElement("img", { src: COMFORT_ICONS[f.icon] || "", alt: "", width: 22, height: 22, style: { display: "block" } }),
+    }));
+
+    const TRANSPORT_ICONS = {
+      train: "assets/icons/location/train.svg",
+      pin:   "assets/icons/location/landmark.svg",
+      plane: "assets/icons/location/plane.svg",
+      bus:   "assets/icons/location/bus.svg",
+    };
+    // Маршруты 2ГИС: от точки прибытия до ololoYurt (объект 2ГИС 70000001082501978).
+    // Формат подтверждён по ссылкам «Проехать» на 2gis.kg: /directions/points/<A>;<B>,
+    // где точка — это «|<долгота>,<широта>» или ID объекта.
+    const OLOLO_2GIS_ID = "70000001082501978";
+    const gis2Route = (lon, lat) =>
+      "https://2gis.kg/bishkek/directions/points/" +
+      "|" + lon + "," + lat + ";" + OLOLO_2GIS_ID;
+    const TRANSPORT_ROUTES = {
+      train: gis2Route("74.605734", "42.863944"), // ЖД вокзал «Бишкек II»
+      pin:   gis2Route("74.603723", "42.876437"), // Площадь Ала-Тоо
+      plane: gis2Route("74.469471", "43.054055"), // Аэропорт «Манас»
+      bus:   "https://2gis.kg/bishkek/firm/" + OLOLO_2GIS_ID, // карточка ololoYurt — видны остановки рядом
+    };
+    const transport = t.location.transport.map((s) => ({
+      name: s.name, dur: s.dur,
+      routeUrl: TRANSPORT_ROUTES[s.icon] || "",
+      glyph: React.createElement("img", { src: TRANSPORT_ICONS[s.icon] || "", alt: "", width: 20, height: 20, style: { display: "block" } }),
+    }));
+    const reviewSource = this.state.reviewsData && this.state.reviewsData.length ? this.state.reviewsData : null;
+    const reviews = reviewSource
+      ? reviewSource.map((r) => {
+          const localized = r[lang] || r.ru || r.en || {};
+          return {
+            initial: r.initial,
+            name: r.name,
+            text: localized.text || '',
+            info: localized.info || '',
+          };
+        })
+      : t.reviews.items;
+    const eventSource = this.state.eventsData && this.state.eventsData.length ? this.state.eventsData : null;
+    const events = eventSource
+      ? eventSource.map((e, i) => {
+          const localized = e[lang] || e.ru || e.en || {};
+          const href = e.link || "#contact";
+          const external = /^https?:\/\//i.test(href);
+          const name = localized.name || "";
+          const desc = localized.desc || "";
+          return {
+            name: lang === "ru" ? this.typographRuText(name) : name,
+            desc: lang === "ru" ? this.typographRuText(desc) : desc,
+            badge: e.badge || t.events.badge,
+            slotId: "event-api-" + (e.id || i),
+            photo: e.image || eventPhotos[i % eventPhotos.length],
+            href,
+            target: external ? "_blank" : "",
+            rel: external ? "noopener" : "",
+          };
+        })
+      : t.events.items.map((e, i) => ({
+          name: e.name,
+          desc: e.desc,
+          badge: t.events.badge,
+          slotId: "event-" + i,
+          photo: eventPhotos[i % eventPhotos.length],
+          href: "#contact",
+          target: "",
+          rel: "",
+        }));
+
+    const vw = this.state.vw;
+    const bodyFs = vw >= 1024 ? '14px' : '16px';
+    const bodyFsMd = vw >= 1024 ? '13px' : '15px';
+    const cardBase = "background:rgba(251,249,247,0.9); box-shadow:inset 0 0 0 1px var(--color-overlay-light-5); border-radius:32px; padding: var(--space-sm) 8px 32px; display:flex; flex-direction:column; gap:14px; cursor:pointer; will-change:transform; transition:transform 0.28s cubic-bezier(0.22,1,0.36,1), box-shadow 0.28s ease;";
+    const roomsWrapStyle = "display:flex; gap: var(--space-sm); overflow-x:auto; overflow-y:hidden; width:100%; padding-bottom:6px; scroll-snap-type:x mandatory;";
+    const roomsCardStyle = "flex:0 0 clamp(260px,60vw,340px); scroll-snap-align:start; " + cardBase;
+    let eventsWrapStyle, eventsCardStyle;
+    const evCardBase = "background:rgba(251,249,247,0.9); box-shadow:inset 0 0 0 1px var(--color-overlay-light-5); border-radius:32px; padding: var(--space-sm) 8px 32px; display:flex; flex-direction:column; gap:14px; cursor:pointer; text-decoration:none; color:inherit; will-change:transform; transition:transform 0.28s cubic-bezier(0.22,1,0.36,1), box-shadow 0.28s ease;";
+    eventsWrapStyle = "display:flex; gap: var(--space-sm); overflow-x:auto; overflow-y:hidden; width:100%; padding-bottom:6px; scroll-snap-type:x mandatory;";
+    eventsCardStyle = "flex:0 0 clamp(260px,60vw,340px); scroll-snap-align:start; " + evCardBase;
+    const cowWrapStyle = "display:flex; gap: var(--space-sm); overflow-x:auto; overflow-y:hidden; width:100%; padding-bottom:6px; scroll-snap-type:x mandatory;";
+    const cowCardStyle = "flex:0 0 clamp(260px,60vw,340px); scroll-snap-align:start; " + cardBase;
+    const CONTACT_ICONS = {
+      phone: "assets/icons/contact/phone.svg",
+      mail:  "assets/icons/contact/mail.svg",
+      clock: "assets/icons/contact/reception.svg",
+    };
+    const self = this;
+    const contactItems = t.contact.items.map((c) => {
+      const href = c.icon === "phone" ? "tel:+996705990060"
+                 : c.icon === "mail"  ? "mailto:yurt.m@ololo.city"
+                 : "#";
+      const onClick = c.icon === "clock"
+        ? (e) => { e.preventDefault(); self.openContactModal(); }
+        : null;
+      return {
+        label: c.label, value: c.value, href, onClick,
+        glyph: React.createElement("img", { src: CONTACT_ICONS[c.icon] || "", alt: "", width: 18, height: 18, style: { display: "block" } }),
+      };
+    });
+
+    const TOPIC_DEFS = [
+      { key: "room", label: t.contact.form.topicRoom },
+      { key: "coworking", label: t.contact.form.topicCoworking },
+      { key: "meeting", label: t.contact.form.topicMeeting },
+      { key: "question", label: t.contact.form.topicQuestion },
+    ];
+    const topicChipBase = "font-family:inherit; cursor:pointer; font-size:14px; font-weight:500; padding:9px 16px; border-radius:9999px; border:none; background:transparent; color:rgba(15,15,15,0.7); transition:background 0.2s ease, color 0.2s ease;";
+    const topicChipActive = "font-family:inherit; cursor:pointer; font-size:14px; font-weight:600; padding:9px 16px; border-radius:9999px; border:none; background:rgba(15,15,15,0.85); color:var(--color-bg-lighter-3); transition:background 0.2s ease, color 0.2s ease;";
+    const topics = TOPIC_DEFS.map((d) => ({
+      label: d.label,
+      pressed: this.state.interest === d.key,
+      style: this.state.interest === d.key ? topicChipActive : topicChipBase,
+      onClick: () => this.setState({ interest: d.key }),
+    }));
+
+    const isRoomTopic = this.state.interest === "room";
+    const TOPIC_TITLE_MAP = { room: t.contact.form.topicTitleRoom, coworking: t.contact.form.topicTitleCoworking, meeting: t.contact.form.topicTitleMeeting, question: t.contact.form.topicTitleQuestion };
+    const topicTitle = TOPIC_TITLE_MAP[this.state.interest] || t.contact.form.topicLabel;
+    const MESSAGE_PH_MAP = { coworking: t.contact.form.messagePhCoworking, meeting: t.contact.form.messagePhMeeting, question: t.contact.form.messagePhQuestion };
+    const contextMessagePh = MESSAGE_PH_MAP[this.state.interest] || t.contact.form.messagePh;
+    const datesT = this.DATES_T[lang] || this.DATES_T.ru;
+    const checkInLabel = this.formatDateLabel(this.state.checkIn, lang);
+    const checkOutLabel = this.formatDateLabel(this.state.checkOut, lang);
+    const checkInPillClass = "date-pill active" + (this.state.checkIn ? " filled" : "");
+    const checkOutPillClass = "date-pill" + (this.state.checkOut ? " filled" : "");
+    const datesReady = !!(this.state.checkIn && this.state.checkOut);
+    const canLoadMoreMonths = this.state.calendarMonthCount < this.MAX_CALENDAR_MONTHS;
+    const datesConfirmOpacity = datesReady ? 1 : 0.5;
+    const roomDatesButtonLabel = datesReady
+      ? checkInLabel + " → " + checkOutLabel
+      : datesT.pick;
+    const roomDatesTextColor = datesReady ? "rgba(15,15,15,0.9)" : "rgba(15,15,15,0.4)";
+    const { months: calendarMonths, weekdayLabels } = this.buildCalendarMonths(lang, this.state.calendarMonthCount);
+
+    const footerNav = t.footer.nav.map((label, i) => ({ label, href: ["#rooms", "#coworking", "#events", "#location", "#contact"][i] }));
+    const SOCIAL_ICONS = [
+      "assets/icons/social/instagram.svg",
+      "assets/icons/social/telegram.svg",
+      "assets/icons/social/whatsapp.svg",
+    ];
+    const SOCIAL_HREFS = [
+      "https://www.instagram.com/ololoyurt/",
+      "https://t.me/ololoYurt",
+      "https://wa.me/996705990060",
+    ];
+    const footerSocial = t.footer.social.map((label, i) => ({
+      label,
+      href: SOCIAL_HREFS[i],
+      glyph: React.createElement("img", { src: SOCIAL_ICONS[i], alt: "", width: 22, height: 22, style: { display: "block", filter: "brightness(0) invert(1)" } }),
+    }));
+
+    const sc = this.state.scrolled;
+    const shrink = this.state.isMobile ? "18px" : "20px";
+    const navPad = sc ? "calc(clamp(8px,3vw,40px) + " + shrink + ")" : "clamp(8px,3vw,40px)";
+    const navWrapStyle = "position:relative; max-width:1240px; margin:0 auto; padding:0 " + navPad +
+      "; transition:padding 0.32s cubic-bezier(0.22,1,0.36,1);";
+    // Matches the nav's own padding once *scrolled* (shrunk) — fixed, not tied to
+    // current scroll state, so the button itself never moves.
+    const fabRight = "calc(max(0px, (100vw - 1240px) / 2) + clamp(8px,3vw,40px) + " + shrink + ")";
+    const mobileMenuPanelStyle = "position:absolute; top:calc(100% + 12px); left:" + navPad + "; right:" + navPad + "; z-index:71; background:var(--glass-bg); backdrop-filter:var(--glass-blur); -webkit-backdrop-filter:var(--glass-blur); border:var(--glass-border); border-radius: 26px; padding: 8px; box-shadow:var(--glass-shadow-elevated); animation:olDropdownIn 0.25s cubic-bezier(0.22,1,0.36,1); transition:left 0.32s cubic-bezier(0.22,1,0.36,1), right 0.32s cubic-bezier(0.22,1,0.36,1); display:flex; flex-direction:column; gap: var(--space-xs);";
+    const bookButtonStyle = "display:inline-flex; justify-content:center; align-items:center; box-sizing:border-box; width:168px; height:40px; font-size:14px; font-weight:600; color:var(--color-bg-lighter-3); background:var(--color-primary-main); padding:0 18px; border-radius:9999px; text-decoration:none; white-space:nowrap; transition:transform 0.2s cubic-bezier(0.22,1,0.36,1), box-shadow 0.2s ease;";
+
+    const bookingUrl = (this.BOOKING_URL || "").trim();
+    const bookHref = bookingUrl || "#contact";
+    const bookTarget = bookingUrl ? "_blank" : "";
+    const bookRel = bookingUrl ? "noopener" : "";
+
+    const currentLang = this.LANGS.find((l) => l.code === lang)?.label || "RU";
+
+    return {
+      t, lang, langs, navLinks, navWrapStyle, mobileMenuPanelStyle, navListStyle, bookButtonStyle, active, fabRight,
+      navRef: this.navRef, pillRef: this.pillRef, pillStyle,
+      langRef: this.langRef, langPillRef: this.langPillRef, langPillStyle,
+      langBtnWrapRef: this.langBtnWrapRef, langDropdownStyle,
+      currentLang,
+      langDropdownOpen: this.state.langDropdownOpen,
+      toggleLangDropdown: () => this.toggleLangDropdown(),
+      langBtnStyle: "display:inline-flex; align-items:center; justify-content:center; gap:6px; flex:0 0 auto; height:40px; padding:0 14px; box-sizing:border-box; border-radius:9999px; appearance:none; -webkit-appearance:none; border:none; cursor:pointer; transition:background 0.2s cubic-bezier(0.22,1,0.36,1), color 0.2s ease; white-space:nowrap; font-size:14px; font-weight:600; " +
+        "background:" + (this.state.langDropdownOpen ? (this.state.langBtnHover ? "var(--color-text-primary)" : "var(--color-text-secondary)") : (this.state.langBtnHover ? "var(--color-overlay-light-4)" : "transparent")) + "; " +
+        "color:" + (this.state.langDropdownOpen ? "var(--color-white)" : "rgba(15,15,15,0.9)") + ";",
+      langBtnStyleMobile: "display:inline-flex; align-items:center; justify-content:center; gap: var(--space-xs); padding: var(--space-sm) 11px; box-sizing:border-box; border-radius:9999px; border:none; cursor:pointer; transition:background 0.2s cubic-bezier(0.22,1,0.36,1), color 0.2s ease; font-size:12px; font-weight:600; " +
+        "background:" + (this.state.langDropdownOpen ? "var(--color-text-secondary)" : "transparent") + "; " +
+        "color:" + (this.state.langDropdownOpen ? "var(--color-white)" : "rgba(15,15,15,0.9)") + ";",
+      onLangBtnEnter: () => this.setLangBtnHover(true),
+      onLangBtnLeave: () => this.setLangBtnHover(false),
+      langChevronStyle: "transition:transform 0.3s cubic-bezier(0.22,1,0.36,1); transform:" + (this.state.langDropdownOpen ? "rotate(180deg)" : "rotate(0deg)") + ";",
+      burgerLine1Style: "position:absolute; inset:0; margin:auto; transition:opacity 0.25s cubic-bezier(0.22,1,0.36,1), transform 0.25s cubic-bezier(0.22,1,0.36,1); opacity:" + (this.state.menuOpen ? "0" : "1") + "; transform:rotate(" + (this.state.menuOpen ? "45deg" : "0deg") + ");",
+      burgerLine2Style: "position:absolute; inset:0; margin:auto; transition:opacity 0.25s cubic-bezier(0.22,1,0.36,1), transform 0.25s cubic-bezier(0.22,1,0.36,1); opacity:" + (this.state.menuOpen ? "1" : "0") + "; transform:rotate(" + (this.state.menuOpen ? "0deg" : "-45deg") + ");",
+      desktop: !this.state.isMobile,
+      isMobile: this.state.isMobile,
+      showHeaderLang: this.state.isMobile && this.state.vw >= 600,
+      menuOpen: this.state.menuOpen,
+      toggleMenu: () => this.setState((s) => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      stats: t.stats,
+      paidExtrasText: t.comfort.paidExtras.join(", "),
+      coworkingCards, rooms, comfort, transport, reviews, events, contactItems, topics,
+      roomsWrapStyle, roomsCardStyle, cowWrapStyle, cowCardStyle, eventsWrapStyle, eventsCardStyle,
+      comfortWrapStyle: vw < 640
+        ? "display:grid; grid-template-columns:1fr 1fr; gap: var(--space-sm); width:100%;"
+        : "display:grid; grid-template-columns:repeat(auto-fit, minmax(190px, 1fr)); gap: var(--space-sm); width:100%;",
+      submitLabel: this.state.submitting ? t.contact.form.submitting : t.contact.form.submit,
+      mapModalOpen: this.state.mapModalOpen,
+      openMapModal: () => this.openMapModal(),
+      closeMapModal: () => this.closeMapModal(),
+      goContact: (e) => this.goContact(e),
+      heroBookRoom: (e) => this.goContact(e, "room", ""),
+      heroBookCowork: (e) => this.goSection(e, "coworking", "#coworking"),
+      goLocation: (e) => this.goSection(e, "location", "#location"),
+      openBooking: (e) => this.openBooking(e, ""),
+      bookHref, bookTarget, bookRel,
+      isRoomTopic,
+      topicTitle,
+      contextMessagePh,
+      datesT,
+      dateModalOpen: this.state.dateModalOpen,
+      openDateModal: (e) => this.openDateModal(e),
+      closeDateModal: () => this.closeDateModal(),
+      loadMoreMonths: () => this.loadMoreMonths(),
+      clearDates: (e) => this.clearDates(e),
+      checkIn: this.state.checkIn,
+      checkOut: this.state.checkOut,
+      checkInLabel,
+      checkOutLabel,
+      checkInPillClass,
+      checkOutPillClass,
+      datesReady,
+      canLoadMoreMonths,
+      datesConfirmOpacity,
+      roomDatesButtonLabel,
+      roomDatesTextColor,
+      calendarMonths,
+      weekdayLabels,
+      contactModal: this.state.contactModal,
+      openContactModal: () => this.openContactModal(),
+      closeContactModal: () => this.closeContactModal(),
+      contactModalTitle: this.typograph(this.CONTACT_MODAL_T[lang] || this.CONTACT_MODAL_T.ru, lang),
+      whatsappFabT: (() => {
+        const msgs = this.WHATSAPP_FAB_T[lang] || this.WHATSAPP_FAB_T.ru;
+        return msgs[this.state.fabMsgIndex % msgs.length];
+      })(),
+      stopProp: (e) => this.stopProp(e),
+      copyAddr: () => this.copyAddr(),
+      gmapsUrl, gisUrl,
+      mapsTitle: mt.title,
+      mapsGmaps: mt.gmaps,
+      mapsGis: mt.gis,
+      copyLabel: this.state.copied ? mt.copied : mt.copy,
+      footerContacts: t.footer.contacts,
+      footerNav, footerSocial,
+      footerLegal: t.footer.legal.map((label, i) => ({
+        label,
+        onClick: i === 0 ? () => this.openLegal("terms") : () => this.openLegal("privacy"),
+      })),
+      legalModal: !!this.state.legalModal,
+      legalCloseLegal: () => this.closeLegal(),
+      legalContent: (() => {
+        const ll = this.typograph(this.LEGAL[lang] || this.LEGAL.ru, lang);
+        const key = this.state.legalModal;
+        return key ? { ...ll[key], close: ll.close } : { title: "", date: "", sections: [], close: "" };
+      })(),
+      form: { name: this.state.name, contact: this.state.contact, message: this.state.message, hp: this.state.hp },
+      sent: this.state.sent,
+      submitting: this.state.submitting,
+      submitError: this.state.submitError,
+      bodyFs, bodyFsMd,
+      onName: (e) => this.setState({ name: e.target.value }),
+      onContact: (e) => this.setState({ contact: e.target.value }),
+      onMsg: (e) => this.setState({ message: e.target.value }),
+      onHp: (e) => this.setState({ hp: e.target.value }),
+      onSubmit: (e) => { if (e && e.preventDefault) e.preventDefault(); this.submitForm(); },
+    };
+  }
+}
+</script>
+
+<script>
+(function () {
+  // Scroll submit button into view when keyboard opens
+  document.addEventListener('focusin', function (e) {
+    var t = e.target.tagName;
+    if ((t !== 'INPUT' && t !== 'TEXTAREA') || window.innerWidth >= 1024) return;
+    setTimeout(function () {
+      var btn = document.querySelector('button[type="submit"]');
+      if (btn) {
+        var rect = btn.getBoundingClientRect();
+        var excess = rect.bottom - window.innerHeight + 16;
+        if (excess > 0) window.scrollBy({ top: excess, behavior: 'smooth' });
+      }
+    }, 400);
+  });
+
+  // Auto-expand textarea 1–3 lines
+  var LINE_H = 24, PAD_V = 26, MAX_H = LINE_H * 3 + PAD_V;
+  document.querySelectorAll('textarea').forEach(function (el) {
+    el.style.height = (LINE_H + PAD_V) + 'px';
+  });
+  document.addEventListener('input', function (e) {
+    if (e.target.tagName !== 'TEXTAREA') return;
+    var el = e.target;
+    el.style.height = 'auto';
+    el.style.height = Math.min(el.scrollHeight, MAX_H) + 'px';
+    el.style.overflowY = el.scrollHeight > MAX_H ? 'auto' : 'hidden';
+  });
+})();
+</script>
+</body>
+</html>
