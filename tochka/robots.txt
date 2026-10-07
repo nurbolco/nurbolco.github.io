@@ -1,0 +1,7 @@
+User-Agent: *
+Allow: /
+Disallow: /cabinet
+Disallow: /barber
+Disallow: /admin
+Disallow: /api/
+
