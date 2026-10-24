@@ -50,7 +50,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid currentColor; outline
 
 /* header */
 /* the header itself reaches up under the phone status bar, so the band above the links is the header, in its colour (also dark with the menu open) */
-header.site { position: sticky; top: 0; z-index: 20; background: var(--paper); padding-top: env(safe-area-inset-top, 0px) }
+header.site { --hb: var(--paper); position: sticky; top: 0; z-index: 20; background: var(--hb); padding-top: env(safe-area-inset-top, 0px);
+  box-shadow: 0 -100vh 0 0 var(--hb) } /* in-app browsers (Telegram) scroll the page under a see-through bar above the sticky header: this paints it in the header colour; off-screen elsewhere */
 header.site .wrap { height: 72px; display: flex; align-items: center; justify-content: space-between; position: relative }
 .logo { display: block; width: 180px; height: 44px }
 .logo svg { display: block; width: 100%; height: 100% }
@@ -68,7 +69,7 @@ nav.main a:hover::after, nav.main a:focus-visible::after, .menu-nav a:hover::aft
 .menu { position: fixed; inset: 0; z-index: 40; background: var(--dark); color: var(--white); display: flex; flex-direction: column;
   padding: calc(72px + env(safe-area-inset-top, 0px)) max(var(--pad), var(--gut-r)) calc(32px + env(safe-area-inset-bottom, 0px)) max(var(--pad), var(--gut)) }
 /* while the menu is open the header sits on top of it, dark */
-body.menu-open header.site { z-index: 50; background: var(--dark); color: var(--white) }
+body.menu-open header.site { --hb: var(--dark); z-index: 50; color: var(--white) }
 body.menu-open nav.main { visibility: hidden }
 /* the button keeps its colours when the menu opens, so the eye follows the icon morphing, not a colour swap */
 .menu-nav { display: none; flex-direction: column; align-items: flex-start; gap: 8px; margin-top: 24px }
@@ -98,7 +99,7 @@ body.menu-open nav.main { visibility: hidden }
 /* .small: the concert page tickets (Figma 453:3347, bites r 30.3 every 81.9) */
 .tear.small { --r: 30.3px; --t: 81.9px }
 .tear.top { --y: 0%; margin: 0 1px -2px }
-.tear.slim { height: var(--r) }
+.tear.slim { height: calc(var(--r) + 2px) } /* the bites end above the 2px that lie over the white, so no white shows at the bottom of a bite */
 .tear::before { content: ""; position: absolute; inset: 0; background: var(--white);
   -webkit-mask: radial-gradient(circle at calc(var(--t) / 2) var(--y), transparent var(--r), #000 calc(var(--r) + 0.5px)) var(--x) 0 / var(--t) 100% repeat-x;
   mask: radial-gradient(circle at calc(var(--t) / 2) var(--y), transparent var(--r), #000 calc(var(--r) + 0.5px)) var(--x) 0 / var(--t) 100% repeat-x }
