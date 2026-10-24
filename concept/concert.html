@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Dan Balan, Concept</title>
 <meta name="claude:viewport-fit-sides" content="cover">
+<meta name="theme-color" content="#ffffff">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap">
@@ -25,7 +26,6 @@
 * { box-sizing: border-box }
 html { background: var(--paper) }
 body { margin: 0; background: var(--paper); color: var(--ink); font: 18px/1.1 var(--text); letter-spacing: -0.01em; -webkit-font-smoothing: antialiased }
-body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--paper) }
 a { color: inherit; text-decoration: none }
 h1, h2, h3, p { margin: 0 }
 h1, h2, h3, .display { font-family: var(--display); font-weight: 700; line-height: 0.82; letter-spacing: -0.03em; text-wrap: balance }
@@ -49,7 +49,8 @@ h3 { font-size: clamp(24px, 2.15vw, 31px) }
 a:focus-visible, button:focus-visible { outline: 2px solid currentColor; outline-offset: 3px }
 
 /* header */
-header.site { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--paper) }
+/* the header itself reaches up under the phone status bar, so the band above the links is the header, in its colour (also dark with the menu open) */
+header.site { position: sticky; top: 0; z-index: 20; background: var(--paper); padding-top: env(safe-area-inset-top, 0px) }
 header.site .wrap { height: 72px; display: flex; align-items: center; justify-content: space-between; position: relative }
 .logo { display: block; width: 180px; height: 44px }
 .logo svg { display: block; width: 100%; height: 100% }
@@ -92,10 +93,11 @@ body.menu-open nav.main { visibility: hidden }
 
 /* ticket edge (scalloped, as in the Figma «Subtract» tiles): bites of r 34.7 every ~93.7 along the bottom, or the top with .top;
    inset by the 1px border of the white it continues, so the white runs straight; .slim drops the white band above the bites */
-.tear { --r: 34.7px; --t: 93.7px; --y: 100%; --x: calc(var(--t) / -2); height: calc(var(--r) * 2); margin: -1px 1px 0; position: relative }
+/* the edge overlaps the white it continues by 2px (white on white), so no hairline of a border shows at the seam on 3x screens */
+.tear { --r: 34.7px; --t: 93.7px; --y: 100%; --x: calc(var(--t) / -2); height: calc(var(--r) * 2); margin: -2px 1px 0; position: relative; z-index: 1 }
 /* .small: the concert page tickets (Figma 453:3347, bites r 30.3 every 81.9) */
 .tear.small { --r: 30.3px; --t: 81.9px }
-.tear.top { --y: 0%; margin: 0 1px -1px }
+.tear.top { --y: 0%; margin: 0 1px -2px }
 .tear.slim { height: var(--r) }
 .tear::before { content: ""; position: absolute; inset: 0; background: var(--white);
   -webkit-mask: radial-gradient(circle at calc(var(--t) / 2) var(--y), transparent var(--r), #000 calc(var(--r) + 0.5px)) var(--x) 0 / var(--t) 100% repeat-x;
@@ -105,7 +107,7 @@ body.menu-open nav.main { visibility: hidden }
 /* Layout: Figma «DAN BALAN — страница концерта» (node 452:2111), 1440 wide, 1312 column; white intro and story, a dark block with two
    tickets side by side (what is known, and the presale sign-up), questions, footer */
 :root { --mute: #727272; --rule: #b9b9b9 }
-section[id], footer[id] { scroll-margin-top: 72px }
+section[id], footer[id] { scroll-margin-top: calc(72px + env(safe-area-inset-top, 0px)) }
 .mute { color: var(--mute) }
 h2.big { font-size: clamp(34px, 3.75vw, 54px) }
 .lbl { font-size: 14px; letter-spacing: 0; color: var(--mute) }
@@ -473,6 +475,7 @@ footer .legal { display: flex; justify-content: space-between; flex-wrap: wrap; 
     menu.hidden = !on; document.body.classList.toggle("menu-open", on); document.body.style.overflow = on ? "hidden" : "";
     burger.setAttribute("aria-expanded", String(on)); burger.setAttribute("aria-label", on ? "Закрыть меню" : "Открыть меню");
     morph ? morph.morphTo(on ? CLOSE : MENU) : icon.setAttribute("d", on ? CLOSE : MENU);
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", on ? "#181818" : "#ffffff"); // the browser bar follows the header
   };
   burger.addEventListener("click", () => setMenu(menu.hidden));
   menu.addEventListener("click", (e) => { if (e.target.closest(".menu-nav a, .menu-next")) setMenu(false); });
