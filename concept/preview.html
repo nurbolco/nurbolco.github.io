@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Concept, предпросмотр</title>
+<style>
+  /* the site (index.html next to this file) in a phone, a tablet and a laptop frame, side by side */
+  * { box-sizing: border-box }
+  body { margin: 0; background: #ececec; color: #181818; font: 14px/1.3 system-ui, -apple-system, "Segoe UI", Arial, sans-serif }
+  header { display: flex; align-items: center; gap: 16px; padding: 16px 24px }
+  header b { font-size: 16px }
+  button { font: inherit; padding: 8px 16px; border-radius: 999px; border: 1px solid #181818; background: #fff; cursor: pointer }
+  .row { display: flex; gap: 32px; align-items: flex-start; padding: 8px 24px 40px; overflow-x: auto }
+  figure { margin: 0; flex: none }
+  figcaption { margin-bottom: 8px; color: #555 }
+  .frame { width: max-content; border: 10px solid #181818; border-radius: 28px; overflow: hidden; background: #fff; transform-origin: top left }
+  .frame iframe { display: block; border: 0; background: #fff }
+</style>
+</head>
+<body>
+<header><b>Concept: телефон, планшет, ноутбук</b><button id="reload">Обновить все</button></header>
+<div class="row">
+  <figure><figcaption>Телефон, 390 × 844</figcaption><div class="frame"><iframe src="index.html" width="390" height="844" title="Телефон"></iframe></div></figure>
+  <figure><figcaption>Планшет, 768 × 1024</figcaption><div class="frame"><iframe src="index.html" width="768" height="1024" title="Планшет"></iframe></div></figure>
+  <figure id="laptop"><figcaption>Ноутбук, 1440 × 900, уменьшено</figcaption><div class="frame"><iframe src="index.html" width="1440" height="900" title="Ноутбук"></iframe></div></figure>
+</div>
+<script>
+  // the laptop frame is shown at 60 % so all three fit on one screen
+  const lap = document.querySelector("#laptop"), f = lap.querySelector(".frame"), k = 0.6;
+  f.style.transform = `scale(${k})`; lap.style.width = 1460 * k + "px"; lap.style.height = 920 * k + 30 + "px";
+  document.getElementById("reload").onclick = () => document.querySelectorAll("iframe").forEach((i) => (i.src = i.src));
+</script>
+</body>
+</html>
