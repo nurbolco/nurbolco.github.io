@@ -122,24 +122,25 @@ body.menu-open nav.main { visibility: hidden }
 .btn.status { cursor: default; user-select: none }
 .btn.status:hover { background: var(--white) }
 
-/* hero: the nearest concert as a ticket on the dark (Figma 474:3841, the same on the concert page), bites down both sides, the photo on the
-   left half against the edge, the text on the right, centred; up to 860 the ticket stands upright, photo above text, bites top and bottom */
+/* hero: the nearest concert as a ticket on the dark (Figma 474:3841, the same on the concert page 480:4476), 1244 wide at most, bites down
+   both sides (a finer step, ~55 px, 41 deep), the photo fills the left half edge to edge, the text on the right, centred;
+   up to 860 the ticket stands upright, photo above text, bites top and bottom */
 .hero { background: var(--dark) }
 .hero > .wrap { padding-block: max(24px, var(--pad)) }
-.pass { display: flex }
+.pass { display: flex; max-width: 1244px; margin-inline: auto }
 .pass > .tear:not(.side) { display: none }
 .pass-body { flex: 1; min-width: 0; background: var(--white); color: var(--ink); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) }
-.pass .shot { display: flex; padding-block: 34px }
-/* the photo is 4:3 at least and grows taller when the text beside it needs more height (1025–1270, where the buttons wrap) */
+.pass .shot { display: flex }
+/* the photo is 4:3 at least and grows taller when the text beside it needs more height (at 1440 by 11 px, as in Figma; more where the buttons wrap) */
 .pass .photo-wrap { flex: 1; position: relative; overflow: hidden; display: block }
 .pass .photo-wrap::before { content: ""; display: block; padding-top: 75% }
 .pass .photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; background: var(--slot) }
 a.photo-wrap .photo { transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1) }
 a.photo-wrap:hover .photo { transform: scale(1.03) }
-.pass .info { display: flex; flex-direction: column; justify-content: center; gap: 32px; padding: 34px 32px }
+.pass .info { display: flex; flex-direction: column; justify-content: center; gap: 32px; padding: 32px }
 .pass .text { container-type: inline-size; display: flex; flex-direction: column; gap: 24px }
-/* the name fills the text column: «BALAN», the longer line, is 3.72 em wide */
-.pass h1 { font-size: min(146px, 100cqi / 3.72); white-space: nowrap }
+/* the name: 98 px, smaller where the column is narrower («BALAN», the longer line, is 3.72 em wide) */
+.pass h1 { font-size: min(98px, 100cqi / 3.72); white-space: nowrap }
 .pass h1 i { font-style: italic }
 .pass h1 .ln { display: inline-block }
 .pass .kicker, .pass .date { font-weight: 500; letter-spacing: -0.02em }
@@ -151,15 +152,14 @@ a.photo-wrap:hover .photo { transform: scale(1.03) }
   .pass > .tear.side { display: none }
   .pass > .tear:not(.side) { display: block }
   .pass-body { grid-template-columns: minmax(0, 1fr) }
-  .pass .shot { padding: 0 16px }
   .pass .info { padding: 24px 16px 4px; gap: 28px }
   .pass .text { gap: 20px }
-  .pass h1 { font-size: min(120px, 100cqi / 3.8) } /* a hair of air on the right: the padding is only 16 px here */
+  .pass h1 { font-size: min(98px, 100cqi / 3.8) } /* a hair of air on the right: the padding is only 16 px here */
 }
 /* the narrowest phones: «Узнать о старте продаж» with its arrow fits the column at 16 px */
 @media (max-width: 360px) { .pass .btn { font-size: 16px; padding: 0 20px } }
 /* tablet: the name on one line («DAN BALAN» is 6.3 em wide) */
-@media (min-width: 561px) and (max-width: 860px) { .pass h1 br { display: none } .pass h1 { font-size: min(120px, 100cqi / 6.3) } }
+@media (min-width: 561px) and (max-width: 860px) { .pass h1 br { display: none } .pass h1 { font-size: min(98px, 100cqi / 6.3) } }
 
 /* hero: the nearest concert, a ticket (shared.css, the same on the concert page) */
 .hero h1 a { display: block }
@@ -584,9 +584,9 @@ section[id], footer[id] { scroll-margin-top: calc(72px + env(safe-area-inset-top
 <script>
 (() => {
   // ticket edge: the bite step (~64 px) is stretched so a whole number of steps fills the edge and both ends get the same half bite;
-  // an edge along a side (.side) is fitted to its height
+  // an edge along a side (.side, the hero ticket) is fitted to its height, with a finer step (~55 px, Figma 474:3920)
   const fit = new ResizeObserver((es) => es.forEach(({ target, contentRect: { width, height } }) => {
-    const len = target.classList.contains("side") ? height : width, n = Math.max(1, Math.round(len / 64));
+    const side = target.classList.contains("side"), len = side ? height : width, n = Math.max(1, Math.round(len / (side ? 55 : 64)));
     if (len) target.style.setProperty("--t", len / n + "px");
   }));
   document.querySelectorAll(".tear").forEach((t) => fit.observe(t));
