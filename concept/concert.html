@@ -17,7 +17,7 @@
 /* Layout: Figma «Desktop - 1» (node 424:95), 1440 wide, 1312 content column with 64 gutters; white sections around a dark #181818 block whose right column is one white «ticket» strip */
 :root {
   color-scheme: light;
-  --paper: #ffffff; --white: #ffffff; --ink: #181818; --dark: #181818; --grey: #d9d9d9; --slot: #ffffff; --icon: #181818;
+  --paper: #ffffff; --white: #ffffff; --ink: #181818; --dark: #181818; --grey: #d9d9d9; --rule: #b9b9b9; --slot: #ffffff; --icon: #181818;
   --display: "Actay Wide", "Arial Black", Arial, sans-serif;
   --text: "Geist", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
   --gut: max(16px, env(safe-area-inset-left, 0px)); --gut-r: max(16px, env(safe-area-inset-right, 0px));
@@ -92,22 +92,22 @@ body.menu-open nav.main { visibility: hidden }
   .menu-info { gap: 16px }
 }
 
-/* ticket edge (scalloped, as in the Figma «Subtract» tiles): bites of r 34.7 every ~93.7 along the bottom, or the top with .top;
-   inset by the 1px border of the white it continues, so the white runs straight; .slim drops the white band above the bites */
-/* the edge overlaps the white it continues by 2px (white on white), so no hairline of a border shows at the seam on 3x screens */
-.tear { --r: 34.7px; --t: 93.7px; --y: 100%; --x: calc(var(--t) / -2); height: calc(var(--r) * 2); margin: -2px 1px 0; position: relative; z-index: 1 }
-/* .small: the concert page tickets (Figma 453:3347, bites r 30.3 every 81.9) */
-.tear.small { --r: 30.3px; --t: 81.9px }
-.tear.top { --y: 0%; margin: 0 1px -2px }
-.tear.slim { height: calc(var(--r) + 2px) } /* the bites end above the 2px that lie over the white, so no white shows at the bottom of a bite */
+/* ticket edge (scalloped, as in the Figma «Subtract» tiles): about ten bites across a ticket, one every ~64 px (the script fits the step to the width),
+   radius 0.37 of the step, so every edge has the same shape; along the bottom, or the top with .top */
+/* the edge overlaps the white it continues by 2px (white on white), so no hairline shows at the seam on 3x screens */
+.tear { --t: 64px; --r: calc(var(--t) * 0.37); --y: 100%; --x: calc(var(--t) / -2); height: calc(var(--r) * 2); margin-top: -2px; position: relative; z-index: 1 }
+.tear.top { --y: 0%; margin: 0 0 -2px }
 .tear::before { content: ""; position: absolute; inset: 0; background: var(--white);
   -webkit-mask: radial-gradient(circle at calc(var(--t) / 2) var(--y), transparent var(--r), #000 calc(var(--r) + 0.5px)) var(--x) 0 / var(--t) 100% repeat-x;
   mask: radial-gradient(circle at calc(var(--t) / 2) var(--y), transparent var(--r), #000 calc(var(--r) + 0.5px)) var(--x) 0 / var(--t) 100% repeat-x }
+/* perforation between the parts of a ticket (Figma «Frame 91», in place of divider lines): dark dots 7.9 px, about every 17.9 px, 12 px from the ends */
+.perf { position: relative; height: 32px; background: var(--white) }
+.perf::before { content: ""; position: absolute; inset: 0 7px; background: radial-gradient(circle 3.95px, var(--dark) 3.45px, transparent 3.95px) 0 50% / 17.94px 100% round no-repeat }
 [hidden] { display: none !important }
 
 /* Layout: Figma «DAN BALAN — страница концерта» (node 452:2111), 1440 wide, 1312 column; white intro and story, a dark block with two
    tickets side by side (what is known, and the presale sign-up), questions, footer */
-:root { --mute: #727272; --rule: #b9b9b9 }
+:root { --mute: #727272 }
 section[id], footer[id] { scroll-margin-top: calc(72px + env(safe-area-inset-top, 0px)) }
 .mute { color: var(--mute) }
 h2.big { font-size: clamp(34px, 3.75vw, 54px) }
@@ -155,9 +155,8 @@ h2.big { font-size: clamp(34px, 3.75vw, 54px) }
 .dark .status { font-size: 16px }
 .tickets { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) }
 .tk { display: flex; flex-direction: column; min-width: 0 }
-.tk .tk-body { flex: 1; background: var(--white); color: var(--ink); padding: 32px; margin: 0 1px; display: flex; flex-direction: column; gap: 26px }
-/* side by side the two tickets meet with a 1px dark gap, the line between them (Figma 453:3169 stroke) */
-.tk:first-child .tk-body, .tk:first-child .tear { margin-right: 0 }
+.tk .tk-body { flex: 1; background: var(--white); color: var(--ink); padding: 32px; display: flex; flex-direction: column; gap: 26px }
+/* side by side the two tickets meet edge to edge and read as one (Figma 453:3066), their half bites close into whole ones at the seam */
 .tk h3 { font-size: clamp(24px, 2.15vw, 31px) }
 .tk h3.big { font-size: clamp(28px, 2.64vw, 38px) }
 .facts { margin: 0; display: grid }
@@ -211,7 +210,6 @@ footer .legal { display: flex; justify-content: space-between; flex-wrap: wrap; 
   .story .wrap, .faq .wrap { grid-template-columns: 1fr; gap: 28px }
   .story .body { padding-top: 0 }
   .tickets { grid-template-columns: 1fr; row-gap: 56px }
-  .tk:first-child .tk-body, .tk:first-child .tear { margin-right: 1px }
   footer .nav { grid-template-columns: 1fr 1fr 1fr; gap: 32px }
   footer .brand { grid-column: 1 / -1 }
 }
@@ -301,10 +299,10 @@ footer .legal { display: flex; justify-content: space-between; flex-wrap: wrap; 
         </div>
       </div>
       <nav class="jump" aria-label="Разделы страницы">
-        <a href="#story">О концерте ↓</a>
-        <a href="#info">Информация ↓</a>
-        <a href="#presale">Старт продаж ↓</a>
-        <a href="#faq">Вопросы ↓</a>
+        <a href="#story">О концерте</a>
+        <a href="#info">Информация</a>
+        <a href="#presale">Старт продаж</a>
+        <a href="#faq">Вопросы</a>
       </nav>
     </div>
   </section>
@@ -332,7 +330,7 @@ footer .legal { display: flex; justify-content: space-between; flex-wrap: wrap; 
 
       <div class="tickets">
         <div class="tk">
-          <div class="tear top small" aria-hidden="true"></div>
+          <div class="tear top" aria-hidden="true"></div>
           <div class="tk-body">
             <h3 class="trim">Ваш вечер с DAN BALAN</h3>
             <dl class="facts">
@@ -343,11 +341,11 @@ footer .legal { display: flex; justify-content: space-between; flex-wrap: wrap; 
               <div><dt>Стоимость билетов</dt><dd>Объявим к старту продаж</dd></div>
             </dl>
           </div>
-          <div class="tear small" aria-hidden="true"></div>
+          <div class="tear" aria-hidden="true"></div>
         </div>
 
         <div class="tk" id="presale">
-          <div class="tear top small" aria-hidden="true"></div>
+          <div class="tear top" aria-hidden="true"></div>
           <div class="tk-body">
             <h3 class="big trim">Не пропустите<br>начало продаж</h3>
             <form class="notify" id="notify" novalidate>
@@ -373,7 +371,7 @@ footer .legal { display: flex; justify-content: space-between; flex-wrap: wrap; 
               <button class="ulink" type="button" id="again" style="background:none;border:0;padding:0;font:inherit;cursor:pointer;align-self:flex-start">Изменить контакт</button>
             </div>
           </div>
-          <div class="tear small" aria-hidden="true"></div>
+          <div class="tear" aria-hidden="true"></div>
         </div>
       </div>
 
@@ -461,10 +459,9 @@ footer .legal { display: flex; justify-content: space-between; flex-wrap: wrap; 
 </script>
 <script>
 (() => {
-  // ticket edge: the bite step is stretched so a whole number of steps fills the strip and both ends get the same half bite
+  // ticket edge: the bite step (~64 px) is stretched so a whole number of steps fills the edge and both ends get the same half bite
   const fit = new ResizeObserver((es) => es.forEach(({ target, contentRect: { width: w } }) => {
-    const step = target.classList.contains("small") ? 81.9 : 93.7;
-    target.style.setProperty("--t", w / Math.max(1, Math.round(w / step)) + "px");
+    target.style.setProperty("--t", w / Math.max(1, Math.round(w / 64)) + "px");
   }));
   document.querySelectorAll(".tear").forEach((t) => fit.observe(t));
 
