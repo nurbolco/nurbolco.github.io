@@ -94,14 +94,17 @@ body.menu-open nav.main { visibility: hidden }
 
 /* ticket edge (scalloped, as in the Figma «Subtract» tiles): about ten bites across a ticket, one every ~64 px (the script fits the step to the width),
    radius 0.37 of the step, so every edge has the same shape; along the bottom, or the top with .top */
-/* the edge overlaps the white it continues by 2px (white on white), so no hairline shows at the seam on 3x screens */
-.tear { --t: 64px; --r: calc(var(--t) * 0.37); --y: 100%; --x: calc(var(--t) / -2); height: calc(var(--r) * 2); margin-top: -2px; position: relative; z-index: 1 }
-.tear.top { --y: 0%; margin: 0 0 -2px }
-.tear::before { content: ""; position: absolute; inset: 0; background: var(--white);
-  -webkit-mask: radial-gradient(circle at calc(var(--t) / 2) var(--y), transparent var(--r), #000 calc(var(--r) + 0.5px)) var(--x) 0 / var(--t) 100% repeat-x;
-  mask: radial-gradient(circle at calc(var(--t) / 2) var(--y), transparent var(--r), #000 calc(var(--r) + 0.5px)) var(--x) 0 / var(--t) 100% repeat-x }
+/* where white meets white at a fractional pixel (browser zoom, the preview, 125–150 % screens) a grey seam shows, so white pieces overlap:
+   the edge lies 2px over the white it continues, the perforation 1px over its neighbours (a shadow does not help: it starts on the same fractional row) */
+/* the white is a background image with see-through bites, not a mask and not a colour: a masked edge is drawn on a layer of its own, and a colour
+   is smoothed at a fractional edge while an image is cut at the pixel, so at a fractional zoom (browser zoom, the preview, 125–150 % screens)
+   either leaves a light line along the bites or a step at the side (25.10). The image reaches 4px past the outer edge, so its last row of pixels
+   lies inside the image. No position or z-index on the edge: a stacking context is placed on a whole pixel and steps off the white beside it */
+.tear { --t: 64px; --r: calc(var(--t) * 0.37); --cy: calc(100% - 4px); --py: 0px; height: calc(var(--r) * 2); margin-top: -2px;
+  background: radial-gradient(circle at calc(var(--t) / 2) var(--cy), transparent var(--r), var(--white) calc(var(--r) + 0.5px)) calc(var(--t) / -2) var(--py) / var(--t) calc(100% + 4px) repeat-x }
+.tear.top { --cy: 4px; --py: -4px; margin: 0 0 -2px }
 /* perforation between the parts of a ticket (Figma «Frame 91», in place of divider lines): dark dots 7.9 px, about every 17.9 px, 12 px from the ends */
-.perf { position: relative; height: 32px; background: var(--white) }
+.perf { position: relative; height: 32px; margin: -1px 0; background: var(--white) }
 .perf::before { content: ""; position: absolute; inset: 0 7px; background: radial-gradient(circle 3.95px, var(--dark) 3.45px, transparent 3.95px) 0 50% / 17.94px 100% round no-repeat }
 [hidden] { display: none !important }
 
@@ -149,6 +152,7 @@ body.menu-open nav.main { visibility: hidden }
 .rowx .panel { background: var(--white); color: var(--ink); padding: 32px }
 /* the parts of the strip are divided by a perforation, not a line */
 .rowx > .perf { grid-column: 2 }
+
 .rowx h2 { text-wrap: pretty }
 .about .copy { color: rgb(255 255 255 / 0.9); display: flex; flex-direction: column; gap: 20px; max-width: 36em }
 .about .copy p + p { margin-top: -2px }
@@ -161,7 +165,7 @@ body.menu-open nav.main { visibility: hidden }
 .feat .body { display: flex; flex-direction: column; gap: 12px; padding-top: 2px; max-width: 24em }
 .feat .body p { line-height: 1.1 }
 
-.fmt { display: grid; grid-template-columns: minmax(0, 278px) minmax(0, 1fr); gap: 12px; padding: 12px 12px 12px 12px; border-bottom: 1px solid var(--rule) }
+.fmt { display: grid; grid-template-columns: minmax(0, 278fr) minmax(0, 246fr); gap: 12px; padding: 12px 12px 12px 12px; border-bottom: 1px solid var(--rule) }
 .fmt:last-child { border-bottom: 0 }
 /* photos: generated in Magnific, one warm blurred film look (assets/photos/CREDITS.md) */
 .ph.pic { position: relative; overflow: hidden }
@@ -175,6 +179,13 @@ body.menu-open nav.main { visibility: hidden }
 @media (max-width: 1024px) { .rows > .tear.top { margin-left: 0 } .rows > .tear.top + .rowx > .left { padding-top: 4px } }
 .ticket { display: flex; flex-direction: column }
 .ticket .offer { flex: 1 }
+/* side by side the two cards share one top and one bottom edge across both (.pair, an even number of bites, so the middle falls on a bite
+   as in Figma), and the first card lies 1px under the second: no seam where they meet at a fractional pixel; stacked, each card has its own edges */
+.coop .wrap > .tear { grid-column: 1 / -1; grid-row: 1 }
+.coop .wrap > .tear:not(.top) { grid-row: 3 }
+.coop .ticket { grid-row: 2 }
+@media (min-width: 861px) { .coop .ticket > .tear { display: none } .coop .ticket:first-child .offer { margin-right: -1px } }
+@media (max-width: 860px) { .coop .wrap > .tear { display: none } .coop .ticket { grid-row: auto } }
 
 @media (max-width: 1024px) {
   .rowx { grid-template-columns: 1fr }
@@ -182,7 +193,7 @@ body.menu-open nav.main { visibility: hidden }
      the perforation under the panel divides one section from the next */
   .rowx > .left { padding: 28px 16px 8px; background: var(--white); color: var(--ink) }
   .rowx > .left .stick { position: static; gap: 16px }
-  .rowx .panel { padding: 16px }
+  .rowx .panel { padding: 16px; margin-top: -1px } /* 1px over the heading above it: no seam (see the ticket edge in shared.css) */
   .rowx > .perf { grid-column: 1 / -1 }
   .about .copy { color: rgb(24 24 24 / 0.9) }
   .feat { padding: 16px 0; gap: 12px }
@@ -479,6 +490,7 @@ section[id], footer[id] { scroll-margin-top: calc(72px + env(safe-area-inset-top
           </ul>
           <a class="btn black" href="#" onclick="return false">Предложить концерт</a>
         </article><div class="tear" aria-hidden="true"></div></div>
+        <div class="tear top pair" aria-hidden="true"></div><div class="tear pair" aria-hidden="true"></div>
       </div>
     </section>
 
@@ -523,9 +535,11 @@ section[id], footer[id] { scroll-margin-top: calc(72px + env(safe-area-inset-top
 </script>
 <script>
 (() => {
-  // ticket edge: the bite step (~64 px) is stretched so a whole number of steps fills the edge and both ends get the same half bite
+  // ticket edge: the bite step (~64 px) is stretched so a whole number of steps fills the edge and both ends get the same half bite;
+  // an edge across a pair of tickets gets an even number, so the middle, where the two meet, falls on a bite
   const fit = new ResizeObserver((es) => es.forEach(({ target, contentRect: { width: w } }) => {
-    target.style.setProperty("--t", w / Math.max(1, Math.round(w / 64)) + "px");
+    const n = target.classList.contains("pair") ? 2 * Math.max(1, Math.round(w / 128)) : Math.max(1, Math.round(w / 64));
+    if (w) target.style.setProperty("--t", w / n + "px");
   }));
   document.querySelectorAll(".tear").forEach((t) => fit.observe(t));
 

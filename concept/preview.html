@@ -9,28 +9,94 @@
   /* the site (index.html next to this file) in a phone, a tablet and a laptop frame, side by side */
   * { box-sizing: border-box }
   body { margin: 0; background: #ececec; color: #181818; font: 14px/1.3 system-ui, -apple-system, "Segoe UI", Arial, sans-serif }
-  header { display: flex; align-items: center; gap: 16px; padding: 16px 24px }
+  header { position: sticky; top: 0; z-index: 1; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; padding: 16px 24px; background: #ececec }
   header b { font-size: 16px }
   button { font: inherit; padding: 8px 16px; border-radius: 999px; border: 1px solid #181818; background: #fff; cursor: pointer }
+  button:hover { background: #f4f4f4 }
+  .zoom { display: flex; align-items: center; gap: 8px; margin-left: auto }
+  .zoom button.sq { width: 36px; padding: 8px 0 }
+  .zoom input { width: 160px; accent-color: #181818 }
+  .zoom output { min-width: 44px; text-align: right; font-variant-numeric: tabular-nums }
+  .zoom .tip { color: #555 }
   .row { display: flex; gap: 32px; align-items: flex-start; padding: 8px 24px 40px; overflow-x: auto }
   figure { margin: 0; flex: none }
-  figcaption { margin-bottom: 8px; color: #555 }
+  figcaption { margin-bottom: 8px; color: #555; white-space: nowrap }
+  .box { overflow: hidden }
   .frame { width: max-content; border: 10px solid #181818; border-radius: 28px; overflow: hidden; background: #fff; transform-origin: top left }
   .frame iframe { display: block; border: 0; background: #fff }
 </style>
 </head>
 <body>
-<header><b>Concept: телефон, планшет, ноутбук</b><button id="reload">Обновить все</button></header>
-<div class="row">
-  <figure><figcaption>Телефон, 390 × 844</figcaption><div class="frame"><iframe src="index.html" width="390" height="844" title="Телефон"></iframe></div></figure>
-  <figure><figcaption>Планшет, 768 × 1024</figcaption><div class="frame"><iframe src="index.html" width="768" height="1024" title="Планшет"></iframe></div></figure>
-  <figure id="laptop"><figcaption>Ноутбук, 1440 × 900, уменьшено</figcaption><div class="frame"><iframe src="index.html" width="1440" height="900" title="Ноутбук"></iframe></div></figure>
+<header>
+  <b>Concept: телефон, планшет, ноутбук</b><button id="reload">Обновить все</button>
+  <div class="zoom" id="zoom" hidden>
+    <button class="sq" id="z-out" aria-label="Уменьшить">−</button>
+    <input id="z-range" type="range" min="20" max="200" step="5" aria-label="Масштаб">
+    <button class="sq" id="z-in" aria-label="Увеличить">+</button>
+    <output id="z-val"></output>
+    <button id="z-100">100%</button>
+    <button id="z-fit">Вписать</button>
+    <span class="tip">или ⌘/Ctrl + колесо, щипок на сером поле, клавиши − + 0</span>
+  </div>
+</header>
+<div class="row" id="row">
+  <figure><figcaption>Телефон, 390 × 844</figcaption><div class="box"><div class="frame"><iframe src="index.html" width="390" height="844" title="Телефон"></iframe></div></div></figure>
+  <figure><figcaption>Планшет, 768 × 1024</figcaption><div class="box"><div class="frame"><iframe src="index.html" width="768" height="1024" title="Планшет"></iframe></div></div></figure>
+  <figure><figcaption>Ноутбук, 1440 × 900</figcaption><div class="box"><div class="frame"><iframe src="index.html" width="1440" height="900" title="Ноутбук"></iframe></div></div></figure>
 </div>
 <script>
-  // the laptop frame is shown at 60 % so all three fit on one screen
-  const lap = document.querySelector("#laptop"), f = lap.querySelector(".frame"), k = 0.6;
-  f.style.transform = `scale(${k})`; lap.style.width = 1460 * k + "px"; lap.style.height = 920 * k + 30 + "px";
   document.getElementById("reload").onclick = () => document.querySelectorAll("iframe").forEach((i) => (i.src = i.src));
+
+  // scale: online (GitHub Pages) the frames stay as they were, phone and tablet at full size, the laptop at 60 %;
+  // opened from disk or localhost one zoom scales all three alike, remembered between visits
+  const local = location.protocol === "file:" || ["localhost", "127.0.0.1", ""].includes(location.hostname);
+  const figs = [...document.querySelectorAll("figure")];
+  const size = (fig) => { const i = fig.querySelector("iframe"); return [+i.width + 20, +i.height + 20]; }; // with the 10px frame
+  const scaleFig = (fig, k) => {
+    const [w, h] = size(fig), box = fig.querySelector(".box");
+    fig.querySelector(".frame").style.transform = `scale(${k})`;
+    box.style.width = w * k + "px"; box.style.height = h * k + "px";
+  };
+  if (!local) {
+    figs.forEach((f, n) => scaleFig(f, n === 2 ? 0.6 : 1));
+    figs[2].querySelector("figcaption").textContent += ", уменьшено";
+  } else {
+    const ui = document.getElementById("zoom"), range = document.getElementById("z-range"), val = document.getElementById("z-val"), row = document.getElementById("row");
+    const MIN = 0.2, MAX = 2, KEY = "concept-preview-zoom";
+    let k = 1, mode = "fit";
+    const fit = () => { // all three side by side in the window width
+      const pad = parseFloat(getComputedStyle(row).paddingLeft) * 2, gap = parseFloat(getComputedStyle(row).columnGap) * (figs.length - 1);
+      return (row.clientWidth - pad - gap) / figs.reduce((s, f) => s + size(f)[0], 0);
+    };
+    const apply = (next, m = "set") => {
+      mode = m; k = Math.min(MAX, Math.max(MIN, m === "fit" ? fit() : next));
+      figs.forEach((f) => scaleFig(f, k));
+      range.value = Math.round(k * 100); val.textContent = Math.round(k * 100) + "%";
+      try { localStorage.setItem(KEY, mode === "fit" ? "fit" : String(k)); } catch (e) {}
+    };
+    let saved = null; try { saved = localStorage.getItem(KEY); } catch (e) {}
+    ui.hidden = false;
+    apply(saved && saved !== "fit" ? +saved : 1, saved && saved !== "fit" ? "set" : "fit");
+    const step = (f) => apply(k * f);
+    range.oninput = () => apply(range.value / 100);
+    document.getElementById("z-in").onclick = () => step(1.25);
+    document.getElementById("z-out").onclick = () => step(0.8);
+    document.getElementById("z-100").onclick = () => apply(1);
+    document.getElementById("z-fit").onclick = () => apply(0, "fit");
+    addEventListener("resize", () => { if (mode === "fit") apply(0, "fit"); });
+    // ⌘/Ctrl + wheel and trackpad pinch (Chromium sends it as Ctrl + wheel) over the grey area; over a frame the site gets it
+    addEventListener("wheel", (e) => { if (!e.ctrlKey && !e.metaKey) return; e.preventDefault(); apply(k * Math.exp(-e.deltaY * 0.0025)); }, { passive: false });
+    // Safari pinch
+    let g0 = 1;
+    addEventListener("gesturestart", (e) => { e.preventDefault(); g0 = k; });
+    addEventListener("gesturechange", (e) => { e.preventDefault(); apply(g0 * e.scale); });
+    addEventListener("keydown", (e) => {
+      if (e.metaKey || e.ctrlKey || e.altKey || e.target.closest("input")) return;
+      if (e.key === "+" || e.key === "=") step(1.25);
+      else if (e.key === "-" || e.key === "−") step(0.8);
+      else if (e.key === "0") apply(1);
+    });
+  }
 </script>
 </body>
 </html>
