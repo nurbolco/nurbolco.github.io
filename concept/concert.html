@@ -123,7 +123,7 @@ h2.big { font-size: clamp(34px, 3.75vw, 54px) }
 .overview { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: start }
 .shot { display: flex; flex-direction: column; gap: 12px }
 .shot .photo-wrap { overflow: hidden }
-.shot img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover }
+.shot img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover } /* height: auto, or the height attribute (481) wins over the ratio and the photo turns upright on phones */
 .shot .cap { display: flex; justify-content: space-between; gap: 16px }
 .summary { display: flex; flex-direction: column; gap: 28px }
 .summary h1 { font-size: clamp(64px, 10.14vw, 146px); white-space: nowrap; line-height: 0.82 }
