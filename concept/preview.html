@@ -9,46 +9,82 @@
   /* the site (index.html next to this file) in a phone, a tablet and a laptop frame, side by side */
   * { box-sizing: border-box }
   body { margin: 0; background: #ececec; color: #181818; font: 14px/1.3 system-ui, -apple-system, "Segoe UI", Arial, sans-serif }
-  header { position: sticky; top: 0; z-index: 1; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; padding: 16px 24px; background: #ececec }
+  header { position: sticky; top: 0; z-index: 3; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; padding: 16px 24px; background: #ececec }
   header b { font-size: 16px }
-  button { font: inherit; padding: 8px 16px; border-radius: 999px; border: 1px solid #181818; background: #fff; cursor: pointer }
+  button { font: inherit; color: inherit; padding: 8px 16px; border-radius: 999px; border: 1px solid #181818; background: #fff; cursor: pointer }
   button:hover { background: #f4f4f4 }
-  .zoom { display: flex; align-items: center; gap: 8px; margin-left: auto }
+  button[aria-pressed="true"], button[aria-expanded="true"] { background: #181818; color: #fff }
+  .zoom { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-left: auto }
   .zoom button.sq { width: 36px; padding: 8px 0 }
   .zoom input { width: 160px; accent-color: #181818 }
-  .zoom output { min-width: 44px; text-align: right; font-variant-numeric: tabular-nums }
-  .zoom .tip { color: #555 }
+  .zoom output { min-width: 48px; text-align: right; font-variant-numeric: tabular-nums }
   .row { display: flex; gap: 32px; align-items: flex-start; padding: 8px 24px 40px; overflow-x: auto }
+  #world { display: contents }
+  #shield { display: none }
   figure { margin: 0; flex: none }
   figcaption { margin-bottom: 8px; color: #555; white-space: nowrap }
   .box { overflow: hidden }
   .frame { width: max-content; border: 10px solid #181818; border-radius: 28px; overflow: hidden; background: #fff; transform-origin: top left }
   .frame iframe { display: block; border: 0; background: #fff }
+
+  /* opened from disk or localhost: a canvas like in Figma, the frames move and zoom together, labels keep their size */
+  html.canvas, html.canvas body { height: 100%; overflow: hidden; overscroll-behavior: none }
+  html.canvas body { display: flex; flex-direction: column }
+  html.canvas header { flex: none; position: relative }
+  html.canvas .row { position: relative; flex: 1; min-height: 0; padding: 0; overflow: hidden; touch-action: none; user-select: none; -webkit-user-select: none }
+  html.canvas #world { position: absolute; top: 0; left: 0; display: flex; gap: 32px; align-items: flex-start; transform-origin: 0 0 }
+  html.canvas figure { position: relative }
+  html.canvas figcaption { position: absolute; left: 0; bottom: 100%; margin: 0; padding-bottom: 8px; transform-origin: 0 100%; overflow: hidden; text-overflow: ellipsis; cursor: pointer }
+  html.canvas figcaption:hover { color: #181818 }
+  html.canvas .anim #world, html.canvas .anim figcaption { transition: transform .28s cubic-bezier(.2, .7, .2, 1) }
+  html.canvas #shield { position: absolute; inset: 0; z-index: 2; cursor: grab }
+  .hand #shield, .wheeling #shield, .panning #shield { display: block !important }
+  .panning, .panning #shield { cursor: grabbing !important }
+
+  .keys { position: absolute; top: calc(100% - 4px); right: 24px; z-index: 4; width: min(460px, calc(100vw - 48px)); padding: 16px 20px; border: 1px solid #181818; border-radius: 20px; background: #fff }
+  .keys dl { display: grid; grid-template-columns: auto 1fr; gap: 8px 24px; margin: 0 }
+  .keys dt { color: #555 }
+  .keys dd { margin: 0 }
+  .keys p { margin: 12px 0 0; color: #555; text-wrap: pretty }
 </style>
 </head>
 <body>
 <header>
   <b>Concept: телефон, планшет, ноутбук</b><button id="reload">Обновить все</button>
   <div class="zoom" id="zoom" hidden>
+    <button id="hand" aria-pressed="false" title="H, или держать пробел">Рука</button>
     <button class="sq" id="z-out" aria-label="Уменьшить">−</button>
-    <input id="z-range" type="range" min="20" max="200" step="5" aria-label="Масштаб">
+    <input id="z-range" type="range" min="-332" max="200" step="1" aria-label="Масштаб">
     <button class="sq" id="z-in" aria-label="Увеличить">+</button>
     <output id="z-val"></output>
-    <button id="z-100">100%</button>
-    <button id="z-fit">Вписать</button>
-    <span class="tip">или ⌘/Ctrl + колесо, щипок на сером поле, клавиши − + 0</span>
+    <button id="z-100" title="Shift + 0">100%</button>
+    <button id="z-fit" title="Shift + 1">Вписать</button>
+    <button id="keys" aria-expanded="false" title="?">Клавиши</button>
+  </div>
+  <div class="keys" id="keys-pop" hidden>
+    <dl>
+      <dt>Двигать холст</dt><dd>колесо или тачпад, тянуть по&nbsp;серому полю, средней кнопкой</dd>
+      <dt>Поверх сайта</dt><dd>держать пробел и&nbsp;тянуть, H&nbsp;рука, V&nbsp;обратно</dd>
+      <dt>Масштаб к&nbsp;курсору</dt><dd>⌘ или Ctrl + колесо, щипок</dd>
+      <dt>Крупнее, мельче</dt><dd>+ и&nbsp;−, ⌘ + и&nbsp;⌘&nbsp;−</dd>
+      <dt>Всё в&nbsp;окне</dt><dd>Shift + 1</dd>
+      <dt>Один экран</dt><dd>Shift + 2, клик по&nbsp;подписи</dd>
+      <dt>Следующий экран</dt><dd>N, предыдущий Shift + N</dd>
+      <dt>100&nbsp;%</dt><dd>Shift + 0 или 0</dd>
+    </dl>
+    <p>Над рамкой колесо листает сам сайт. Пробел или рука двигают холст и&nbsp;поверх&nbsp;него. Щёлкнули в&nbsp;сайт, и&nbsp;клавиши уходят ему: щёлкните по&nbsp;серому&nbsp;полю.</p>
   </div>
 </header>
-<div class="row" id="row">
+<div class="row" id="row"><div id="world">
   <figure><figcaption>Телефон, 390 × 844</figcaption><div class="box"><div class="frame"><iframe src="index.html" width="390" height="844" title="Телефон"></iframe></div></div></figure>
   <figure><figcaption>Планшет, 768 × 1024</figcaption><div class="box"><div class="frame"><iframe src="index.html" width="768" height="1024" title="Планшет"></iframe></div></div></figure>
   <figure><figcaption>Ноутбук, 1440 × 900</figcaption><div class="box"><div class="frame"><iframe src="index.html" width="1440" height="900" title="Ноутбук"></iframe></div></div></figure>
-</div>
+</div><div id="shield"></div></div>
 <script>
   document.getElementById("reload").onclick = () => document.querySelectorAll("iframe").forEach((i) => (i.src = i.src));
 
   // scale: online (GitHub Pages) the frames stay as they were, phone and tablet at full size, the laptop at 60 %;
-  // opened from disk or localhost one zoom scales all three alike, remembered between visits
+  // opened from disk or localhost the frames sit on a canvas like in Figma (pan, zoom to the cursor, Shift + 1 and the rest), the view is remembered
   const local = location.protocol === "file:" || ["localhost", "127.0.0.1", ""].includes(location.hostname);
   const figs = [...document.querySelectorAll("figure")];
   const size = (fig) => { const i = fig.querySelector("iframe"); return [+i.width + 20, +i.height + 20]; }; // with the 10px frame
@@ -61,41 +97,144 @@
     figs.forEach((f, n) => scaleFig(f, n === 2 ? 0.6 : 1));
     figs[2].querySelector("figcaption").textContent += ", уменьшено";
   } else {
-    const ui = document.getElementById("zoom"), range = document.getElementById("z-range"), val = document.getElementById("z-val"), row = document.getElementById("row");
-    const MIN = 0.2, MAX = 2, KEY = "concept-preview-zoom";
-    let k = 1, mode = "fit";
-    const fit = () => { // all three side by side in the window width
-      const pad = parseFloat(getComputedStyle(row).paddingLeft) * 2, gap = parseFloat(getComputedStyle(row).columnGap) * (figs.length - 1);
-      return (row.clientWidth - pad - gap) / figs.reduce((s, f) => s + size(f)[0], 0);
+    document.documentElement.classList.add("canvas");
+    const $ = (id) => document.getElementById(id);
+    const row = $("row"), world = $("world"), range = $("z-range"), val = $("z-val"), handBtn = $("hand"), keysBtn = $("keys"), keysPop = $("keys-pop");
+    const caps = figs.map((f) => f.querySelector("figcaption"));
+    const MIN = 0.1, MAX = 4, KEY = "concept-preview-view", PAD = 40, CAP = 28; // margin around fitted frames, room for the label above them
+    let k = 1, x = 0, y = 0, mode = "fit", cur = null, saveT, animT;
+    const clamp = (v) => Math.min(MAX, Math.max(MIN, v));
+    const snap = (v) => { const d = devicePixelRatio || 1; return Math.round(v * d) / d; };
+
+    const save = () => {
+      clearTimeout(saveT);
+      saveT = setTimeout(() => {
+        const v = mode === "fit" ? { mode } : mode === "frame" ? { mode, cur } : { mode, k, x, y };
+        try { localStorage.setItem(KEY, JSON.stringify(v)); } catch (e) {}
+      }, 200);
     };
-    const apply = (next, m = "set") => {
-      mode = m; k = Math.min(MAX, Math.max(MIN, m === "fit" ? fit() : next));
-      figs.forEach((f) => scaleFig(f, k));
-      range.value = Math.round(k * 100); val.textContent = Math.round(k * 100) + "%";
-      try { localStorage.setItem(KEY, mode === "fit" ? "fit" : String(k)); } catch (e) {}
+    const render = () => {
+      world.style.transform = `translate(${snap(x)}px, ${snap(y)}px) scale(${k})`;
+      caps.forEach((c, n) => { c.style.transform = `scale(${1 / k})`; c.style.maxWidth = size(figs[n])[0] * k + "px"; });
+      range.value = Math.round(Math.log2(k) * 100);
+      val.textContent = Math.round(k * 100) + "%";
     };
-    let saved = null; try { saved = localStorage.getItem(KEY); } catch (e) {}
-    ui.hidden = false;
-    apply(saved && saved !== "fit" ? +saved : 1, saved && saved !== "fit" ? "set" : "fit");
-    const step = (f) => apply(k * f);
-    range.oninput = () => apply(range.value / 100);
-    document.getElementById("z-in").onclick = () => step(1.25);
-    document.getElementById("z-out").onclick = () => step(0.8);
-    document.getElementById("z-100").onclick = () => apply(1);
-    document.getElementById("z-fit").onclick = () => apply(0, "fit");
-    addEventListener("resize", () => { if (mode === "fit") apply(0, "fit"); });
-    // ⌘/Ctrl + wheel and trackpad pinch (Chromium sends it as Ctrl + wheel) over the grey area; over a frame the site gets it
-    addEventListener("wheel", (e) => { if (!e.ctrlKey && !e.metaKey) return; e.preventDefault(); apply(k * Math.exp(-e.deltaY * 0.0025)); }, { passive: false });
+    const set = (nk, nx, ny, m = "set", anim = false) => {
+      mode = m; k = nk; x = nx; y = ny;
+      if (anim) { row.classList.add("anim"); clearTimeout(animT); animT = setTimeout(() => row.classList.remove("anim"), 300); }
+      render(); save();
+    };
+    // keep the canvas point under (cx, cy) in place, cx and cy in px from the canvas corner
+    const zoomAt = (nk, cx, cy, anim) => { nk = clamp(nk); set(nk, cx - ((cx - x) / k) * nk, cy - ((cy - y) / k) * nk, "set", anim); };
+    const mid = () => [row.clientWidth / 2, row.clientHeight / 2];
+    const zoomBy = (f) => zoomAt(k * f, ...mid(), true);
+    const fitRect = (rx, ry, rw, rh, m, anim) => { // a canvas rectangle into the view, centred, with its label above
+      const W = row.clientWidth, H = row.clientHeight;
+      const nk = clamp(Math.min((W - PAD * 2) / rw, (H - PAD * 2 - CAP) / rh));
+      set(nk, (W - rw * nk) / 2 - rx * nk, (H - CAP - rh * nk) / 2 + CAP - ry * nk, m, anim);
+    };
+    const fitAll = (anim) => fitRect(0, 0, world.offsetWidth, world.offsetHeight, "fit", anim);
+    const zoomFrame = (n, anim = true) => { cur = n; const f = figs[n]; fitRect(f.offsetLeft, f.offsetTop, ...size(f), "frame", anim); };
+    const nearest = () => { // the frame closest to the middle of the view
+      const [cx, cy] = mid();
+      let best = 0, bd = Infinity;
+      figs.forEach((f, n) => {
+        const [w, h] = size(f), fx = x + (f.offsetLeft + w / 2) * k, fy = y + (f.offsetTop + h / 2) * k, d = Math.hypot(fx - cx, fy - cy);
+        if (d < bd) { bd = d; best = n; }
+      });
+      return best;
+    };
+    const step = (dir) => zoomFrame(mode === "frame" && cur != null ? (cur + dir + figs.length) % figs.length : nearest());
+
+    // wheel and trackpad: pan; with ⌘ / Ctrl, or a pinch (Chromium sends it as Ctrl + wheel), zoom to the cursor.
+    // Over a frame the wheel scrolls the site itself; during a gesture a shield keeps the frames from catching it
+    let wheelT;
+    addEventListener("wheel", (e) => {
+      const zoom = e.ctrlKey || e.metaKey;
+      if (!zoom && !row.contains(e.target)) return;
+      e.preventDefault();
+      const r = row.getBoundingClientRect(), u = e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? row.clientHeight : 1;
+      let dx = e.deltaX * u, dy = e.deltaY * u;
+      if (zoom) zoomAt(k * Math.exp(-Math.max(-40, Math.min(40, dy)) * 0.01), e.clientX - r.left, e.clientY - r.top);
+      else { if (e.shiftKey && !dx) { dx = dy; dy = 0; } set(k, x - dx, y - dy); }
+      row.classList.add("wheeling"); clearTimeout(wheelT); wheelT = setTimeout(() => row.classList.remove("wheeling"), 250);
+    }, { passive: false });
     // Safari pinch
     let g0 = 1;
     addEventListener("gesturestart", (e) => { e.preventDefault(); g0 = k; });
-    addEventListener("gesturechange", (e) => { e.preventDefault(); apply(g0 * e.scale); });
-    addEventListener("keydown", (e) => {
-      if (e.metaKey || e.ctrlKey || e.altKey || e.target.closest("input")) return;
-      if (e.key === "+" || e.key === "=") step(1.25);
-      else if (e.key === "-" || e.key === "−") step(0.8);
-      else if (e.key === "0") apply(1);
+    addEventListener("gesturechange", (e) => { e.preventDefault(); const r = row.getBoundingClientRect(); zoomAt(g0 * e.scale, e.clientX - r.left, e.clientY - r.top); });
+
+    // drag: the grey field with the left or middle button, anywhere with the hand (H or held space)
+    let drag = null, moved = 0;
+    row.addEventListener("mousedown", (e) => { if (e.button === 1) e.preventDefault(); }); // no autoscroll
+    row.addEventListener("pointerdown", (e) => {
+      if (e.button !== 0 && e.button !== 1) return;
+      drag = { id: e.pointerId, sx: e.clientX, sy: e.clientY, x, y }; moved = 0;
+      if (row.classList.contains("hand") || e.button === 1) { row.setPointerCapture(e.pointerId); row.classList.add("panning"); }
     });
+    row.addEventListener("pointermove", (e) => {
+      if (!drag || e.pointerId !== drag.id) return;
+      const dx = e.clientX - drag.sx, dy = e.clientY - drag.sy;
+      moved = Math.max(moved, Math.hypot(dx, dy));
+      if (moved < 3) return; // a click on a label stays a click
+      if (!row.classList.contains("panning")) { row.setPointerCapture(e.pointerId); row.classList.add("panning"); }
+      set(k, drag.x + dx, drag.y + dy);
+    });
+    const end = (e) => { if (drag && e.pointerId === drag.id) { drag = null; row.classList.remove("panning"); } };
+    row.addEventListener("pointerup", end);
+    row.addEventListener("pointercancel", end);
+    caps.forEach((c, n) => c.addEventListener("click", () => { if (moved < 3) zoomFrame(n); }));
+
+    // hand: H toggles it, V turns it off, space holds it
+    let locked = false, space = false;
+    const hand = () => { row.classList.toggle("hand", locked || space); handBtn.setAttribute("aria-pressed", String(locked)); };
+    handBtn.onclick = () => { locked = !locked; hand(); };
+    addEventListener("blur", () => { space = false; hand(); });
+
+    const keys = (open = keysPop.hidden) => { keysPop.hidden = !open; keysBtn.setAttribute("aria-expanded", String(open)); };
+    keysBtn.onclick = () => keys();
+    addEventListener("pointerdown", (e) => { if (!keysPop.hidden && !keysPop.contains(e.target) && !keysBtn.contains(e.target)) keys(false); });
+
+    range.oninput = () => zoomAt(2 ** (range.value / 100), ...mid());
+    $("z-in").onclick = () => zoomBy(1.25);
+    $("z-out").onclick = () => zoomBy(0.8);
+    $("z-100").onclick = () => zoomAt(1, ...mid(), true);
+    $("z-fit").onclick = () => fitAll(true);
+
+    addEventListener("keydown", (e) => {
+      if (e.target.closest && e.target.closest("input, textarea, select, [contenteditable]")) return;
+      const c = e.code;
+      if (e.metaKey || e.ctrlKey) { // instead of the browser zoom
+        if (c === "Equal" || c === "NumpadAdd") zoomBy(1.25);
+        else if (c === "Minus" || c === "NumpadSubtract") zoomBy(0.8);
+        else if (c === "Digit0" || c === "Numpad0") zoomAt(1, ...mid(), true);
+        else return;
+        e.preventDefault(); return;
+      }
+      if (e.altKey) return;
+      if (c === "Space") { if (!space) { space = true; hand(); } }
+      else if (e.shiftKey && c === "Digit1") fitAll(true);
+      else if (e.shiftKey && c === "Digit2") zoomFrame(mode === "frame" && cur != null ? cur : nearest());
+      else if (c === "Digit0" || c === "Numpad0") zoomAt(1, ...mid(), true);
+      else if (c === "Equal" || c === "NumpadAdd") zoomBy(1.25);
+      else if (c === "Minus" || c === "NumpadSubtract") zoomBy(0.8);
+      else if (c === "KeyN") step(e.shiftKey ? -1 : 1);
+      else if (c === "KeyH") { locked = !locked; hand(); }
+      else if (c === "KeyV") { locked = false; hand(); }
+      else if (e.key === "?" || (e.shiftKey && c === "Slash")) keys();
+      else if (c === "Escape" && !keysPop.hidden) keys(false);
+      else return;
+      e.preventDefault();
+    });
+    addEventListener("keyup", (e) => { if (e.code === "Space") { e.preventDefault(); space = false; hand(); } }); // keyup would also press a focused button
+
+    // the last view comes back; fit and frame views follow the window size
+    let saved = null; try { saved = JSON.parse(localStorage.getItem(KEY)); localStorage.removeItem("concept-preview-zoom"); } catch (e) {}
+    $("zoom").hidden = false;
+    if (saved && saved.mode === "set" && [saved.k, saved.x, saved.y].every(Number.isFinite)) set(clamp(saved.k), saved.x, saved.y);
+    else if (saved && saved.mode === "frame" && figs[saved.cur]) zoomFrame(saved.cur, false);
+    else fitAll(false);
+    new ResizeObserver(() => { if (mode === "fit") fitAll(false); else if (mode === "frame") zoomFrame(cur, false); }).observe(row);
   }
 </script>
 </body>

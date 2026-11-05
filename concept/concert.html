@@ -6,6 +6,7 @@
 <title>Dan Balan, Concept</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="theme-color" content="#ffffff">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap">
@@ -65,6 +66,21 @@ nav.main a:hover::after, nav.main a:focus-visible::after, .menu-nav a:hover::aft
 @media (prefers-reduced-motion: reduce) { nav.main a::after, .menu-nav a::after { transition: none } }
 .burger { width: 48px; height: 48px; border-radius: 50%; border: 0; background: var(--ink); color: var(--white); flex: none; display: grid; place-items: center; cursor: pointer; padding: 0 }
 @media (max-width: 960px) { nav.main { display: none } .logo { width: 140px; height: 34px } }
+/* language (03.11, user: «бургер меню сделай кнопкой смены языка, и добавь языки»): on the desktop the burger's dark circle shows the language,
+   a dark list drops under it (radius 24 = item 16 + padding 8). Up to 960 px the burger stays, the links live in its menu, the language is the row
+   at the bottom of that menu; both show the same choice */
+.lang-pick { position: relative; flex: none; display: none }
+.lang-btn { width: 48px; height: 48px; border-radius: 50%; border: 0; padding: 0; background: var(--ink); color: var(--white); font: 500 15px/1 var(--text); letter-spacing: 0.02em; cursor: pointer }
+.lang-btn:hover, .lang-btn[aria-expanded="true"] { background: #3a3a3a }
+.lang-list { position: absolute; top: calc(100% + 8px); right: 0; z-index: 30; min-width: 200px; margin: 0; padding: 8px; list-style: none;
+  background: var(--ink); color: var(--white); border-radius: 24px; display: flex; flex-direction: column; gap: 2px;
+  box-shadow: 0 0 0 1px rgb(255 255 255 / 0.1), 0 12px 32px rgb(0 0 0 / 0.25) }
+.lang-list button { width: 100%; min-height: 44px; display: flex; align-items: center; gap: 12px; padding: 0 16px; border: 0; border-radius: 16px;
+  background: none; color: inherit; font: 400 16px/1 var(--text); text-align: left; cursor: pointer }
+.lang-list b { width: 22px; font-weight: 500; color: rgb(255 255 255 / 0.55) }
+.lang-list button:hover, .lang-list button:focus-visible { background: #3a3a3a }
+.lang-list button[aria-current="true"]::after { content: ""; width: 6px; height: 6px; margin-left: auto; border-radius: 50%; background: currentColor }
+@media (min-width: 961px) { .burger { display: none } .lang-pick { display: block } }
 
 /* full-screen menu behind the burger */
 .menu { position: fixed; inset: 0; z-index: 40; background: var(--dark); color: var(--white); display: flex; flex-direction: column;
@@ -82,10 +98,14 @@ body.menu-open nav.main { visibility: hidden }
 .menu-next .label { margin-bottom: 4px }
 .menu-next .name { font: 700 clamp(48px, 8vw, 120px)/0.82 var(--display); letter-spacing: -0.03em; text-box: trim-both cap alphabetic }
 .menu-next:hover .name { color: var(--grey) }
+/* a festival shows its logo instead of a name (Lovefest on the landing since 03.11): the letters about as tall as a name's capitals */
+.menu-next .name svg { display: block; width: auto; height: 1.17em; overflow: visible }
 .menu-info { display: flex; flex-direction: column; gap: 24px }
 .menu-info .copy { user-select: all; overflow-wrap: anywhere }
 .menu .row { display: flex; flex-wrap: wrap; gap: 12px }
-.menu .lang { display: flex; gap: 12px; font-size: 16px } .menu .lang span { color: rgb(255 255 255 / 0.55) }
+.menu .lang { display: flex; gap: 4px; font-size: 16px; margin-left: -8px }
+.menu .lang button { min-height: 40px; padding: 0 8px; border: 0; background: none; font: inherit; color: rgb(255 255 255 / 0.55); cursor: pointer }
+.menu .lang button[aria-current="true"] { color: var(--white); font-weight: 600 }
 @media (max-width: 960px) {
   .menu-nav { display: flex }
   .menu-grid { grid-template-columns: 1fr; gap: 24px }
@@ -286,6 +306,14 @@ footer .legal { display: flex; justify-content: space-between; flex-wrap: wrap; 
       <a href="index.html#contacts">Контакты</a>
     </nav>
     <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="menu"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path id="burger-icon" fill="currentColor" d="M3 7C3 6.3333 3 5.6667 3 5C9 5 15 5 21 5C21 5.6667 21 6.3333 21 7C15 7 9 7 3 7ZM3 19C3 18.3333 3 17.6667 3 17C9 17 15 17 21 17C21 17.6667 21 18.3333 21 19C15 19 9 19 3 19ZM3 13C3 12.3333 3 11.6667 3 11C9 11 15 11 21 11C21 11.6667 21 12.3333 21 13C15 13 9 13 3 13Z"/></svg></button>
+    <div class="lang-pick">
+      <button class="lang-btn" id="lang-btn" type="button" aria-label="Язык: русский" aria-haspopup="true" aria-expanded="false" aria-controls="lang-list">RU</button>
+      <ul class="lang-list" id="lang-list" hidden>
+        <li><button type="button" data-lang="ru" aria-current="true"><b>RU</b>Русский</button></li>
+        <li><button type="button" data-lang="ky" aria-current="false"><b>KG</b>Кыргызча</button></li>
+        <li><button type="button" data-lang="en" aria-current="false"><b>EN</b>English</button></li>
+      </ul>
+    </div>
   </div>
 </header>
 
@@ -308,10 +336,10 @@ footer .legal { display: flex; justify-content: space-between; flex-wrap: wrap; 
       <div><span class="label">Партнёрам</span><span class="copy">partners@[домен]</span></div>
       <div><span class="label">Артистам</span><span class="copy">booking@[домен]</span></div>
       <div class="row">
-        <a class="btn chip" href="#" onclick="return false">Instagram</a>
-        <a class="btn chip" href="#" onclick="return false">Telegram-канал</a>
+        <a class="btn chip" href="#" onclick="return false" data-goal="click_instagram">Instagram</a>
+        <a class="btn chip" href="#" onclick="return false" data-goal="click_channel">Telegram-канал</a>
       </div>
-      <div class="lang" aria-label="Язык"><b>RU</b><span>KG</span><span>EN</span></div>
+      <div class="lang" role="group" aria-label="Язык"><button type="button" data-lang="ru" aria-current="true">RU</button><button type="button" data-lang="ky" aria-current="false">KG</button><button type="button" data-lang="en" aria-current="false">EN</button></div>
     </div>
   </div>
 </div>
@@ -354,7 +382,7 @@ footer .legal { display: flex; justify-content: space-between; flex-wrap: wrap; 
       </div>
       <div class="body">
         <p class="big-p">Есть песни, которые связаны с кем-то важным. 14 февраля встречаемся в Бишкеке, чтобы услышать их вживую и спеть вместе с DAN BALAN.</p>
-        <p>Приходите вдвоём, с друзьями или ради самой музыки. В этот вечер у каждого будет своя история, а любимые песни станут общей.</p>
+        <p>Приходите вдвоём, с друзьями или просто ради музыки: у каждого с этими песнями своя история.</p>
         <div class="songs"><span>«Лепестками слёз»</span><span>«Наши дни»</span><span>«Chica Bomb»</span></div>
       </div>
     </div>
@@ -388,7 +416,7 @@ footer .legal { display: flex; justify-content: space-between; flex-wrap: wrap; 
           <div class="tk-body">
             <h3 class="big trim">Не пропустите<br>начало продаж</h3>
             <form class="notify" id="notify" novalidate>
-              <p class="desc">Оставьте контакт — сообщим, когда откроются продажи, и пришлём информацию о площадке и билетах.</p>
+              <p class="desc">Оставьте контакт. Когда откроются продажи, напишем, где пройдёт концерт и сколько стоят билеты.</p>
               <fieldset class="channels">
                 <legend>Куда написать</legend>
                 <input type="radio" name="ch" id="ch-mail" value="mail" checked><label for="ch-mail">Почта</label>
@@ -397,12 +425,12 @@ footer .legal { display: flex; justify-content: space-between; flex-wrap: wrap; 
               </fieldset>
               <div class="field">
                 <label class="lbl" for="contact" id="contact-label">E-mail</label>
-                <input id="contact" name="contact" type="email" inputmode="email" autocomplete="email" placeholder="Ваш e-mail" required>
+                <input class="ym-disable-keys" id="contact" name="contact" type="email" inputmode="email" autocomplete="email" placeholder="Ваш e-mail" required>
                 <span class="hint" id="contact-hint">Пришлём одно письмо, когда откроются продажи.</span>
                 <span class="err" id="contact-err" hidden></span>
               </div>
               <button class="btn black" type="submit">Сообщить о старте продаж</button>
-              <p class="consent">Нажимая кнопку, вы соглашаетесь на обработку персональных данных и принимаете политику конфиденциальности. Только новости об этом концерте.</p>
+              <p class="consent">Нажимая кнопку, вы соглашаетесь на обработку персональных данных и принимаете политику конфиденциальности. Напишем только об этом концерте.</p>
             </form>
             <div class="done" id="done" hidden>
               <p class="big-p" id="done-text">Готово. Сообщим, когда откроются продажи.</p>
@@ -416,7 +444,7 @@ footer .legal { display: flex; justify-content: space-between; flex-wrap: wrap; 
 
       <div class="bottom">
         <p>Билеты появятся только после официального объявления Concept.</p>
-        <p>Новости: <a href="#" onclick="return false">Instagram</a>, <a href="#" onclick="return false">Telegram-канал</a></p>
+        <p>Новости: <a href="#" onclick="return false" data-goal="click_instagram">Instagram</a>, <a href="#" onclick="return false" data-goal="click_channel">Telegram-канал</a></p>
       </div>
     </div>
   </section>
@@ -425,13 +453,13 @@ footer .legal { display: flex; justify-content: space-between; flex-wrap: wrap; 
     <div class="wrap">
       <div class="head">
         <h2 class="big trim">Перед<br>концертом</h2>
-        <p class="mute">То, что важно знать, пока мы готовим встречу.</p>
+        <p class="mute">Частые вопросы до старта продаж.</p>
       </div>
       <div class="qa">
-        <div class="q"><span class="ico"><span class="icon">confirmation_number</span></span><div class="body"><h3 class="trim">Когда можно купить билеты?</h3><p>Продажи ещё не открыты. Оставьте контакт выше — мы сообщим о старте и официальной кассе.</p></div></div>
+        <div class="q"><span class="ico"><span class="icon">confirmation_number</span></span><div class="body"><h3 class="trim">Когда можно купить билеты?</h3><p>Продажи ещё не открыты. Оставьте контакт выше, и мы сообщим о старте и официальной кассе.</p></div></div>
         <div class="q"><span class="ico"><span class="icon">location_on</span></span><div class="body"><h3 class="trim">Где и во сколько концерт?</h3><p>Концерт пройдёт в Бишкеке 14 февраля 2027 года. Площадку и время начала объявим дополнительно.</p></div></div>
         <div class="q"><span class="ico"><span class="icon">payments</span></span><div class="body"><h3 class="trim">Сколько будут стоить билеты?</h3><p>Стоимость и категории билетов опубликуем к старту продаж. Сейчас подтверждённых цен нет.</p></div></div>
-        <div class="q"><span class="ico"><span class="icon">family_restroom</span></span><div class="body"><h3 class="trim">Можно ли прийти с детьми?</h3><p>Возрастные ограничения и правила посещения сообщим до начала продаж, вместе с остальными условиями.</p></div></div>
+        <div class="q"><span class="ico"><span class="icon">family_restroom</span></span><div class="body"><h3 class="trim">Можно ли прийти с детьми?</h3><p>Возрастные ограничения и правила посещения сообщим до начала продаж.</p></div></div>
       </div>
     </div>
   </section>
@@ -441,7 +469,7 @@ footer .legal { display: flex; justify-content: space-between; flex-wrap: wrap; 
     <div class="wrap"><div class="inner">
       <div class="head">
         <h2 class="big trim" id="partners-title">Партнёрам<br>вечера</h2>
-        <p class="mute">14 февраля, в День всех влюблённых. Вечер для брендов цветов, украшений, ресторанов, путешествий и подарков.</p>
+        <p class="mute">Концерт 14 февраля, в День всех влюблённых, подходит брендам цветов, украшений, ресторанов, путешествий и подарков.</p>
       </div>
       <div class="qa">
         <div class="q"><span class="ico"><span class="icon">redeem</span></span><div class="body"><h3 class="trim">Подарки гостям</h3><p>Комплимент от бренда парам на входе или в фойе.</p></div></div>
@@ -449,7 +477,7 @@ footer .legal { display: flex; justify-content: space-between; flex-wrap: wrap; 
         <div class="q"><span class="ico"><span class="icon">branding_watermark</span></span><div class="body"><h3 class="trim">Логотип в анонсах</h3><p>На афишах, на этой странице и в соцсетях Concept.</p></div></div>
         <div class="q"><span class="ico"><span class="icon">confirmation_number</span></span><div class="body"><h3 class="trim">Билеты для команды и клиентов</h3><p>Места на концерт как часть партнёрства.</p></div></div>
       </div>
-      <a class="btn black act" href="#" onclick="return false">Обсудить партнёрство</a>
+      <a class="btn black act" href="#" onclick="return false" data-goal="click_partners">Обсудить партнёрство</a>
     </div></div>
   </section>
 </main>
@@ -459,10 +487,10 @@ footer .legal { display: flex; justify-content: space-between; flex-wrap: wrap; 
     <div class="nav">
       <div class="brand"><a class="logo" href="index.html#top" aria-label="Concept, на главную"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 44" aria-hidden="true"><g><g transform="matrix(1 0 0 1 6 6)"><path d="M162.0618 4.5535L168 4.5535L166.0368 11.1276L160.0909 11.1276L158.5663 16.1383L158.5659 16.1395C158.1055 17.6431 158.2703 18.5929 158.8254 19.1888C159.4106 19.817 160.565 20.2063 162.484 20.2063L163.2704 20.2063L161.303 26.8211L160.7242 26.8211C156.8123 26.8211 153.9492 25.8643 152.3396 23.9505C150.7164 22.0205 150.4791 19.2524 151.4859 15.9284L152.9467 11.1276L150.3307 11.1276C150.4962 12.4548 150.3617 13.9103 149.897 15.4461C147.9185 22.0278 141.0636 26.8211 133.8812 26.8211C130.859 26.8211 128.3587 25.9698 126.6801 24.3697L124.3908 32L117.2477 32L120.6911 20.5133C117.6023 24.4024 112.476 26.8211 107.0136 26.8211C103.3193 26.8211 100.3829 25.6239 98.6111 23.5581C97.9731 22.8142 97.4923 21.9644 97.1825 21.0297C93.9436 24.6403 88.9588 26.8211 83.7308 26.8211C79.9779 26.8211 76.9911 25.6261 75.1824 23.5625C74.3305 22.5905 73.7503 21.437 73.4741 20.1489L71.6406 26.2112L64.4968 26.2112L67.5938 15.9714C68.0953 14.2951 67.9001 12.9448 67.2361 12.0208C66.5724 11.0975 65.3817 10.5178 63.7072 10.5178C60.3885 10.5178 57.4394 12.8189 56.4351 16.1757L56.4346 16.1778L53.3999 26.2112L46.2566 26.2112L48.0337 20.3196C44.8406 24.334 39.5444 26.8211 33.9311 26.8211C32.4249 26.8211 30.4534 26.6005 29.0176 26.0789C28.3761 25.8459 28.3697 25.0512 28.9336 24.6669C30.9584 23.2874 34.9865 20.5434 35.2843 20.3441C35.6834 20.077 36.1612 20.0398 36.4725 20.2517L39.6331 22.6791C40.3008 23.1337 41.4521 22.409 41.4036 21.5647L41.0197 17.3645C40.9953 16.9404 41.3009 16.4802 41.7591 16.2511L45.9997 13.7632C47.0054 13.2604 46.9805 11.9755 45.965 11.9755L41.3858 11.9755C40.9514 11.9755 40.639 11.7065 40.6122 11.3094L40.7202 7.2271C40.6602 6.3389 39.3526 6.3389 38.8141 7.2271L35.927 11.3564C35.7003 11.7304 35.2795 11.9932 34.864 12.0203L30.3396 12.2834C29.3999 12.3445 28.7453 13.4731 29.3377 14.0106L31.7909 16.1402C32.1084 16.4283 32.0839 16.951 31.7332 17.3691L26.43 23.1646C26.0515 23.5782 25.4038 23.5998 25.0666 23.152C24.554 22.4714 24.1373 21.6794 23.9112 21.01C20.6728 24.6323 15.6795 26.8211 10.442 26.8211C6.689 26.8211 3.7022 25.6261 1.8935 23.5625C0.0767 21.4897 -0.5039 18.5911 0.4631 15.3229L0.4652 15.3159C2.4925 8.7152 9.6108 3.9436 17.1404 3.9436C20.4312 3.9436 23.1405 4.7963 24.9705 6.3823C26.0262 7.2972 26.7758 8.4459 27.1741 9.7857C30.4406 6.2126 35.4373 3.9437 40.6295 3.9436C44.4306 3.9436 47.4527 5.0698 49.2606 7.1197C50.1329 8.1087 50.7071 9.2962 50.9532 10.641L52.7896 4.5535L59.1911 4.5535L58.8787 6.9771C61.3172 5.0873 64.1694 3.9436 67.0709 3.9436C70.3488 3.9436 72.8213 5.1892 74.1807 7.3976C74.9475 8.6433 75.3428 10.1671 75.349 11.8956C78.3992 7.1294 84.2769 3.9437 90.4292 3.9436C93.7201 3.9436 96.4295 4.7962 98.2595 6.3823C99.3102 7.2929 100.0577 8.4352 100.4574 9.7671C103.6896 6.2068 108.6099 3.9436 113.7122 3.9436C117.3757 3.9436 120.3156 5.074 122.0746 7.1254C122.9031 8.0916 123.4558 9.2465 123.7016 10.5522L125.5145 4.5535L131.8931 4.5535L131.709 6.5187C134.3427 4.8734 137.4337 3.9436 140.5796 3.9436C144.157 3.9436 146.9935 5.1453 148.6862 7.2165C149.0144 7.6181 149.2975 8.0503 149.534 8.5096L160.0948 0L163.4479 0L162.0618 4.5535ZM105.1745 19.8336C104.5425 19.2414 104.1654 18.441 104.1046 17.47L121.6109 17.47L121.2508 18.6615L114.7076 18.6615L114.4732 18.8924C113.1651 20.1807 111.1041 21.0195 108.7825 21.0195C107.176 21.0195 105.9585 20.5683 105.1745 19.8336ZM129.3868 15.4446C130.2746 12.488 133.5137 10.2739 137.6219 10.2739C139.6711 10.2739 141.1905 10.8415 142.0771 11.723C142.9469 12.5879 143.2525 13.7935 142.8161 15.2376C141.9374 18.1454 138.5298 20.4502 134.3272 20.4502C132.2748 20.4502 130.8154 19.8915 129.9898 19.0224C129.1817 18.1716 128.9167 16.9591 129.3849 15.451L129.3868 15.4446ZM7.5458 15.5252C8.4274 12.6332 11.6411 10.4364 15.3565 10.4364C18.2961 10.4364 19.8941 11.6168 20.1228 13.2815L20.19 13.7703L24.5356 13.7703C24.311 14.2728 24.1165 14.7885 23.9545 15.3159L23.9534 15.3194L23.9523 15.3229C23.7881 15.8779 23.6686 16.4224 23.5921 16.9538L19.2111 16.9538L18.9691 17.2781C17.5793 19.1401 15.1562 20.2877 12.1902 20.2877C10.3552 20.2877 8.99 19.7549 8.1944 18.9201C7.4134 18.1007 7.131 16.9419 7.5458 15.5252ZM80.8347 15.5252C81.7162 12.6331 84.9301 10.4364 88.6454 10.4364C91.5851 10.4364 93.1831 11.6168 93.4118 13.2815L93.4789 13.7703L97.823 13.7703C97.5994 14.2729 97.4053 14.7886 97.2434 15.3159L97.2422 15.3194L97.2412 15.3229C97.077 15.8779 96.9568 16.4223 96.8791 16.9538L92.5 16.9538L92.2579 17.2781C90.8681 19.1401 88.4452 20.2877 85.4792 20.2877C83.6441 20.2877 82.279 19.7549 81.4833 18.9201C80.7024 18.1007 80.4198 16.9419 80.8347 15.5252ZM105.4388 13.2948C106.9117 11.2233 109.4254 9.8673 112.1324 9.8673C113.7002 9.8673 114.8415 10.2994 115.558 10.9996C116.1357 11.5641 116.4725 12.3367 116.5107 13.2948L105.4388 13.2948Z" fill="currentColor" fill-rule="evenodd"/></g></g></svg></a><p>Каждый концерт — своя идея.</p><p class="lbl">Концерты в Бишкеке</p></div>
       <div class="col"><b>Разделы</b><a href="index.html#top">Афиша</a><a href="index.html#about">О нас</a><a href="index.html#artists">Артистам</a><a href="index.html#partners">Партнёрам</a></div>
-      <div class="col"><b>Связь</b><a href="index.html#contacts">Контакты</a><a href="#" onclick="return false">WhatsApp</a><a href="#" onclick="return false">Telegram</a></div>
-      <div class="col"><b>Соцсети</b><a href="#" onclick="return false">Instagram</a><a href="#" onclick="return false">Telegram-канал</a></div>
+      <div class="col"><b>Связь</b><a href="index.html#contacts">Контакты</a><a href="#" onclick="return false" data-goal="click_whatsapp">WhatsApp</a><a href="#" onclick="return false" data-goal="click_telegram">Telegram</a></div>
+      <div class="col"><b>Соцсети</b><a href="#" onclick="return false" data-goal="click_instagram">Instagram</a><a href="#" onclick="return false" data-goal="click_channel">Telegram-канал</a></div>
     </div>
-    <div class="legal"><span>© 2026 Concept</span><a href="#" onclick="return false">Политика конфиденциальности</a><a href="#" onclick="return false">Правила посещения</a><a href="#top">Наверх ↑</a></div>
+    <div class="legal"><span>© 2026 Concept</span><a href="#" onclick="return false" data-goal="click_privacy">Политика конфиденциальности</a><a href="#" onclick="return false" data-goal="click_rules">Правила посещения</a><a href="#top">Наверх ↑</a></div>
   </div>
 </footer>
 
@@ -497,6 +525,7 @@ footer .legal { display: flex; justify-content: space-between; flex-wrap: wrap; 
     const v = input.value.trim();
     if (!CH[cur].ok(v)) { err.textContent = CH[cur].err; err.hidden = false; input.setAttribute("aria-invalid", "true"); input.setAttribute("aria-describedby", "contact-err"); input.focus(); return; }
     document.getElementById("done-text").textContent = CH[cur].done;
+    window.goal?.("presale_signup", { channel: cur }); // analytics goal (build.mjs, ANALYTICS); the form itself sends nothing yet
     form.hidden = true; done.hidden = false;
   });
   document.getElementById("again").addEventListener("click", () => { done.hidden = true; form.hidden = false; input.focus(); });
@@ -505,7 +534,7 @@ footer .legal { display: flex; justify-content: space-between; flex-wrap: wrap; 
   if (window.gsap && !matchMedia("(prefers-reduced-motion: reduce)").matches)
     gsap.timeline({ defaults: { ease: "expo.out" } })
       .from("header.site", { yPercent: -100, duration: 0.9, clearProps: "transform" }, 0)
-      .from("header.site .logo, nav.main a, #burger", { y: -14, opacity: 0, duration: 0.7, stagger: 0.04, clearProps: "transform,opacity" }, 0.15)
+      .from("header.site .logo, nav.main a, #burger, #lang-btn", { y: -14, opacity: 0, duration: 0.7, stagger: 0.04, clearProps: "transform,opacity" }, 0.15)
       .fromTo(".hero .photo-wrap", { clipPath: "inset(100% 0% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 1.2, ease: "expo.inOut", clearProps: "clipPath" }, 0.05)
       .from(".hero .photo", { scale: 1.15, duration: 1.8, clearProps: "transform" }, 0.05)
       .from(".hero .kicker", { y: 16, opacity: 0, duration: 0.8, clearProps: "transform,opacity" }, 0.2)
@@ -518,7 +547,9 @@ footer .legal { display: flex; justify-content: space-between; flex-wrap: wrap; 
   // ticket edge: the bite step (~64 px) is stretched so a whole number of steps fills the edge and both ends get the same half bite;
   // an edge along a side (.side, the hero ticket) is fitted to its height, with a finer step (~55 px, Figma 474:3920)
   const fit = new ResizeObserver((es) => es.forEach(({ target, contentRect: { width, height } }) => {
-    const side = target.classList.contains("side"), len = side ? height : width, n = Math.max(1, Math.round(len / (side ? 55 : 64)));
+    // a small ticket asks for a finer step through --step (the lineup cards on tablets and phones)
+    const side = target.classList.contains("side"), len = side ? height : width;
+    const n = Math.max(1, Math.round(len / (parseFloat(getComputedStyle(target).getPropertyValue("--step")) || (side ? 55 : 64))));
     if (len) target.style.setProperty("--t", len / n + "px");
   }));
   document.querySelectorAll(".tear").forEach((t) => fit.observe(t));
@@ -537,6 +568,26 @@ footer .legal { display: flex; justify-content: space-between; flex-wrap: wrap; 
   menu.addEventListener("click", (e) => { if (e.target.closest(".menu-nav a, .menu-next")) setMenu(false); });
   document.querySelector("header.site .logo").addEventListener("click", () => { if (!menu.hidden) setMenu(false); });
   addEventListener("keydown", (e) => { if (e.key === "Escape" && !menu.hidden) { setMenu(false); burger.focus(); } });
+  // the desktop has no burger: a menu left open while the window grows past 960 px (a tablet turned) closes, so the page scrolls again
+  const desk = matchMedia("(min-width: 961px)"), offDesk = () => { if (desk.matches && !menu.hidden) setMenu(false); };
+  desk.addEventListener("change", offDesk); addEventListener("resize", offDesk);
+
+  // language: the desktop button (its list) and the row in the phone menu show one choice. The pages are Russian for now,
+  // so a choice only moves the mark; nothing is stored, a reload shows RU again
+  const langBtn = document.getElementById("lang-btn"), langList = document.getElementById("lang-list");
+  const CODE = { ru: "RU", ky: "KG", en: "EN" }, NAME = { ru: "русский", ky: "кыргызча", en: "English" };
+  const setList = (on) => { langList.hidden = !on; langBtn.setAttribute("aria-expanded", String(on)); };
+  const setLang = (l) => {
+    document.querySelectorAll("[data-lang]").forEach((b) => b.setAttribute("aria-current", String(b.dataset.lang === l)));
+    langBtn.textContent = CODE[l]; langBtn.setAttribute("aria-label", "Язык: " + NAME[l]);
+  };
+  langBtn.addEventListener("click", () => setList(langList.hidden));
+  document.addEventListener("click", (e) => {
+    const b = e.target.closest("[data-lang]");
+    if (b) { setLang(b.dataset.lang); if (!langList.hidden) { setList(false); langBtn.focus(); } }
+    else if (!langList.hidden && !e.target.closest(".lang-pick")) setList(false);
+  });
+  addEventListener("keydown", (e) => { if (e.key === "Escape" && !langList.hidden) { setList(false); langBtn.focus(); } });
 
   // keep short words with the next one so no line ends on a preposition
   const re = /(^|[\s(«])(в|во|и|а|к|ко|с|со|у|о|об|от|до|на|по|за|из|не|но|для|без|при|про|мы|вы|же|или|это) /gi; // a plain space after the word: once bound it does not match again, so the next pass binds the next short word («и в соцсетях»)
@@ -545,5 +596,8 @@ footer .legal { display: flex; justify-content: space-between; flex-wrap: wrap; 
     if (n.parentElement.closest("script, style, .icon, svg")) continue;
     n.nodeValue = n.nodeValue.replace(re, "$1$2 ").replace(re, "$1$2 ").replace(/ — /g, " — ");
   }
+
+  // analytics goals: a click on any contact or social link (data-goal, set by build.mjs on every LINKS link); window.goal exists only when a counter id is set
+  document.addEventListener("click", (e) => { const a = e.target.closest("[data-goal]"); if (a) window.goal?.(a.dataset.goal); });
 })();
 </script>
